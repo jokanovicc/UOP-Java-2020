@@ -1,5 +1,7 @@
 package model.servis;
 
+import java.util.Arrays;
+
 import model.automobili.Automobil;
 import model.korisnici.Serviser;
 
@@ -7,17 +9,17 @@ public class ServisnaKnjizica {
 	
 	private Automobil automobil;
 	private Serviser serviser;
-	private Servis servis;
+	private Servis[] servis;
 	
 	
 	public ServisnaKnjizica() {
 		this.automobil = new Automobil();
 		this.serviser = new Serviser();
-		this.servis = new Servis();
+		this.servis = new Servis[5];
 	}
 
 
-	public ServisnaKnjizica(Automobil automobil, Serviser serviser, Servis servis) {
+	public ServisnaKnjizica(Automobil automobil, Serviser serviser, Servis[] servis) {
 		super();
 		this.automobil = automobil;
 		this.serviser = serviser;
@@ -45,21 +47,27 @@ public class ServisnaKnjizica {
 	}
 
 
-	public Servis getServis() {
+	public Servis[] getServis() {
 		return servis;
 	}
 
 
-	public void setServis(Servis servis) {
+	public void setServis(Servis[] servis) {
 		this.servis = servis;
 	}
 
 
 	@Override
 	public String toString() {
-		return "ServisnaKnjizica [automobil=" + automobil + ", serviser=" + serviser + ", servis=" + servis + "]";
+		return "ServisnaKnjizica [automobil=" + automobil + ", serviser=" + serviser + ", servis="
+				+ Arrays.toString(servis) + "]";
 	}
 	
+	
+
+
+
+
 	
 	
 
