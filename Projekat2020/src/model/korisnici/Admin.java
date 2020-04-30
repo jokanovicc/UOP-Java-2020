@@ -5,6 +5,7 @@ public class Admin extends Korisnik {
 	private double plata;
 	
 	public Admin() {
+		super();
 		plata = 0;
 	}
 

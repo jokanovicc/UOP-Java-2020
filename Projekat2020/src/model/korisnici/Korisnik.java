@@ -16,6 +16,9 @@ public abstract class Korisnik {
 		this.prezime = "";
 		this.jmbg = 0;
 		this.pol = "";
+		this.brojTelefona = "";
+		this.username = "";
+		this.lozinka = "";
 		
 		
 	}

@@ -1,4 +1,4 @@
-package model.korisnici;
+package model.enumeracije;
 
 public enum Specijalizacija {
 	AUTOMEHANICAR,
