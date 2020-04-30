@@ -1,22 +1,24 @@
 package model.servis;
 
 import model.automobili.Automobil;
+import model.enumeracije.MarkaModelDeo;
 
 public class Deo {
 	
-	private Automobil automobil;
+	private MarkaModelDeo automobil; //Klasa deo mi nema referencu na klasu automobil vec na enum MarkuModela,
+									//jer je jedan deo moze na vise automobile iste marke, ne samo na jedan zadati
 	private String naziv;
 	private double cena;
 	
 	
 	public Deo() {
-		this.automobil = new Automobil();
+		this.automobil = MarkaModelDeo.FORDFOCUS;
 		this.naziv = "";
 		this.cena = 0;
 	}
 
 
-	public Deo(Automobil automobil, String naziv, double cena) {
+	public Deo(MarkaModelDeo automobil, String naziv, double cena) {
 		super();
 		this.automobil = automobil;
 		this.naziv = naziv;
@@ -24,12 +26,12 @@ public class Deo {
 	}
 
 
-	public Automobil getAutomobil() {
+	public MarkaModelDeo getAutomobil() {
 		return automobil;
 	}
 
 
-	public void setAutomobil(Automobil automobil) {
+	public void setAutomobil(MarkaModelDeo automobil) {
 		this.automobil = automobil;
 	}
 
@@ -60,5 +62,8 @@ public class Deo {
 	}
 	
 	
+	
 
 }
+
+
