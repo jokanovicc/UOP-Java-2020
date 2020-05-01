@@ -3,41 +3,50 @@ package model.korisnici;
 import java.util.Arrays;
 
 import model.automobili.Automobil;
+import model.enumeracije.Pol;
 
 public class Musterija extends Korisnik {
+	private byte brojSakupljenihBodova;
 	
-	private int bodovi;
 	
 	
 	public Musterija() {
 		super();
-		this.bodovi = 0;
-		
+		this.brojSakupljenihBodova = 0;
 	}
 
 
-	public Musterija(String ime, String prezime, int jmbg, String pol, String brojTelefona, String username,
-			String lozinka, int bodovi) {
+
+	public Musterija(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username,
+			String lozinka, byte brojSakupljenihBodova) {
 		super(ime, prezime, jmbg, pol, brojTelefona, username, lozinka);
-		this.bodovi = bodovi;;
+		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
 
 
-	public int getBodovi() {
-		return bodovi;
+
+	public byte getBrojSakupljenihBodova() {
+		return brojSakupljenihBodova;
 	}
 
 
-	public void setBodovi(int bodovi) {
-		this.bodovi = bodovi;
+
+	public void setBrojSakupljenihBodova(byte brojSakupljenihBodova) {
+		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
+
 
 
 	@Override
 	public String toString() {
-		return "Musterija [bodovi=" + bodovi + ", ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol="
-				+ pol + ", brojTelefona=" + brojTelefona + ", username=" + username + ", lozinka=" + lozinka + "]";
+		return "Musterija [brojSakupljenihBodova=" + brojSakupljenihBodova + ", ime=" + ime + ", prezime=" + prezime
+				+ ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona=" + brojTelefona + ", username=" + username
+				+ ", lozinka=" + lozinka + "]";
 	}
+	
+	
+	
+	
 
 
 

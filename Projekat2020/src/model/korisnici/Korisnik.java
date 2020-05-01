@@ -1,11 +1,13 @@
 package model.korisnici;
 
+import model.enumeracije.Pol;
+
 public abstract class Korisnik {
 	
 	protected String ime;
 	protected String prezime;
-	protected int jmbg;
-	protected String pol;
+	protected String jmbg;
+	protected Pol pol;
 	protected String brojTelefona;
 	protected String username;
 	protected String lozinka;
@@ -14,17 +16,15 @@ public abstract class Korisnik {
 	public Korisnik() {
 		this.ime = "";
 		this.prezime = "";
-		this.jmbg = 0;
-		this.pol = "";
+		this.jmbg = "";
+		this.pol = Pol.MUSKI;
 		this.brojTelefona = "";
-		this.username = "";
 		this.lozinka = "";
-		
 		
 	}
 
 
-	public Korisnik(String ime, String prezime, int jmbg, String pol, String brojTelefona, String username,
+	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username,
 			String lozinka) {
 		super();
 		this.ime = ime;
@@ -57,22 +57,22 @@ public abstract class Korisnik {
 	}
 
 
-	public int getJmbg() {
+	public String getJmbg() {
 		return jmbg;
 	}
 
 
-	public void setJmbg(int jmbg) {
+	public void setJmbg(String jmbg) {
 		this.jmbg = jmbg;
 	}
 
 
-	public String getPol() {
+	public Pol getPol() {
 		return pol;
 	}
 
 
-	public void setPol(String pol) {
+	public void setPol(Pol pol) {
 		this.pol = pol;
 	}
 
@@ -112,6 +112,9 @@ public abstract class Korisnik {
 		return "Korisnik [ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona="
 				+ brojTelefona + ", username=" + username + ", lozinka=" + lozinka + "]";
 	}
+	
+	
+
 	
 	
 

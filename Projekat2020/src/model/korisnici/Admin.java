@@ -1,5 +1,7 @@
 package model.korisnici;
 
+import model.enumeracije.Pol;
+
 public class Admin extends Korisnik {
 	
 	private double plata;
@@ -9,23 +11,19 @@ public class Admin extends Korisnik {
 		plata = 0;
 	}
 
-	public Admin(String ime, String prezime, int jmbg, String pol, String brojTelefona, String username, String lozinka,
+	public Admin(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username, String lozinka,
 			double plata) {
 		super(ime, prezime, jmbg, pol, brojTelefona, username, lozinka);
 		this.plata = plata;
 	}
 
-
 	public double getPlata() {
 		return plata;
 	}
 
-
 	public void setPlata(double plata) {
 		this.plata = plata;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -33,6 +31,8 @@ public class Admin extends Korisnik {
 				+ ", brojTelefona=" + brojTelefona + ", username=" + username + ", lozinka=" + lozinka + "]";
 	}
 	
+	
+
 	
 
 }

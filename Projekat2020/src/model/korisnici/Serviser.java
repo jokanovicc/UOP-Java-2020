@@ -1,5 +1,6 @@
 package model.korisnici;
 
+import model.enumeracije.Pol;
 import model.enumeracije.Specijalizacija;
 
 public class Serviser extends Korisnik {
@@ -15,7 +16,7 @@ public class Serviser extends Korisnik {
 	}
 
 
-	public Serviser(String ime, String prezime, int jmbg, String pol, String brojTelefona, String username,
+	public Serviser(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username,
 			String lozinka, double plata, Specijalizacija specijalizacija) {
 		super(ime, prezime, jmbg, pol, brojTelefona, username, lozinka);
 		this.plata = plata;
@@ -51,7 +52,7 @@ public class Serviser extends Korisnik {
 	}
 	
 	
-	
+
 
 }
 

@@ -1,131 +1,109 @@
 package model.servis;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 import model.automobili.Automobil;
 import model.enumeracije.Statusi;
 import model.korisnici.Serviser;
 
 public class Servis {
-	
-	private Automobil[] automobil;
-	private Serviser[] serviser;
-	private SimpleDateFormat datum;
+	private Automobil automobil;
+	private Serviser serviser;
+	private Date termin;
 	private String opis;
+	private ArrayList<Deo> deo;
 	private Statusi status;
-	private Deo[] deo;
-	private ServisnaKnjizica[] knjizice;
+	
 	
 	
 	public Servis() {
-		this.automobil = new Automobil[10];
-		this.serviser = new Serviser[5];
-		this.datum = new SimpleDateFormat("12-04-2019");
+		this.automobil = new Automobil();
+		this.serviser = new Serviser();
+		this.termin = null;
 		this.opis = "";
-		this.status = Statusi.ZAKAZAN;
-		this.deo = new Deo[5];
-		this.knjizice = new ServisnaKnjizica[5];
-		
+		this.deo = new ArrayList<Deo>();
+		this.status = Statusi.SLOBODAN;	
 	}
 
-
-	public Servis(Automobil[] automobil, Serviser[] serviser, SimpleDateFormat datum, String opis, Statusi status,
-			Deo[] deo, ServisnaKnjizica[] knjizice) {
+	public Servis(Automobil automobil, Serviser serviser, Date termin, String opis, ArrayList<Deo> deo,
+			Statusi status) {
 		super();
 		this.automobil = automobil;
 		this.serviser = serviser;
-		this.datum = datum;
+		this.termin = termin;
 		this.opis = opis;
-		this.status = status;
 		this.deo = deo;
-		this.knjizice = knjizice;
+		this.status = status;
 	}
 
-
-	public Automobil[] getAutomobil() {
+	public Automobil getAutomobil() {
 		return automobil;
 	}
 
-
-	public void setAutomobil(Automobil[] automobil) {
+	public void setAutomobil(Automobil automobil) {
 		this.automobil = automobil;
 	}
 
-
-	public Serviser[] getServiser() {
+	public Serviser getServiser() {
 		return serviser;
 	}
 
-
-	public void setServiser(Serviser[] serviser) {
+	public void setServiser(Serviser serviser) {
 		this.serviser = serviser;
 	}
 
-
-	public SimpleDateFormat getDatum() {
-		return datum;
+	public Date getTermin() {
+		return termin;
 	}
 
-
-	public void setDatum(SimpleDateFormat datum) {
-		this.datum = datum;
+	public void setTermin(Date termin) {
+		this.termin = termin;
 	}
-
 
 	public String getOpis() {
 		return opis;
 	}
 
-
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
 
+	public ArrayList<Deo> getDeo() {
+		return deo;
+	}
+
+	public void setDeo(ArrayList<Deo> deo) {
+		this.deo = deo;
+	}
 
 	public Statusi getStatus() {
 		return status;
 	}
 
-
 	public void setStatus(Statusi status) {
 		this.status = status;
 	}
 
-
-	public Deo[] getDeo() {
-		return deo;
-	}
-
-
-	public void setDeo(Deo[] deo) {
-		this.deo = deo;
-	}
-
-
-	public ServisnaKnjizica[] getKnjizice() {
-		return knjizice;
-	}
-
-
-	public void setKnjizice(ServisnaKnjizica[] knjizice) {
-		this.knjizice = knjizice;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Servis [automobil=" + Arrays.toString(automobil) + ", serviser=" + Arrays.toString(serviser)
-				+ ", datum=" + datum + ", opis=" + opis + ", status=" + status + ", deo=" + Arrays.toString(deo)
-				+ ", knjizice=" + Arrays.toString(knjizice) + "]";
+		return "Servis [automobil=" + automobil + ", serviser=" + serviser + ", termin=" + termin + ", opis=" + opis
+				+ ", deo=" + deo + ", status=" + status + "]";
 	}
 	
 	
+
+
 	
 	
 
+	
 
-
+	
+		
+		
+	}
 	
  
-}
