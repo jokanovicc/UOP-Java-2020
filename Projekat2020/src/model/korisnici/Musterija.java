@@ -6,7 +6,7 @@ import model.automobili.Automobil;
 import model.enumeracije.Pol;
 
 public class Musterija extends Korisnik {
-	private byte brojSakupljenihBodova;
+	private int brojSakupljenihBodova;
 	
 	
 	
@@ -18,20 +18,20 @@ public class Musterija extends Korisnik {
 
 
 	public Musterija(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username,
-			String lozinka, byte brojSakupljenihBodova) {
+			String lozinka, int brojSakupljenihBodova) {
 		super(ime, prezime, jmbg, pol, brojTelefona, username, lozinka);
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
 
 
 
-	public byte getBrojSakupljenihBodova() {
+	public int getBrojSakupljenihBodova() {
 		return brojSakupljenihBodova;
 	}
 
 
 
-	public void setBrojSakupljenihBodova(byte brojSakupljenihBodova) {
+	public void setBrojSakupljenihBodova(int brojSakupljenihBodova) {
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
 
@@ -44,6 +44,14 @@ public class Musterija extends Korisnik {
 				+ ", lozinka=" + lozinka + "]";
 	}
 	
+	
+
+
+
+	
+	
+
+
 	
 	
 	
