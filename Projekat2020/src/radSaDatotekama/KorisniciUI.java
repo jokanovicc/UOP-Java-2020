@@ -1,8 +1,10 @@
 package radSaDatotekama;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -54,10 +56,10 @@ public class KorisniciUI {
 				String username = split[6];
 				String lozinka = split[7];
 				int brojSakupljenihBodova = Integer.parseInt(split[8]);
-				Musterija musterija = new Musterija(ime, prezime, jmbg, pol, brojTelefona, username, lozinka, brojSakupljenihBodova);
+				Musterija musterija = new Musterija(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, brojSakupljenihBodova);
 				musterije.add(musterija);
-				System.out.println("Uspesno iscitano");
 				System.out.println(musterija);
+				
 			}
 			reader.close();
 			
@@ -70,5 +72,5 @@ public class KorisniciUI {
 	
 	
 	
-	
 }
+

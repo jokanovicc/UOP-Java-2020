@@ -1,2 +1,2 @@
-Petar|Petrovic|33333333|0|Vozdova|0655111777|petarp|1234|2
-Marko|Petrovic|33333333|0|bb|065513377|markop|4321|1
+Petar|Petrovic|33333333|1|Vozdova|0655111777|petarp|1234|2
+Marko|Petrovic|33333333|1|bb|065513377|markop|4321|3

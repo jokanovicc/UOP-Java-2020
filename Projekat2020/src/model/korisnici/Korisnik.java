@@ -9,6 +9,7 @@ public abstract class Korisnik {
 	protected String jmbg;
 	protected Pol pol;
 	protected String brojTelefona;
+	protected String adresa;
 	protected String username;
 	protected String lozinka;
 	
@@ -18,20 +19,22 @@ public abstract class Korisnik {
 		this.prezime = "";
 		this.jmbg = "";
 		this.pol = Pol.MUSKI;
+		this.adresa = "";
 		this.brojTelefona = "";
 		this.lozinka = "";
 		
 	}
 
 
-	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String username,
-			String lozinka) {
+	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
+			String username, String lozinka) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
 		this.jmbg = jmbg;
 		this.pol = pol;
 		this.brojTelefona = brojTelefona;
+		this.adresa = adresa;
 		this.username = username;
 		this.lozinka = lozinka;
 	}
@@ -87,6 +90,16 @@ public abstract class Korisnik {
 	}
 
 
+	public String getAdresa() {
+		return adresa;
+	}
+
+
+	public void setAdresa(String adresa) {
+		this.adresa = adresa;
+	}
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -110,9 +123,16 @@ public abstract class Korisnik {
 	@Override
 	public String toString() {
 		return "Korisnik [ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona="
-				+ brojTelefona + ", username=" + username + ", lozinka=" + lozinka + "]";
+				+ brojTelefona + ", adresa=" + adresa + ", username=" + username + ", lozinka=" + lozinka + "]";
 	}
 	
+	
+	
+
+
+
+
+
 	
 
 	
