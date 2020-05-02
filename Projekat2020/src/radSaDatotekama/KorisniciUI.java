@@ -11,6 +11,7 @@ import model.korisnici.Musterija;
 
 public class KorisniciUI {
 	private ArrayList<Musterija> musterije;
+	//ocitavanje fajlova
 	
 	
 	public KorisniciUI() {

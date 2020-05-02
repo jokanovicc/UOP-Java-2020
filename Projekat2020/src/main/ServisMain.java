@@ -10,6 +10,7 @@ public class ServisMain {
 		KorisniciUI musterije = new KorisniciUI();
 		musterije.ucitajMusteriju();
 		//System.out.println(musterije);
+		//System.out.println("Proba");
 	}
 
 }
