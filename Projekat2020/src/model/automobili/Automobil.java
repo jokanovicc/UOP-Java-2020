@@ -1,40 +1,41 @@
 package model.automobili;
 
-import model.enumeracije.AutoMarka;
+
 import model.enumeracije.AutoModel;
 import model.enumeracije.Gorivo;
+import model.enumeracije.MarkaModelDeo;
 import model.korisnici.Musterija;
 
 public class Automobil {
 	
 	private Musterija vlasnik;
-	private AutoMarka marka;
-	private AutoModel model;
+	private MarkaModelDeo markaModel;
 	private int godinaProizvodnje;
 	private String zapreminaMotora;
 	private String snaga;
 	private Gorivo vrstaGoriva;
+	private String idOznaka;
 	
 	public Automobil() {
 		this.vlasnik = new Musterija();
-		this.marka = AutoMarka.FORD;
-		this.model = AutoModel.FOCUS;
+		this.markaModel = MarkaModelDeo.FORDFOCUS;
 		this.godinaProizvodnje = 0;
 		this.zapreminaMotora = "";
 		this.snaga = "";
 		this.vrstaGoriva = Gorivo.GAS;
+		this.idOznaka = "";
 	}
 
-	public Automobil(Musterija vlasnik, AutoMarka marka, AutoModel model, int godinaProizvodnje, String zapreminaMotora,
-			String snaga, Gorivo vrstaGoriva) {
+	public Automobil(Musterija vlasnik, MarkaModelDeo markaModel, int godinaProizvodnje, String zapreminaMotora,
+			String snaga, Gorivo vrstaGoriva, String idOznaka) {
 		super();
 		this.vlasnik = vlasnik;
-		this.marka = marka;
-		this.model = model;
+		this.markaModel = markaModel;
 		this.godinaProizvodnje = godinaProizvodnje;
 		this.zapreminaMotora = zapreminaMotora;
 		this.snaga = snaga;
 		this.vrstaGoriva = vrstaGoriva;
+		this.idOznaka = idOznaka;
 	}
 
 	public Musterija getVlasnik() {
@@ -45,20 +46,12 @@ public class Automobil {
 		this.vlasnik = vlasnik;
 	}
 
-	public AutoMarka getMarka() {
-		return marka;
+	public MarkaModelDeo getMarkaModel() {
+		return markaModel;
 	}
 
-	public void setMarka(AutoMarka marka) {
-		this.marka = marka;
-	}
-
-	public AutoModel getModel() {
-		return model;
-	}
-
-	public void setModel(AutoModel model) {
-		this.model = model;
+	public void setMarkaModel(MarkaModelDeo markaModel) {
+		this.markaModel = markaModel;
 	}
 
 	public int getGodinaProizvodnje() {
@@ -93,13 +86,25 @@ public class Automobil {
 		this.vrstaGoriva = vrstaGoriva;
 	}
 
+	public String getIdOznaka() {
+		return idOznaka;
+	}
+
+	public void setIdOznaka(String idOznaka) {
+		this.idOznaka = idOznaka;
+	}
+
 	@Override
 	public String toString() {
-		return "Automobil [vlasnik=" + vlasnik + ", marka=" + marka + ", model=" + model + ", godinaProizvodnje="
+		return "Automobil [vlasnik=" + vlasnik + ", markaModel=" + markaModel + ", godinaProizvodnje="
 				+ godinaProizvodnje + ", zapreminaMotora=" + zapreminaMotora + ", snaga=" + snaga + ", vrstaGoriva="
-				+ vrstaGoriva + "]";
+				+ vrstaGoriva + ", idOznaka=" + idOznaka + "]";
 	}
 	
+	
+	
+
+
 	
 	
 	

@@ -18,7 +18,7 @@ public abstract class Korisnik {
 		this.ime = "";
 		this.prezime = "";
 		this.jmbg = "";
-		this.pol = Pol.MUSKI;
+		this.pol = Pol.Muski;
 		this.adresa = "";
 		this.brojTelefona = "";
 		this.lozinka = "";
@@ -126,6 +126,9 @@ public abstract class Korisnik {
 				+ brojTelefona + ", adresa=" + adresa + ", username=" + username + ", lozinka=" + lozinka + "]";
 	}
 	
+	
+	
+
 	
 	
 
