@@ -46,9 +46,9 @@ public class Serviser extends Korisnik {
 
 	@Override
 	public String toString() {
-		return "Serviser [plata=" + plata + ", specijalizacija=" + specijalizacija + ", ime=" + ime + ", prezime="
-				+ prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona=" + brojTelefona + ", adresa=" + adresa
-				+ ", username=" + username + ", lozinka=" + lozinka + "]";
+		return ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" + plata + "|" + specijalizacija;
 	}
 	
 	

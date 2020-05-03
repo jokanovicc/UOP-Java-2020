@@ -39,12 +39,11 @@ public class Musterija extends Korisnik {
 
 	@Override
 	public String toString() {
-		return "Musterija [brojSakupljenihBodova=" + brojSakupljenihBodova + ", ime=" + ime + ", prezime=" + prezime
-				+ ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona=" + brojTelefona + ", adresa=" + adresa
-				+ ", username=" + username + ", lozinka=" + lozinka + "]";
+		return  ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova;
 	}
-	
-	
+
 
 
 	

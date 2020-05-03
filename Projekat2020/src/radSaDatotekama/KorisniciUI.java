@@ -44,6 +44,7 @@ public class KorisniciUI {
 	public void dodajMusteriju(Musterija musterija) {
 		this.musterije.add(musterija);
 	}
+
 	//public void dodajMusteriju(Musterija musterija) {
 		//this.musterije.add(musterija);
 	//}	
@@ -63,6 +64,11 @@ public class KorisniciUI {
 
 	public ArrayList<Serviser> getServis(){
 		return serviseri;		
+	}
+	
+	
+	public void dodajServisera(Serviser serviser) {
+		this.serviseri.add(serviser);
 	}
 	
 	public ArrayList<Automobil> getAutomobil(){
@@ -92,6 +98,9 @@ public class KorisniciUI {
 	public ArrayList<Admin> getAdmin(){
 		return admini;		
 	}
+	public void dodajAdmina(Admin admin) {
+		this.admini.add(admin);
+	}
 	
 	//public void dodajAdmina(Admin admin) {
 		//this.admini.add(admin);
@@ -118,16 +127,16 @@ public class KorisniciUI {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
+				int brojSakupljenihBodova = Integer.parseInt(split[8]);
 				String ime = split[0];
 				String prezime = split[1];
 				String jmbg = split[2];
-				int indeksPol = Integer.parseInt(split[3]);
+				int indeksPol =0;
 				Pol pol  = Pol.values()[indeksPol];
 				String adresa = split[4];
 				String brojTelefona = split[5];
 				String username = split[6];
 				String lozinka = split[7];
-				int brojSakupljenihBodova = Integer.parseInt(split[8]);
 				Musterija musterija = new Musterija(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, brojSakupljenihBodova);
 				musterije.add(musterija);
 				System.out.println(musterija);
@@ -147,25 +156,16 @@ public class KorisniciUI {
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for (Musterija musterija : musterije) {
-				sadrzaj += musterija.getIme() + "|" + musterija.getPrezime() + "|" + musterija.getJmbg()
-				+"|" + '0' + musterija.getPol() + "|" + musterija.getAdresa() + "|"
-						+ musterija.getBrojTelefona() + "|" + musterija.getUsername() +"|"+ musterija.getLozinka() + "|" + musterija.getBrojSakupljenihBodova() + "\n";
+				
+				sadrzaj += musterija.toString() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
-			Musterija musterijaTest = new Musterija("bla1", "bla2", "11111", Pol.Muski, "555555", "trgfgffg", "5555aaa55", "112233", 3);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -211,6 +211,42 @@ public class KorisniciUI {
 		}
 	}
 	
+	public void snimiServisera() {
+		try {
+			File file = new File("src/txt/serviser.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (Serviser serviser : serviseri) {
+				
+				sadrzaj += serviser.toString() +"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void ucitajAdmina() {
 		try {
 			File adminFile = new File("src/txt/admini.txt");
@@ -221,7 +257,7 @@ public class KorisniciUI {
 				String ime = split[0];
 				String prezime = split[1];
 				String jmbg = split[2];
-				int indeksPol = Integer.parseInt(split[3]);
+				int indeksPol = 0;
 				Pol pol  = Pol.values()[indeksPol];
 				String adresa = split[4];
 				String brojTelefona = split[5];
@@ -241,7 +277,22 @@ public class KorisniciUI {
 		}
 	}
 
-	
+	public void snimiAdmina() {
+		try {
+			File file = new File("src/txt/admini.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (Admin admin : admini) {
+				
+				sadrzaj += admin.toString() +"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	

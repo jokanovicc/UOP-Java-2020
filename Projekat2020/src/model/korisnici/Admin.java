@@ -27,9 +27,9 @@ public class Admin extends Korisnik {
 
 	@Override
 	public String toString() {
-		return "Admin [plata=" + plata + ", ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol
-				+ ", brojTelefona=" + brojTelefona + ", adresa=" + adresa + ", username=" + username + ", lozinka="
-				+ lozinka + "]";
+		return ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" + plata;
 	}
 	
 	
