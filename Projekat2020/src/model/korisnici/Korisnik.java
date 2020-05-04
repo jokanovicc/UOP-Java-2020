@@ -12,6 +12,7 @@ public abstract class Korisnik {
 	protected String adresa;
 	protected String username;
 	protected String lozinka;
+	protected int IDOznaka;
 	
 	
 	public Korisnik() {
@@ -22,12 +23,13 @@ public abstract class Korisnik {
 		this.adresa = "";
 		this.brojTelefona = "";
 		this.lozinka = "";
+		this.IDOznaka = 0;
 		
 	}
 
 
 	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka) {
+			String username, String lozinka, int iDOznaka) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -37,6 +39,7 @@ public abstract class Korisnik {
 		this.adresa = adresa;
 		this.username = username;
 		this.lozinka = lozinka;
+		IDOznaka = iDOznaka;
 	}
 
 
@@ -120,11 +123,24 @@ public abstract class Korisnik {
 	}
 
 
+	public int getIDOznaka() {
+		return IDOznaka;
+	}
+
+
+	public void setIDOznaka(int iDOznaka) {
+		IDOznaka = iDOznaka;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Korisnik [ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona="
-				+ brojTelefona + ", adresa=" + adresa + ", username=" + username + ", lozinka=" + lozinka + "]";
+				+ brojTelefona + ", adresa=" + adresa + ", username=" + username + ", lozinka=" + lozinka
+				+ ", IDOznaka=" + IDOznaka + "]";
 	}
+
+
 	
 	
 	

@@ -9,20 +9,23 @@ public class Deo {
 									//jer je jedan deo moze na vise automobile iste marke, ne samo na jedan zadati
 	private String naziv;
 	private double cena;
+	private int idDela;
 	
 	
 	public Deo() {
 		this.automobil = MarkaModelDeo.FORDFOCUS;
 		this.naziv = "";
 		this.cena = 0;
+		this.idDela = 0;
 	}
 
 
-	public Deo(MarkaModelDeo automobil, String naziv, double cena) {
+	public Deo(MarkaModelDeo automobil, String naziv, double cena, int idDela) {
 		super();
 		this.automobil = automobil;
 		this.naziv = naziv;
 		this.cena = cena;
+		this.idDela = idDela;
 	}
 
 
@@ -56,11 +59,23 @@ public class Deo {
 	}
 
 
+	public int getIdDela() {
+		return idDela;
+	}
+
+
+	public void setIdDela(int idDela) {
+		this.idDela = idDela;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Deo [automobil=" + automobil + ", naziv=" + naziv + ", cena=" + cena + "]";
+		return automobil + "|" + naziv + "|" + cena + "|" + idDela;
 	}
-	
+
+
+
 	
 	
 

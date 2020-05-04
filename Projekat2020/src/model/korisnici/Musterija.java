@@ -17,11 +17,17 @@ public class Musterija extends Korisnik {
 
 
 
+
+
+
 	public Musterija(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka, int brojSakupljenihBodova) {
-		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka);
+			String username, String lozinka, int iDOznaka, int brojSakupljenihBodova) {
+		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka);
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
+
+
+
 
 
 
@@ -39,7 +45,7 @@ public class Musterija extends Korisnik {
 
 	@Override
 	public String toString() {
-		return  ime + "|" + prezime
+		return  IDOznaka + "|" + ime + "|" + prezime
 				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
 				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova;
 	}
