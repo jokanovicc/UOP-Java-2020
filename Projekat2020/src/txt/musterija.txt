@@ -1,3 +1,8 @@
 Petar|Petrovic|33333333|Muski|Vozdova|0655111777|petarp|1234|3
 Marko|Petrovic|33333333|Muski|bb|065513377|markop|4321|2
+ime|petrovic2|33333|Muski|bezbroja|065|imep|aaa22|3
+ime|petrovic2|33333|Muski|065|bezbroja|imep|aaa22|3
+ime|petrovic2|33333|Muski|bezbroja|065|imep|aaa22|3
+ime|petrovic2|33333|Muski|065|bezbroja|imep|aaa22|3
+ime|petrovic2|33333|Muski|bezbroja|065|imep|aaa22|3
 ime|petrovic2|33333|Muski|065|bezbroja|imep|aaa22|3

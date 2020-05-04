@@ -96,9 +96,9 @@ public class Automobil {
 
 	@Override
 	public String toString() {
-		return "Automobil [vlasnik=" + vlasnik + ", markaModel=" + markaModel + ", godinaProizvodnje="
-				+ godinaProizvodnje + ", zapreminaMotora=" + zapreminaMotora + ", snaga=" + snaga + ", vrstaGoriva="
-				+ vrstaGoriva + ", idOznaka=" + idOznaka + "]";
+		return  "\n" + vlasnik + "|" + markaModel + "|"
+				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
+				+ vrstaGoriva + "|" + idOznaka + "\n";
 	}
 	
 	

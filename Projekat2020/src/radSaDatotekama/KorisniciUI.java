@@ -45,9 +45,11 @@ public class KorisniciUI {
 		this.musterije.add(musterija);
 	}
 
+	
+
 	//public void dodajMusteriju(Musterija musterija) {
 		//this.musterije.add(musterija);
-	//}	
+	//}
 	//public void obrisiProdavca(Musterija musterija) {
 		//this.musterije.remove(musterija);
 	//}
@@ -55,7 +57,7 @@ public class KorisniciUI {
 	public Musterija nadjiMusteriju(String username) {
 		for (Musterija musterija : musterije) {
 			if (musterija.getUsername().equals(username)) {
-				//return musterija;
+				return musterija;
 			}
 		}
 		return null;
@@ -294,6 +296,53 @@ public class KorisniciUI {
 		}
 	}
 	
+
+	public void ucitajAutomobil() {
+		try {
+			File autoFile = new File("src/txt/automobili.txt");
+			BufferedReader reader = new BufferedReader(new FileReader(autoFile));
+			String line = null;
+			while((line = reader.readLine()) != null){
+				String[] split = line.split("\\|");
+				Musterija username = nadjiMusteriju(split[0]);
+				int indeksMarka = Integer.parseInt(split[1]);
+				MarkaModelDeo markaModel = MarkaModelDeo.values()[indeksMarka];
+				int godinaProizvodnje = Integer.parseInt(split[2]);
+				String zapreminaMotora = split[3];
+				String snaga = split[4];
+				int indeksGorivo = Integer.parseInt(split[5]);
+				Gorivo vrstaGoriva = Gorivo.values()[indeksGorivo];
+				String id = split[6];
+				Automobil automobil = new Automobil(username, markaModel, godinaProizvodnje, zapreminaMotora, snaga, vrstaGoriva, id);
+				automobili.add(automobil);
+				System.out.println("\n");
+				System.out.println(automobili);
+				
+			}
+			reader.close();
+			
+									
+		}catch(IOException e) {
+			System.out.println("Problem sa ocitavanjem");
+		}
+	}
+	
+	public void snimiAutomobil() {
+		try {
+			File file = new File("src/txt/automobili.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (Automobil automobil : automobili) {
+				
+				sadrzaj += automobil.toString() +"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
