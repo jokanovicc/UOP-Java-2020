@@ -8,3 +8,11 @@
 111555|111KOVIn|T222ic22|3334440|Muski|063FF11|rip3FFanj|jFF3ripanj|rFF11|5
 222333|Janko|Jankovic|222340|Muski|Milanovac|0639911|janko123|11111222|3
 222333|Janko|Jankovic|222340|Muski|0639911|Milanovac|janko123|11111222|3
+222333|tONI|Jankovic|222340|Muski|Milanovac|0639911|janko123|11111222|3
+2225555|Nov222i|Pokus22aj|22244340|Muski|0639911|Milanovac|janko123|11111222|3
+2225555|Nov222i|Pokus22aj|22244340|Muski|Milanovac|0639911|janko123|11111222|3
+1112225333|Pavle|Jovanovic|19898203949|Muski|0639565611|Beograd|pavlejovan|jvoan123|2
+1112225333|Pavle|Jovanovic|19898203949|Muski|Beograd|0639565611|pavlejovan|jvoan123|2
+1112225333|Pavle|Jovanovic|19898203949|Muski|0639565611|Beograd|pavlejovan|jvoan123|2
+1112225333|Pavle|Jovanovic|19898203949|Muski|Beograd|0639565611|pavlejovan|jvoan123|2
+1112225333|Pavle|Jovanovic|19898203949|Muski|0639565611|Beograd|pavlejovan|jvoan123|2

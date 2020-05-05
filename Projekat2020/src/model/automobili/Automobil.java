@@ -178,6 +178,12 @@ public class Automobil {
 
 	@Override
 	public String toString() {
+		return  vlasnik + "|" + markaModel + "|"
+				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
+				+ vrstaGoriva + "|" + idOznaka;
+	}
+	
+	public String toString2() {
 		return  markaModel + "|"
 				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
 				+ vrstaGoriva + "|" + idOznaka;

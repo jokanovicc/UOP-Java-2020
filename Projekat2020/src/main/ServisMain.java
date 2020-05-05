@@ -7,10 +7,13 @@ import model.enumeracije.Gorivo;
 import model.enumeracije.MarkaModelDeo;
 import model.enumeracije.Pol;
 import model.enumeracije.Specijalizacija;
+import model.enumeracije.Statusi;
 import model.korisnici.Admin;
 import model.korisnici.Musterija;
 import model.korisnici.Serviser;
 import model.servis.Deo;
+import model.servis.Servis;
+import model.servis.ServisnaKnjizica;
 import radSaDatotekama.KorisniciUI;
 
 
@@ -41,7 +44,7 @@ public class ServisMain {
 		
 		
 		
-		//Musterija musterijaTest = new Musterija("Janko","Jankovic", "222340", Pol.valueOf("Muski"), "0639911", "Milanovac", "janko123", "11111222", 222333, 3);
+		//Musterija musterijaTest = new Musterija("Pavle","Jovanovic", "19898203949", Pol.valueOf("Muski"), "0639565611", "Beograd", "pavlejovan", "jvoan123", 1112225333, 2);
 		//musterije.dodajMusteriju(musterijaTest);
 		//musterije.snimiMusteriju();
 		//System.out.println("dodato");
@@ -49,19 +52,19 @@ public class ServisMain {
 		
 		
 		
-		//Serviser serviserTest = new Serviser("S44s1", "Serv44overa", "24411", Pol.valueOf("Muski"), "33333", "adresa", "usern", "2222aaa2", 222555, 3000, Specijalizacija.valueOf("LIMAR"));
+		//Serviser serviserTest = new Serviser("Radenko", "Radenkovic", "2344444", Pol.valueOf("Muski"), "33444333", "Becej", "radenkoservis", "servis123", 224442555, 30300, Specijalizacija.valueOf("LIMAR"));
 		//musterije.dodajServisera(serviserTest);
 		//musterije.snimiServisera();
 		//System.out.println("dODATO");
 		
 		
-		//Admin adminTest = new Admin("Admin", "Adminic", "1111111111", Pol.Muski, "06377777", "vozdovac", "adminat", "admini111", 45000);
+		//Admin adminTest = new Admin("aDO", "Adminic", "222111", Pol.valueOf("Muski"), "053333", "Vozdovac", :, lozinka, iDOznaka, plata)
 		//musterije.dodajAdmina(adminTest);
 		//musterije.snimiAdmina();
 		
 		//System.out.println("Dodaj auto");
 
-		//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FIATSTILO"), 1990, "1200m", "120ks", Gorivo.valueOf("BENZIN"), 2225);
+		//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("VOLKSWAGENGOLF"), 2005, "1200m", "120ks", Gorivo.valueOf("DIZEL"), 1703);
 		//musterije.dodajAutomobil(automobili);
 		//musterije.snimiAutomobil();
 		//System.out.println("Dodato nesto");
@@ -70,6 +73,25 @@ public class ServisMain {
 		//musterije.dodajDeo(deo1);
 		//musterije.snimiDeo();
 		//System.out.println("Dodato");
+		
+		//Deo testDeo = new Deo(MarkaModelDeo.valueOf("FIATSTILO"), "Menjac", 25000, 555333);
+		//Servis servistest = new Servis(automobili, serviserTest, "06.05.2020", "Urgiranje", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 1112222);
+		//servistest.getDeo().add(testDeo);
+		//musterije.dodajServis(servistest);
+		//musterije.snimiServis();
+		//System.out.println("Uspesno");
+		//System.out.println("\n");
+		//System.out.println("\nAktuelni servis");
+		//musterije.ucitajServis();
+		
+		//ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, serviserTest, new ArrayList<Servis>(), 1204);
+		//knjizicaTest.getServisi().add(servistest);
+		//musterije.dodajKnjizicu(knjizicaTest);
+		//musterije.snimiKnjizicu();
+		//System.out.println("Uspesno");
+		//musterije.ucitajKnjizicu();
+		
+		
 
 	}
 		

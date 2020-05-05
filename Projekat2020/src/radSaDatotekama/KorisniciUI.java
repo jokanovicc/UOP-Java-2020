@@ -20,6 +20,7 @@ import model.korisnici.Musterija;
 import model.korisnici.Serviser;
 import model.servis.Deo;
 import model.servis.Servis;
+import model.servis.ServisnaKnjizica;
 
 public class KorisniciUI {
 	private ArrayList<Musterija> musterije;
@@ -29,6 +30,7 @@ public class KorisniciUI {
 	//ocitavanje fajlova
 	private ArrayList<Deo> delovi;
 	private ArrayList<Servis> servisi;
+	private ArrayList<ServisnaKnjizica> knjizice;
 	
 	
 	
@@ -39,6 +41,7 @@ public class KorisniciUI {
 		this.automobili = new ArrayList<Automobil>();
 		this.delovi = new ArrayList<Deo>();
 		this.servisi = new ArrayList<Servis>();
+		this.knjizice = new ArrayList<ServisnaKnjizica>();
 	}
 	
 //-----------------------------------------------------------------------------	
@@ -130,10 +133,22 @@ public class KorisniciUI {
 		return servisi;
 	}
 	
-
+	public void dodajServis(Servis servis) {
+		this.servisi.add(servis);
+	}
+	
+	public ArrayList<ServisnaKnjizica> getServisnaKnjizica(){
+		return knjizice;
+	}
+	
+	public void dodajKnjizicu(ServisnaKnjizica knjizica) {
+		this.knjizice.add(knjizica);
+	}
 	
 	
-	
+	public ArrayList<ServisnaKnjizica> getKnjizica(){
+		return knjizice;
+	}
 	
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
 
@@ -359,7 +374,7 @@ public class KorisniciUI {
 			String sadrzaj = "";
 			for (Automobil automobil : automobili) {
 				
-				sadrzaj += automobil.getVlasnikId() +"|"+ automobil.toString() +"\n";
+				sadrzaj += automobil.getVlasnikId() +"|"+ automobil.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -467,14 +482,13 @@ public class KorisniciUI {
 				String datum = split[2];
 				String opis = split[3];
 				ArrayList<Deo> delovi = new ArrayList<Deo>();
-				int deo1 = Integer.parseInt(split[4]);
-				//Deo deo12 = getIdDela(deo1);
 				String statusIndex = split[5];
 				Statusi statusi = Statusi.valueOf(statusIndex);
 				int idoznaka = Integer.parseInt(split[6]);
 				Servis servis = new Servis(idOznaka, idServisera, datum, opis, delovi, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
+				System.out.println("Nesto");
 				
 			}
 			reader.close();
@@ -484,10 +498,69 @@ public class KorisniciUI {
 			System.out.println("Problem sa ocitavanjem");
 		}
 	}	
+	public void snimiServis() {
+		try {
+			File file = new File("src/txt/servis.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (Servis servis : servisi) {
+				
+				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|"+ servis.toString2() +"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void ucitajKnjizicu() {
+		try {
+			File knjiziceFile = new File("src/txt/knjizica.txt");
+			BufferedReader reader = new BufferedReader(new FileReader(knjiziceFile));
+			String line = null;
+			while((line = reader.readLine()) != null){
+				String[] split = line.split("\\|");
+				int id1 = Integer.parseInt(split[0]);
+				Automobil idOznaka = nadjiAutomobil(id1);		
+				int idserv = Integer.parseInt(split[1]);
+				Serviser idServisera = nadjiServisera(idserv);
+				ArrayList<Servis> servisi = new ArrayList<Servis>();
+				int idoznaka = Integer.parseInt(split[2]);
+				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka, idServisera, servisi, idoznaka);
+				knjizice.add(knjizica);
+				System.out.println(knjizica);
+				System.out.println("Nesto");
+				
+			}
+			reader.close();
+			
+									
+		}catch(IOException e) {
+			System.out.println("Problem sa ocitavanjem");
+		}
+	}
 
 	
-	
-	
+	public void snimiKnjizicu() {
+		try {
+			File file = new File("src/txt/knjizica.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (ServisnaKnjizica knjizica : knjizice) {
+				
+				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka() +"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	

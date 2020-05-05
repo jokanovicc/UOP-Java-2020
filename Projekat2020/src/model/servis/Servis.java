@@ -127,13 +127,25 @@ public class Servis {
 	public void setiDoznaka(int iDoznaka) {
 		this.iDoznaka = iDoznaka;
 	}
-
-
+	
+	public int getAutomobilid() {
+		return automobil.getIdOznaka();
+	}
+	
+	public int getServiserid() {
+		return serviser.getIDOznaka();
+	}
+	
 
 	@Override
 	public String toString() {
-		return "Servis [automobil=" + automobil + ", serviser=" + serviser + ", termin=" + termin + ", opis=" + opis
-				+ ", deo=" + deo + ", status=" + status + ", iDoznaka=" + iDoznaka + "]";
+		return  "\n" + automobil + "|" + serviser + "|" + termin + "|" + opis
+				+ "|" + deo + "|" + status + "|" + iDoznaka;
+	}
+	
+	public String toString2() {
+		return "|"+termin + "|" + opis
+				+ "|" + status + "|" + iDoznaka;
 	}
 	
 	
