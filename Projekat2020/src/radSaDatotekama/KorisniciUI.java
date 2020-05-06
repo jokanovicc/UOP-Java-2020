@@ -520,22 +520,22 @@ public class KorisniciUI {
 			System.out.println("Problem sa ocitavanjem");
 		}
 	}	
-	//public void snimiServis() {
-	//	try {
-	//		File file = new File("src/txt/servis.txt");
-	//		BufferedWriter br = new BufferedWriter(new FileWriter(file));
-		//	String sadrzaj = "";
-		//	for (Servis servis : servisi) {
-		///		
-		//		sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + servis.toString2();
-	//		}
-		//	br.write(sadrzaj);
-	//		br.close();
+	public void snimiServis() {
+		try {
+			File file = new File("src/txt/servis.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (Servis servis : servisi) {
 			
-	//	} catch (Exception e) {
-	//		e.printStackTrace();
-	//	}
-	//}
+				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID().toString()) +"|"+ servis.toString2() + "\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+	}
+	}
 	
 	
 	
@@ -579,22 +579,22 @@ public class KorisniciUI {
 	}
 
 	
-	//public void snimiKnjizicu() {
-		//try {
-		//	File file = new File("src/txt/knjizica.txt");
-		//	BufferedWriter br = new BufferedWriter(new FileWriter(file));
-		//	String sadrzaj = "";
-		//	for (ServisnaKnjizica knjizica : knjizice) {
+	public void snimiKnjizicu() {
+		try {
+			File file = new File("src/txt/knjizica.txt");
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			String sadrzaj = "";
+			for (ServisnaKnjizica knjizica : knjizice) {
 				
-		//		sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka() +"\n";
-		//	}
-		//	br.write(sadrzaj);
-		//	br.close();
-		//	
-	//	} catch (Exception e) {
-	//		e.printStackTrace();
-		//}
-	//}
+				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID().toString())+"\n";
+			}
+			br.write(sadrzaj);
+			br.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 	

@@ -54,6 +54,15 @@ public class ServisnaKnjizica {
 	public ArrayList<Servis> getServisi() {
 		return servisi;
 	}
+	
+	public ArrayList<Integer> getServisID(){
+		ArrayList<Integer> servisID = new ArrayList<Integer>();
+		for (Servis servis1 : servisi) {
+			servisID.add(servis1.getiDoznaka());
+			
+		}
+		return servisID;
+	}
 
 
 	public void setServisi(ArrayList<Servis> servisi) {
@@ -84,10 +93,6 @@ public class ServisnaKnjizica {
 				+ "|" + idOznaka;
 	}
 	
-	public String toString2() {
-		return servisi +
-				"|"+ idOznaka;
-	}
 	
 	
 	

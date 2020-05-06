@@ -1,4 +1,5 @@
-10112|Ana|Peric|222233333|Zenski|0655100|Beograd|sero11|11222|30000.0|LIMAR
-222555|Stevo|Stevic|222111|Muski|Kragujevac|33222333|stevo1|2stevoaaa2|30000.0|AUTOELEKTRICAR
-222333555|Pero|Peric|24411|Muski|33333|Nis|perope|peroaaa2|30000.0|LIMAR
-224442555|Jovo|Jovanovic|242411|Muski|Sabac|333433|jovosa|2222akjovoaa2|30000.0|LIMAR
+10112|Ana|Peric|222233333|Zenski|Beograd|0655100|sero11|11222|30000.0|LIMAR
+222555|Stevo|Stevic|222111|Muski|33222333|Kragujevac|stevo1|2stevoaaa2|30000.0|AUTOELEKTRICAR
+222333555|Pero|Peric|24411|Muski|Nis|33333|perope|peroaaa2|30000.0|LIMAR
+224442555|Jovo|Jovanovic|242411|Muski|333433|Sabac|jovosa|2222akjovoaa2|30000.0|LIMAR
+224442555|Radenko|Radenkovic|2344444|Muski|33444333|Becej|radenkoservis|servis123|30300.0|LIMAR

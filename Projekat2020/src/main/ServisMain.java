@@ -43,7 +43,6 @@ public class ServisMain {
 		//musterije.snimiMusteriju();
 		
 		
-		
 		//Musterija musterijaTest = new Musterija("Pavle","Jovanovic", "19898203949", Pol.valueOf("Muski"), "0639565611", "Beograd", "pavlejovan", "jvoan123", 1112225333, 2);
 		//musterije.dodajMusteriju(musterijaTest);
 		//musterije.snimiMusteriju();
@@ -64,7 +63,7 @@ public class ServisMain {
 		
 		//System.out.println("Dodaj auto");
 
-		//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("VOLKSWAGENGOLF"), 2005, "1200m", "120ks", Gorivo.valueOf("DIZEL"), 1703);
+		//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FIATSTILO"), 2005, "2000m", "120ks", Gorivo.valueOf("DIZEL"), 1705);
 		//musterije.dodajAutomobil(automobili);
 		//musterije.snimiAutomobil();
 		//System.out.println("Dodato nesto");
@@ -75,7 +74,7 @@ public class ServisMain {
 		//System.out.println("Dodato");
 		
 		//Deo testDeo = new Deo(MarkaModelDeo.valueOf("FIATSTILO"), "Menjac", 25000, 555333);
-		//Servis servistest = new Servis(automobili, serviserTest, "06.05.2020", "Urgiranje", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 1112222);
+		//Servis servistest = new Servis(automobili, serviserTest, "06.05.2020", "Zamena releja", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 115552);
 		//servistest.getDeo().add(testDeo);
 		//musterije.dodajServis(servistest);
 		//musterije.snimiServis();
@@ -86,9 +85,9 @@ public class ServisMain {
 		
 		//ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, serviserTest, new ArrayList<Servis>(), 1204);
 		//knjizicaTest.getServisi().add(servistest);
-		//musterije.dodajKnjizicu(knjizicaTest);
-		//musterije.snimiKnjizicu();
-		//System.out.println("Uspesno");
+	//	musterije.dodajKnjizicu(knjizicaTest);
+	//	musterije.snimiKnjizicu();
+	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		musterije.ucitajKnjizicu();

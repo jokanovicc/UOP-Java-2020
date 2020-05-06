@@ -97,6 +97,16 @@ public class Servis {
 	public ArrayList<Deo> getDeo() {
 		return deo;
 	}
+	
+	public ArrayList<Integer> getDeoID(){
+		ArrayList<Integer> deoID = new ArrayList<Integer>();
+		for (Deo deo1 : deo) {
+			deoID.add(deo1.getIdDela());
+			
+		}
+		return deoID;
+	}
+	
 
 
 
@@ -105,6 +115,8 @@ public class Servis {
 	}
 
 
+	
+	
 
 	public Statusi getStatus() {
 		return status;
@@ -144,7 +156,7 @@ public class Servis {
 	}
 	
 	public String toString2() {
-		return "|"+termin + "|" +  opis
+		return "|" +  opis
 				+ "|" + status + "|" + iDoznaka;
 	}
 	
