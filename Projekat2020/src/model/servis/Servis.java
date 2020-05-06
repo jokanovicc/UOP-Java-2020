@@ -144,7 +144,7 @@ public class Servis {
 	}
 	
 	public String toString2() {
-		return "|"+termin + "|" + opis
+		return "|"+termin + "|" +  opis
 				+ "|" + status + "|" + iDoznaka;
 	}
 	

@@ -150,6 +150,16 @@ public class KorisniciUI {
 		return knjizice;
 	}
 	
+	public Servis nadjiServis(String naziv) {
+		for (Servis servis : servisi) {
+			if (servis.getOpis().equals(naziv)) {
+				return servis;
+			}
+		}
+		return null;
+	}
+	
+	
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
 
 	public void ucitajMusteriju() {
@@ -480,11 +490,23 @@ public class KorisniciUI {
 				int idserv = Integer.parseInt(split[1]);
 				Serviser idServisera = nadjiServisera(idserv);
 				String datum = split[2];
-				String opis = split[3];
-				ArrayList<Deo> delovi = new ArrayList<Deo>();
-				String statusIndex = split[5];
+				String delovi1 = split[3];
+				String opis = split[4];
+				//ArrayList<Deo> delovi = new ArrayList<Deo>();
+				String statusIndex = split[6];
 				Statusi statusi = Statusi.valueOf(statusIndex);
-				int idoznaka = Integer.parseInt(split[6]);
+				int idoznaka = Integer.parseInt(split[7]);
+				
+				String[] deloviSplit = delovi1.split(";");
+				for (String sif : deloviSplit) {
+					Deo d = nadjiDeo(sif);
+					if(d!=null) {
+						delovi.add(d);
+						
+					}
+					
+				}
+				
 				Servis servis = new Servis(idOznaka, idServisera, datum, opis, delovi, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
@@ -498,22 +520,22 @@ public class KorisniciUI {
 			System.out.println("Problem sa ocitavanjem");
 		}
 	}	
-	public void snimiServis() {
-		try {
-			File file = new File("src/txt/servis.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file));
-			String sadrzaj = "";
-			for (Servis servis : servisi) {
-				
-				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|"+ servis.toString2() +"\n";
-			}
-			br.write(sadrzaj);
-			br.close();
+	//public void snimiServis() {
+	//	try {
+	//		File file = new File("src/txt/servis.txt");
+	//		BufferedWriter br = new BufferedWriter(new FileWriter(file));
+		//	String sadrzaj = "";
+		//	for (Servis servis : servisi) {
+		///		
+		//		sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + servis.toString2();
+	//		}
+		//	br.write(sadrzaj);
+	//		br.close();
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	//	} catch (Exception e) {
+	//		e.printStackTrace();
+	//	}
+	//}
 	
 	
 	
@@ -528,8 +550,20 @@ public class KorisniciUI {
 				Automobil idOznaka = nadjiAutomobil(id1);		
 				int idserv = Integer.parseInt(split[1]);
 				Serviser idServisera = nadjiServisera(idserv);
-				ArrayList<Servis> servisi = new ArrayList<Servis>();
+				String servis1 = split[3];
+				
+				//ArrayList<Servis> servisi = new ArrayList<Servis>();
 				int idoznaka = Integer.parseInt(split[2]);
+				String[] servisSplit = servis1.split(";");
+				
+				for (String sif : servisSplit) {
+					Servis s = nadjiServis(sif);
+					if(s!=null) {
+						servisi.add(s);
+					}
+					
+				}
+				
 				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka, idServisera, servisi, idoznaka);
 				knjizice.add(knjizica);
 				System.out.println(knjizica);
@@ -545,22 +579,22 @@ public class KorisniciUI {
 	}
 
 	
-	public void snimiKnjizicu() {
-		try {
-			File file = new File("src/txt/knjizica.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file));
-			String sadrzaj = "";
-			for (ServisnaKnjizica knjizica : knjizice) {
+	//public void snimiKnjizicu() {
+		//try {
+		//	File file = new File("src/txt/knjizica.txt");
+		//	BufferedWriter br = new BufferedWriter(new FileWriter(file));
+		//	String sadrzaj = "";
+		//	for (ServisnaKnjizica knjizica : knjizice) {
 				
-				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka() +"\n";
-			}
-			br.write(sadrzaj);
-			br.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+		//		sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka() +"\n";
+		//	}
+		//	br.write(sadrzaj);
+		//	br.close();
+		//	
+	//	} catch (Exception e) {
+	//		e.printStackTrace();
+		//}
+	//}
 	
 
 	

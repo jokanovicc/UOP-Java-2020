@@ -80,16 +80,18 @@ public class ServisMain {
 		//musterije.dodajServis(servistest);
 		//musterije.snimiServis();
 		//System.out.println("Uspesno");
-		//System.out.println("\n");
-		//System.out.println("\nAktuelni servis");
-		//musterije.ucitajServis();
+		System.out.println("\n");
+		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
+		musterije.ucitajServis();
 		
 		//ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, serviserTest, new ArrayList<Servis>(), 1204);
 		//knjizicaTest.getServisi().add(servistest);
 		//musterije.dodajKnjizicu(knjizicaTest);
 		//musterije.snimiKnjizicu();
 		//System.out.println("Uspesno");
-		//musterije.ucitajKnjizicu();
+		System.out.println("\n");
+		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
+		musterije.ucitajKnjizicu();
 		
 		
 
