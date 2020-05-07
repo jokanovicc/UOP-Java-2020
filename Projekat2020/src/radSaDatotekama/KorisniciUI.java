@@ -3,6 +3,7 @@ package radSaDatotekama;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -523,7 +524,7 @@ public class KorisniciUI {
 	public void snimiServis() {
 		try {
 			File file = new File("src/txt/servis.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			BufferedWriter br = new BufferedWriter(new FileWriter(file,true));
 			String sadrzaj = "";
 			for (Servis servis : servisi) {
 			
@@ -582,7 +583,7 @@ public class KorisniciUI {
 	public void snimiKnjizicu() {
 		try {
 			File file = new File("src/txt/knjizica.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file));
+			BufferedWriter br = new BufferedWriter(new FileWriter(file,true));
 			String sadrzaj = "";
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
@@ -595,6 +596,7 @@ public class KorisniciUI {
 			e.printStackTrace();
 		}
 	}
+	
 	
 
 	
