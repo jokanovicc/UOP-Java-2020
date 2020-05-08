@@ -10,6 +10,7 @@ public class Deo {
 	private String naziv;
 	private double cena;
 	private int idDela;
+	private boolean vidljivost;
 	
 	
 	public Deo() {
@@ -68,6 +69,14 @@ public class Deo {
 		this.idDela = idDela;
 	}
 
+
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
 
 	@Override
 	public String toString() {

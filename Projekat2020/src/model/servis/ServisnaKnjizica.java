@@ -12,8 +12,7 @@ public class ServisnaKnjizica {
 	private Serviser serviser;
 	private ArrayList<Servis> servisi;
 	private int idOznaka;
-	
-	
+	private boolean vidljivost;
 	public ServisnaKnjizica() {
 		this.automobil = new Automobil();
 		this.serviser = new Serviser();
@@ -86,7 +85,16 @@ public class ServisnaKnjizica {
 		return serviser.getIDOznaka();
 	}
 
-
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "\n" + automobil + "|" + serviser + "|" + servisi

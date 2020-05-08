@@ -13,7 +13,7 @@ public abstract class Korisnik {
 	protected String username;
 	protected String lozinka;
 	protected int IDOznaka;
-	
+	private boolean vidljivost;
 	
 	public Korisnik() {
 		this.ime = "";
@@ -26,7 +26,8 @@ public abstract class Korisnik {
 		this.IDOznaka = 0;
 		
 	}
-
+	
+	
 
 	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
 			String username, String lozinka, int iDOznaka) {
@@ -133,6 +134,15 @@ public abstract class Korisnik {
 	}
 
 
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Korisnik [ime=" + ime + ", prezime=" + prezime + ", jmbg=" + jmbg + ", pol=" + pol + ", brojTelefona="

@@ -7,6 +7,7 @@ public class Serviser extends Korisnik {
 	
 	private double plata;
 	private Specijalizacija specijalizacija;
+	private boolean vidljivost;
 	
 	
 	public Serviser() {
@@ -15,9 +16,7 @@ public class Serviser extends Korisnik {
 		this.specijalizacija = Specijalizacija.AUTOELEKTRICAR;
 	}
 
-
-
-
+	
 
 	public Serviser(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
 			String username, String lozinka, int iDOznaka, double plata, Specijalizacija specijalizacija) {
@@ -25,9 +24,6 @@ public class Serviser extends Korisnik {
 		this.plata = plata;
 		this.specijalizacija = specijalizacija;
 	}
-
-
-
 
 
 	public double getPlata() {
@@ -50,6 +46,13 @@ public class Serviser extends Korisnik {
 	}
 
 
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
 	@Override
 	public String toString() {
 		return IDOznaka + "|" + ime + "|" + prezime

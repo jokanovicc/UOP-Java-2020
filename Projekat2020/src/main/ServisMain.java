@@ -43,7 +43,9 @@ public class ServisMain {
 		//musterije.snimiMusteriju();
 		
 		
+		
 		//Musterija musterijaTest = new Musterija("Vlado2","Jokan1", "16030804", Pol.valueOf("Muski"), "06531000", "Secanj", "vladd1", "vlado1231", 160508, 2);
+		//System.out.println(musterijaTest.getVidljivost());
 		//musterije.dodajMusteriju(musterijaTest);
 		//musterije.snimiMusteriju();
 		//System.out.println("dodato");
@@ -51,19 +53,19 @@ public class ServisMain {
 		
 		
 		
-		//Serviser serviserTest = new Serviser("Jack1", "Jackovic1", "234341444", Pol.valueOf("Muski"), "334314333", "Becej", "jack1servis", "ser1vis123", 22413455, 30300, Specijalizacija.valueOf("LIMAR"));
+	//	Serviser serviserTest = new Serviser("Jack1", "Jackovic1", "234341444", Pol.valueOf("Muski"), "334314333", "Becej", "jack1servis", "ser1vis123", 22413455, 30300, Specijalizacija.valueOf("LIMAR"));
 		//musterije.dodajServisera(serviserTest);
 		//musterije.snimiServisera();
 		//System.out.println("dODATO");
 		
 		
-		//Admin adminTest = new Admin("Admin11", "Test", "34324234", Pol.valueOf("Muski"), "0631111", "Zrenjanin", "admin123", "ado", 111555, 50000);
+	//	Admin adminTest = new Admin("Admin11", "Test", "34324234", Pol.valueOf("Muski"), "0631111", "Zrenjanin", "admin123", "ado", 111555, 50000);
 		//musterije.dodajAdmina(adminTest);
 		//musterije.snimiAdmina();
 		
 	//	System.out.println("Dodaj auto");
 
-		//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2005, "2000m", "109ks", Gorivo.valueOf("DIZEL"), 77333222);
+	//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2005, "2000m", "109ks", Gorivo.valueOf("DIZEL"), 77333222);
 		//musterije.dodajAutomobil(automobili);
 		//musterije.snimiAutomobil();
 		///System.out.println("Dodato nesto");
@@ -73,7 +75,7 @@ public class ServisMain {
 		//musterije.snimiDeo();
 		//System.out.println("Dodato");
 		
-		//Deo testDeo = new Deo(MarkaModelDeo.valueOf("FIATSTILO"), "Menjac", 25000, 522333);
+	//	Deo testDeo = new Deo(MarkaModelDeo.valueOf("FIATSTILO"), "Menjac", 25000, 522333);
 	//	Servis servistest = new Servis(automobili, serviserTest, "06.10.2021", "Zamena23", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 1153252);
 	//	servistest.getDeo().add(testDeo);
 		//musterije.dodajServis(servistest);

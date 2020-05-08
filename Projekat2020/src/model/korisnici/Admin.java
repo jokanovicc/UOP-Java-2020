@@ -5,13 +5,15 @@ import model.enumeracije.Pol;
 public class Admin extends Korisnik {
 	
 	private double plata;
+	private boolean vidljivost;	
+	
 	
 	public Admin() {
 		super();
 		plata = 0;
 	}
 	
-
+	
 	public Admin(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa, String username,
 			String lozinka, int iDOznaka, double plata) {
 		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka);
@@ -28,6 +30,13 @@ public class Admin extends Korisnik {
 		this.plata = plata;
 	}
 
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
 
 
 

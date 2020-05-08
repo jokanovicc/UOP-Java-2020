@@ -14,6 +14,7 @@ public class Automobil {
 	private String snaga;
 	private Gorivo vrstaGoriva;
 	private int idOznaka;
+	private boolean vidljivost;
 	
 	public Automobil() {
 		this.vlasnik = new Musterija();
@@ -24,8 +25,6 @@ public class Automobil {
 		this.vrstaGoriva = Gorivo.GAS;
 		this.idOznaka = 0;
 	}
-	
-	
 	
 
 
@@ -174,6 +173,13 @@ public class Automobil {
 	}
 
 
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
 
 
 	@Override

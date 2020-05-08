@@ -17,8 +17,8 @@ public class Servis {
 	private ArrayList<Deo> deo;
 	private Statusi status;
 	private int iDoznaka;
-	
-	
+	private boolean vidljivost;	
+
 	
 	public Servis() {
 		this.automobil = new Automobil();
@@ -149,6 +149,15 @@ public class Servis {
 	}
 	
 
+	
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
+	
 	@Override
 	public String toString() {
 		return  "\n" + automobil + "|" + serviser + "|" + termin + "|" + opis

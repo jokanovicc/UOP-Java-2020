@@ -7,6 +7,7 @@ import model.enumeracije.Pol;
 
 public class Musterija extends Korisnik {
 	private int brojSakupljenihBodova;
+	private boolean vidljivost;
 	
 	
 	
@@ -14,10 +15,7 @@ public class Musterija extends Korisnik {
 		super();
 		this.brojSakupljenihBodova = 0;
 	}
-
-
-
-
+	
 
 
 	public Musterija(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
@@ -25,9 +23,6 @@ public class Musterija extends Korisnik {
 		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka);
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
-
-
-
 
 
 
@@ -40,7 +35,14 @@ public class Musterija extends Korisnik {
 	public void setBrojSakupljenihBodova(int brojSakupljenihBodova) {
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
-
+	
+	public boolean getVidljivost() {
+		return vidljivost;
+	}
+	
+	public void brisanje() {
+		this.vidljivost = false;
+	}
 
 
 	@Override
