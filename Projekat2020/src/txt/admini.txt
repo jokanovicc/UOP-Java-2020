@@ -1,2 +1,3 @@
-1011|Pero|Perovic|77733333|Muski|Ulica|06551551777|perop|2234|30000.0
-1012|Admin|Adminic|1111111111|Zenski|vozdovac|06377777|adminat|admini111|45000.0
+1011|Pero|Perovic|77733333|Muski|06551551777|ulica|perop|2234|30000.0
+1012|Admin|Adminic|1111111111|Zenski|06377777|Vozdovac|adminat|admini111|45000.0
+111555|Admin11|Test|34324234|Muski|0631111|Zrenjanin|admin123|ado|50000.0

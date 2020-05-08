@@ -24,17 +24,17 @@ import model.servis.Servis;
 import model.servis.ServisnaKnjizica;
 
 public class KorisniciUI {
+	
 	private ArrayList<Musterija> musterije;
 	private ArrayList<Serviser> serviseri;
 	private ArrayList<Admin> admini;
 	private ArrayList<Automobil> automobili;
-	//ocitavanje fajlova
 	private ArrayList<Deo> delovi;
 	private ArrayList<Servis> servisi;
 	private ArrayList<ServisnaKnjizica> knjizice;
 	
 	
-	
+//--------------------------------------------------------------------------------------------------------------------
 	public KorisniciUI() {
 		this.musterije = new ArrayList<Musterija>();
 		this.serviseri = new ArrayList<Serviser>();
@@ -45,7 +45,7 @@ public class KorisniciUI {
 		this.knjizice = new ArrayList<ServisnaKnjizica>();
 	}
 	
-//-----------------------------------------------------------------------------	
+//-----------------------------------------------------------------------------	---------------------------------------
 	public ArrayList<Musterija> getMusterija(){
 		return musterije;
 		
@@ -63,8 +63,9 @@ public class KorisniciUI {
 		}
 		return null;
 	}
-//-------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 
+	
 	
 	
 	public void dodajServisera(Serviser serviser) {
@@ -109,8 +110,7 @@ public class KorisniciUI {
 		this.admini.add(admin);
 	}
 	
-	
-	
+//------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public ArrayList<Deo> getDeo(){
 		return delovi;
@@ -128,7 +128,8 @@ public class KorisniciUI {
 		}
 		return null;
 	}
-	
+
+//------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public ArrayList<Servis> getServis(){
 		return servisi;
@@ -137,6 +138,9 @@ public class KorisniciUI {
 	public void dodajServis(Servis servis) {
 		this.servisi.add(servis);
 	}
+	
+	
+//------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public ArrayList<ServisnaKnjizica> getServisnaKnjizica(){
 		return knjizice;
@@ -151,6 +155,8 @@ public class KorisniciUI {
 		return knjizice;
 	}
 	
+//------------------------------------------------------------------------------------------------------------------------------------------
+	
 	public Servis nadjiServis(String naziv) {
 		for (Servis servis : servisi) {
 			if (servis.getOpis().equals(naziv)) {
@@ -160,6 +166,7 @@ public class KorisniciUI {
 		return null;
 	}
 	
+
 	
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
 
@@ -172,16 +179,9 @@ public class KorisniciUI {
 				String[] split = line.split("\\|");
 				int brojSakupljenihBodova = Integer.parseInt(split[9]);
 				int IDOznaka = Integer.parseInt(split[0]);
-				String ime = split[1];
-				String prezime = split[2];
-				String jmbg = split[3];
 				String indeksPol =split[4];
 				Pol pol  = Pol.valueOf(indeksPol);
-				String adresa = split[5];
-				String brojTelefona = split[6];
-				String username = split[7];
-				String lozinka = split[8];
-				Musterija musterija = new Musterija(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, IDOznaka, brojSakupljenihBodova);
+				Musterija musterija = new Musterija(split[1], split[2], split[3], pol, split[5], split[6], split[7], split[8], IDOznaka, brojSakupljenihBodova);
 				musterije.add(musterija);
 				System.out.println(musterija);
 				
@@ -210,17 +210,7 @@ public class KorisniciUI {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	//-------------------------RAD SA SERVISERIMA----------------------------------------------------------------------------------------*
 
 	public void ucitajServisera() {
@@ -231,20 +221,12 @@ public class KorisniciUI {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int IDOznaka = Integer.parseInt(split[0]);
-				String ime = split[1];
-				String prezime = split[2];
-				String jmbg = split[3];
 				String polInt = split[4];
 				Pol pol  = Pol.valueOf(polInt);
-				String adresa = split[5];
-				String brojTelefona = split[6];
-				String username = split[7];
-				String lozinka = split[8];
 				double plata = Double.parseDouble(split[9]);
-				String indeksSpec = split[10];
-				
+				String indeksSpec = split[10];		
 				Specijalizacija specijalizacija = Specijalizacija.valueOf(indeksSpec);
-				Serviser serviser = new Serviser(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, IDOznaka, plata, specijalizacija);
+				Serviser serviser = new Serviser(split[1], split[2],split[3], pol, split[5], split[6],split[7], split[8], IDOznaka, plata, specijalizacija);
 				serviseri.add(serviser);
 				System.out.println(serviser);
 				
@@ -273,24 +255,7 @@ public class KorisniciUI {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	//---------------------RAD SA ADMINIMA--------------------------------------------------------------------
 	
 	public void ucitajAdmina() {
@@ -301,17 +266,10 @@ public class KorisniciUI {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int IDOznaka = Integer.parseInt(split[0]);
-				String ime = split[1];
-				String prezime = split[2];
-				String jmbg = split[3];
 				String indeksPol = split[4];
 				Pol pol  = Pol.valueOf(indeksPol);
-				String adresa = split[5];
-				String brojTelefona = split[6];
-				String username = split[7];
-				String lozinka = split[8];
 				double plata = Double.parseDouble(split[9]);
-				Admin admin = new Admin(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, IDOznaka, plata);
+				Admin admin = new Admin(split[1], split[2],split[3], pol, split[5],split[6], split[7], split[8], IDOznaka, plata);
 				admini.add(admin);
 				System.out.println(admin);
 				
@@ -343,9 +301,6 @@ public class KorisniciUI {
 	
 	
 	
-	
-	
-	
 // ----------------------------------- OCITAVANJE AUTOMOBILA---------------------------------------------------------------------------------------------------
 	public void ucitajAutomobil() {
 		try {
@@ -355,17 +310,14 @@ public class KorisniciUI {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int id1 = Integer.parseInt(split[0]);
-
 				Musterija IDOznaka = nadjiMusteriju(id1);
 				String indeksMarka = split[1];
 				MarkaModelDeo markaModel = MarkaModelDeo.valueOf(indeksMarka);
 				int godinaProizvodnje = Integer.parseInt(split[2]);
-				String zapreminaMotora = split[3];
-				String snaga = split[4];
 				String indeksGorivo = split[5];
 				Gorivo vrstaGoriva = Gorivo.valueOf(indeksGorivo);
 				int id = Integer.parseInt(split[6]);
-				Automobil automobil = new Automobil(IDOznaka, markaModel, godinaProizvodnje, zapreminaMotora, snaga, vrstaGoriva, id);
+				Automobil automobil = new Automobil(IDOznaka, markaModel, godinaProizvodnje, split[3], split[4], vrstaGoriva, id);
 				automobili.add(automobil);
 				System.out.println(automobil);
 				
@@ -395,13 +347,8 @@ public class KorisniciUI {
 		}
 	}
 	
-
 	
-	
-	
-//    -------------              OCITAVANJE SERVISA	---------------------------------------------------------------------------------------------
-	
-	
+//    -------------------------- OCITAVANJE SERVISA	---------------------------------------------------------------------------------------------
 	
 	public void ucitajDeo() {
 		try {
@@ -412,10 +359,9 @@ public class KorisniciUI {
 				String[] split = line.split("\\|");
 				String markaindex = split[0];
 				MarkaModelDeo markamodel = MarkaModelDeo.valueOf(markaindex);
-				String naziv = split[1];
 				double cena = Double.parseDouble(split[2]);
 				int id = Integer.parseInt(split[3]);	
-				Deo deo = new Deo(markamodel, naziv, cena, id);
+				Deo deo = new Deo(markamodel, split[1], cena, id);
 				delovi.add(deo);
 				System.out.println(deo);
 				
@@ -447,7 +393,7 @@ public class KorisniciUI {
 		}
 	}
 	
-	
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 	public static ArrayList<Deo> getIdDela(String[] delovi){
 		ArrayList<Deo> delovi1 = new ArrayList<Deo>();
 		
@@ -464,20 +410,7 @@ public class KorisniciUI {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//-----------------------RAD SA SERVISOM---------------------------------------------------------------------------------------	
 	
 	public void ucitajServis() {
 		try {
@@ -490,9 +423,7 @@ public class KorisniciUI {
 				Automobil idOznaka = nadjiAutomobil(id1);
 				int idserv = Integer.parseInt(split[1]);
 				Serviser idServisera = nadjiServisera(idserv);
-				String datum = split[2];
 				String delovi1 = split[3];
-				String opis = split[4];
 				//ArrayList<Deo> delovi = new ArrayList<Deo>();
 				String statusIndex = split[6];
 				Statusi statusi = Statusi.valueOf(statusIndex);
@@ -508,10 +439,9 @@ public class KorisniciUI {
 					
 				}
 				
-				Servis servis = new Servis(idOznaka, idServisera, datum, opis, delovi, statusi, idoznaka);
+				Servis servis = new Servis(idOznaka, idServisera, split[2], split[4], delovi, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
-				System.out.println("Nesto");
 				
 			}
 			reader.close();
@@ -528,7 +458,7 @@ public class KorisniciUI {
 			String sadrzaj = "";
 			for (Servis servis : servisi) {
 			
-				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID().toString()) +"|"+ servis.toString2() + "\n";
+				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID().toString())  +"|"+ servis.toString2() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -538,7 +468,7 @@ public class KorisniciUI {
 	}
 	}
 	
-	
+//--------------------------------RAD SA KNJIZICOM----------------------------------------------------------------------------------------
 	
 	public void ucitajKnjizicu() {
 		try {
@@ -563,12 +493,10 @@ public class KorisniciUI {
 						servisi.add(s);
 					}
 					
-				}
-				
+				}			
 				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka, idServisera, servisi, idoznaka);
 				knjizice.add(knjizica);
 				System.out.println(knjizica);
-				System.out.println("Nesto");
 				
 			}
 			reader.close();
@@ -597,8 +525,8 @@ public class KorisniciUI {
 		}
 	}
 	
-	
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 	
 }
 
