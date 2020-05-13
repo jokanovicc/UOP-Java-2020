@@ -9,22 +9,21 @@ import model.korisnici.Serviser;
 public class ServisnaKnjizica {
 	
 	private Automobil automobil;
-	private Serviser serviser;
+	//private Serviser serviser;
 	private ArrayList<Servis> servisi;
 	private int idOznaka;
 	private boolean vidljivost;
+	
 	public ServisnaKnjizica() {
 		this.automobil = new Automobil();
-		this.serviser = new Serviser();
 		this.servisi = new ArrayList<Servis>();
 		this.idOznaka = 0;
 	}
 
 
-	public ServisnaKnjizica(Automobil automobil, Serviser serviser, ArrayList<Servis> servisi, int idOznaka) {
+	public ServisnaKnjizica(Automobil automobil, ArrayList<Servis> servisi, int idOznaka) {
 		super();
 		this.automobil = automobil;
-		this.serviser = serviser;
 		this.servisi = servisi;
 		this.idOznaka = idOznaka;
 	}
@@ -37,16 +36,6 @@ public class ServisnaKnjizica {
 
 	public void setAutomobil(Automobil automobil) {
 		this.automobil = automobil;
-	}
-
-
-	public Serviser getServiser() {
-		return serviser;
-	}
-
-
-	public void setServiser(Serviser serviser) {
-		this.serviser = serviser;
 	}
 
 
@@ -81,23 +70,22 @@ public class ServisnaKnjizica {
 		return automobil.getIdOznaka();
 	}
 	
-	public int getServiserid() {
-		return serviser.getIDOznaka();
-	}
 
 	public boolean getVidljivost() {
 		return vidljivost;
 	}
 	
+
 	public void brisanje() {
 		this.vidljivost = false;
 	}
+
 	
 	
 	
 	@Override
 	public String toString() {
-		return "\n" + automobil + "|" + serviser + "|" + servisi
+		return "\n" + automobil + "|" + servisi
 				+ "|" + idOznaka;
 	}
 	

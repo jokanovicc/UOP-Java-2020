@@ -479,12 +479,12 @@ public class KorisniciUI {
 				String[] split = line.split("\\|");
 				int id1 = Integer.parseInt(split[0]);
 				Automobil idOznaka = nadjiAutomobil(id1);		
-				int idserv = Integer.parseInt(split[1]);
-				Serviser idServisera = nadjiServisera(idserv);
-				String servis1 = split[3];
+				//int idserv = Integer.parseInt(split[1]);
+				//Serviser idServisera = nadjiServisera(idserv);
+				String servis1 = split[2];
 				
 				//ArrayList<Servis> servisi = new ArrayList<Servis>();
-				int idoznaka = Integer.parseInt(split[2]);
+				int idoznaka = Integer.parseInt(split[1]);
 				String[] servisSplit = servis1.split(";");
 				
 				for (String sif : servisSplit) {
@@ -494,7 +494,7 @@ public class KorisniciUI {
 					}
 					
 				}			
-				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka, idServisera, servisi, idoznaka);
+				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka,servisi, idoznaka);
 				knjizice.add(knjizica);
 				System.out.println(knjizica);
 				
@@ -515,7 +515,7 @@ public class KorisniciUI {
 			String sadrzaj = "";
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
-				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getServiserid() +"|"+ knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID().toString())+"\n";
+				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID().toString())+"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
