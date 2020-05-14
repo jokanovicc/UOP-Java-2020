@@ -44,7 +44,7 @@ public class ServisMain {
 		
 		
 		
-	//	Musterija musterijaTest = new Musterija("Radoje","Radic", "16155", Pol.valueOf("Muski"), "06332300", "Karaburma", "radoje", "radoje123", 100002, 1);
+	//	Musterija musterijaTest = new Musterija("Marko","Peric", "1612155", Pol.valueOf("Muski"), "06332300", "Vozdovac", "markop", "marko123", 100003, 1);
 		//System.out.println(musterijaTest.getVidljivost());
 	//	musterije.dodajMusteriju(musterijaTest);
 	//	musterije.snimiMusteriju();
@@ -53,29 +53,29 @@ public class ServisMain {
 		
 		
 		
-	//	Serviser serviserTest = new Serviser("Radasin", "Tomic", "190632195", Pol.valueOf("Muski"), "0659323263", "Novi Becej", "radasinservis", "servis1123", 21113122, 30300, Specijalizacija.valueOf("LIMAR"));
+	//	Serviser serviserTest = new Serviser("Jovan", "Jovanovic", "194432195", Pol.valueOf("Muski"), "06593363", "Novi Becej", "jovanservis", "servis1123", 21133222, 30300, Specijalizacija.valueOf("LIMAR"));
 	//	musterije.dodajServisera(serviserTest);
 	//	musterije.snimiServisera();
 	//	System.out.println("dODATO");
 		
 		
-	//	Admin adminTest = new Admin("Admin111", "Test2", "343243234", Pol.valueOf("Muski"), "06311311", "Zrenjanin", "admin33123", "ado11", 11331555, 50000);
+		//Admin adminTest = new Admin("Admin111", "Test2", "343243234", Pol.valueOf("Muski"), "06311311", "Zrenjanin", "admin33123", "ado11", 11331555, 50000);
 	//	musterije.dodajAdmina(adminTest);
-		//musterije.snimiAdmina();
+	//	musterije.snimiAdmina();
 		
 	//	System.out.println("Dodaj auto");
 
-	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FIATSTILO"), 2003, "1900m", "120ks", Gorivo.valueOf("DIZEL"), 7911);
+	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2008, "1200m", "60ks", Gorivo.valueOf("BENZIN"), 8001);
 	//	musterije.dodajAutomobil(automobili);
 	//	musterije.snimiAutomobil();
 	//	System.out.println("Dodato nesto");
 		
-	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("FIATSTILO"),"Relej", 25000, "1000014");
+	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("FORDFOCUS"),"ZadnjaVrata", 45000, "1000015");
 	//	musterije.dodajDeo(deo1);
 	//	musterije.snimiDeo();
 	//	System.out.println("Dodato");
 		
-	//	Servis servistest = new Servis(automobili, serviserTest, "16.05.2020", "ZamenaReleja", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "1000124");
+	//	Servis servistest = new Servis(automobili, serviserTest, "17.05.2020", "ZamenaVrata", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "1000125");
 	//	servistest.getDeo().add(deo1);
 	//	musterije.dodajServis(servistest);
 	//	musterije.snimiServis();
@@ -84,11 +84,11 @@ public class ServisMain {
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
 		musterije.ucitajServis();
 		
-	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), "1000235");
+	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), "1000236");
 	//	knjizicaTest.getServisi().add(servistest);
 	//	musterije.dodajKnjizicu(knjizicaTest);
 	//	musterije.snimiKnjizicu();
-	//	System.out.println("Uspesno");
+		System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		musterije.ucitajKnjizicu();
