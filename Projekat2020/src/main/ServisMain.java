@@ -89,9 +89,9 @@ public class ServisMain {
 		//knjizicaTest.getServisi().add(servistest);
 	//	musterije.dodajKnjizicu(knjizicaTest);
 	//	musterije.snimiKnjizicu();
-		//System.out.println("Uspesno");
-		//System.out.println("\n");
-		//System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
+		System.out.println("Uspesno");
+		System.out.println("\n");
+		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		musterije.ucitajKnjizicu();
 		
 		
