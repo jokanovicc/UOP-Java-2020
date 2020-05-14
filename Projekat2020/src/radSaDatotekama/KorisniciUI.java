@@ -120,9 +120,9 @@ public class KorisniciUI {
 	}
 
 	
-	public Deo nadjiDeo(String naziv) {
+	public Deo nadjiDeo(String idOznaka) {
 		for (Deo deo : delovi) {
-			if (deo.getNaziv().equals(naziv)) {
+			if(deo.getIdDela().equals(idOznaka)) {
 				return deo;
 			}
 		}
@@ -157,9 +157,9 @@ public class KorisniciUI {
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public Servis nadjiServis(String naziv) {
+	public Servis nadjiServis(String idOznaka) {
 		for (Servis servis : servisi) {
-			if (servis.getOpis().equals(naziv)) {
+			if (servis.getiDoznaka().equals(idOznaka)) {
 				return servis;
 			}
 		}
@@ -358,10 +358,11 @@ public class KorisniciUI {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				String markaindex = split[0];
+				String naziv = split[1];
 				MarkaModelDeo markamodel = MarkaModelDeo.valueOf(markaindex);
 				double cena = Double.parseDouble(split[2]);
-				int id = Integer.parseInt(split[3]);	
-				Deo deo = new Deo(markamodel, split[1], cena, id);
+				String id = split[3];
+				Deo deo = new Deo(markamodel, naziv, cena, id);
 				delovi.add(deo);
 				System.out.println(deo);
 				
@@ -424,22 +425,22 @@ public class KorisniciUI {
 				int idserv = Integer.parseInt(split[1]);
 				Serviser idServisera = nadjiServisera(idserv);
 				String delovi1 = split[3];
-				//ArrayList<Deo> delovi = new ArrayList<Deo>();
 				String statusIndex = split[6];
 				Statusi statusi = Statusi.valueOf(statusIndex);
-				int idoznaka = Integer.parseInt(split[7]);
+				String idoznaka = split[7];
 				
 				String[] deloviSplit = delovi1.split(";");
+				ArrayList<Deo> deo2 = new ArrayList<Deo>();
 				for (String sif : deloviSplit) {
 					Deo d = nadjiDeo(sif);
-					if(d!=null) {
-						delovi.add(d);
+					if(d != null) {
+						deo2.add(d);
 						
 					}
 					
 				}
 				
-				Servis servis = new Servis(idOznaka, idServisera, split[2], split[4], delovi, statusi, idoznaka);
+				Servis servis = new Servis(idOznaka, idServisera, split[2], split[4], deo2, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
 				
@@ -458,7 +459,7 @@ public class KorisniciUI {
 			String sadrzaj = "";
 			for (Servis servis : servisi) {
 			
-				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID().toString())  +"|"+ servis.toString2() + "\n";
+				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID())  +"|"+ servis.toString2() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -482,19 +483,18 @@ public class KorisniciUI {
 				//int idserv = Integer.parseInt(split[1]);
 				//Serviser idServisera = nadjiServisera(idserv);
 				String servis1 = split[2];
+				String idoznaka = split[1];
 				
-				//ArrayList<Servis> servisi = new ArrayList<Servis>();
-				int idoznaka = Integer.parseInt(split[1]);
 				String[] servisSplit = servis1.split(";");
-				
+				ArrayList<Servis> servisi1 = new ArrayList<Servis>();
 				for (String sif : servisSplit) {
 					Servis s = nadjiServis(sif);
 					if(s!=null) {
-						servisi.add(s);
+						servisi1.add(s);
 					}
 					
 				}			
-				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka,servisi, idoznaka);
+				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka,servisi1, idoznaka);
 				knjizice.add(knjizica);
 				System.out.println(knjizica);
 				
@@ -515,7 +515,7 @@ public class KorisniciUI {
 			String sadrzaj = "";
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
-				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID().toString())+"\n";
+				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID())+"\n";
 			}
 			br.write(sadrzaj);
 			br.close();

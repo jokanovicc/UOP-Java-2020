@@ -1,9 +1,2 @@
-10112|Ana|Peric|222233333|Zenski|0655100|Beograd|sero11|11222|30000.0|LIMAR
-222555|Stevo|Stevic|222111|Muski|Kragujevac|33222333|stevo1|2stevoaaa2|30000.0|AUTOELEKTRICAR
-222333555|Pero|Peric|24411|Muski|33333|Nis|perope|peroaaa2|30000.0|LIMAR
-224442555|Jovo|Jovanovic|242411|Muski|Sabac|333433|jovosa|2222akjovoaa2|30000.0|LIMAR
-224442555|Radenko|Radenkovic|2344444|Muski|Becej|33444333|radenkoservis|servis123|30300.0|LIMAR
-224542555|Serv|Ratestvic|23432444|Muski|33434333|Becej|radenkoservis|servis123|30300.0|LIMAR
-2243455|Jack|Jackovic|23434444|Muski|33434333|Becej|jackservis|servis123|30300.0|LIMAR
-22413455|Jack1|Jackovic1|234341444|Muski|334314333|Becej|jack1servis|ser1vis123|30300.0|LIMAR
-22455|Paja|Jovanovic|23433441444|Muski|334314344333|Zrenjanin|pajasevis|ser1vis123|30300.0|LIMAR
+2111122|Radoje|Radic|1906205551995|Muski|065985263|Zrenjanin|radojeservis|servis123|30300.0|LIMAR
+21113122|Radasin|Tomic|190632195|Muski|0659323263|Novi Becej|radasinservis|servis1123|30300.0|LIMAR

@@ -11,22 +11,28 @@ public class ServisnaKnjizica {
 	private Automobil automobil;
 	//private Serviser serviser;
 	private ArrayList<Servis> servisi;
-	private int idOznaka;
+	private String idOznaka;
 	private boolean vidljivost;
 	
 	public ServisnaKnjizica() {
 		this.automobil = new Automobil();
 		this.servisi = new ArrayList<Servis>();
-		this.idOznaka = 0;
+		this.idOznaka = "";
 	}
 
 
-	public ServisnaKnjizica(Automobil automobil, ArrayList<Servis> servisi, int idOznaka) {
+
+
+
+	public ServisnaKnjizica(Automobil automobil, ArrayList<Servis> servisi, String idOznaka) {
 		super();
 		this.automobil = automobil;
 		this.servisi = servisi;
 		this.idOznaka = idOznaka;
 	}
+
+
+
 
 
 	public Automobil getAutomobil() {
@@ -43,8 +49,8 @@ public class ServisnaKnjizica {
 		return servisi;
 	}
 	
-	public ArrayList<Integer> getServisID(){
-		ArrayList<Integer> servisID = new ArrayList<Integer>();
+	public ArrayList<String> getServisID(){
+		ArrayList<String> servisID = new ArrayList<String>();
 		for (Servis servis1 : servisi) {
 			servisID.add(servis1.getiDoznaka());
 			
@@ -58,14 +64,23 @@ public class ServisnaKnjizica {
 	}
 
 
-	public int getIdOznaka() {
+
+	public String getIdOznaka() {
 		return idOznaka;
 	}
 
 
-	public void setIdOznaka(int idOznaka) {
+
+
+
+	public void setIdOznaka(String idOznaka) {
 		this.idOznaka = idOznaka;
 	}
+
+
+
+
+
 	public int getAutomobilid() {
 		return automobil.getIdOznaka();
 	}

@@ -9,7 +9,7 @@ public class Deo {
 									//jer je jedan deo moze na vise automobile iste marke, ne samo na jedan zadati
 	private String naziv;
 	private double cena;
-	private int idDela;
+	private String idDela;
 	private boolean vidljivost;
 	
 	
@@ -17,17 +17,23 @@ public class Deo {
 		this.automobil = MarkaModelDeo.FORDFOCUS;
 		this.naziv = "";
 		this.cena = 0;
-		this.idDela = 0;
+		this.idDela = "";
 	}
 
 
-	public Deo(MarkaModelDeo automobil, String naziv, double cena, int idDela) {
+
+
+
+	public Deo(MarkaModelDeo automobil, String naziv, double cena, String idDela) {
 		super();
 		this.automobil = automobil;
 		this.naziv = naziv;
 		this.cena = cena;
 		this.idDela = idDela;
 	}
+
+
+
 
 
 	public MarkaModelDeo getAutomobil() {
@@ -59,13 +65,15 @@ public class Deo {
 		this.cena = cena;
 	}
 
+	
 
-	public int getIdDela() {
+
+	public String getIdDela() {
 		return idDela;
 	}
 
 
-	public void setIdDela(int idDela) {
+	public void setIdDela(String idDela) {
 		this.idDela = idDela;
 	}
 

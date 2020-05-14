@@ -16,7 +16,7 @@ public class Servis {
 	private String opis;
 	private ArrayList<Deo> deo;
 	private Statusi status;
-	private int iDoznaka;
+	private String iDoznaka;
 	private boolean vidljivost;	
 
 	
@@ -27,13 +27,16 @@ public class Servis {
 		this.opis = "";
 		this.deo = new ArrayList<Deo>();
 		this.status = Statusi.SLOBODAN;
-		this.iDoznaka = 0;
+		this.iDoznaka = "";
 	}
 
 
 
+
+
+
 	public Servis(Automobil automobil, Serviser serviser, String termin, String opis, ArrayList<Deo> deo,
-			Statusi status, int iDoznaka) {
+			Statusi status, String iDoznaka) {
 		super();
 		this.automobil = automobil;
 		this.serviser = serviser;
@@ -43,6 +46,9 @@ public class Servis {
 		this.status = status;
 		this.iDoznaka = iDoznaka;
 	}
+
+
+
 
 
 
@@ -98,8 +104,8 @@ public class Servis {
 		return deo;
 	}
 	
-	public ArrayList<Integer> getDeoID(){
-		ArrayList<Integer> deoID = new ArrayList<Integer>();
+	public ArrayList<String> getDeoID(){
+		ArrayList<String> deoID = new ArrayList<String>();
 		for (Deo deo1 : deo) {
 			deoID.add(deo1.getIdDela());
 			
@@ -130,16 +136,26 @@ public class Servis {
 
 
 
-	public int getiDoznaka() {
+
+	
+	public String getiDoznaka() {
 		return iDoznaka;
 	}
 
 
 
-	public void setiDoznaka(int iDoznaka) {
+
+
+
+	public void setiDoznaka(String iDoznaka) {
 		this.iDoznaka = iDoznaka;
 	}
-	
+
+
+
+
+
+
 	public int getAutomobilid() {
 		return automobil.getIdOznaka();
 	}

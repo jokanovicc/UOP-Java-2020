@@ -1,14 +1,2 @@
-1033|Petar|Petrovic|Petrovic|Zenski|0655111777|Vozdova|petarp|1234|3
-11152255|Marko|petrovic2|petrovic2|Muski|065|Kikinda|markop|aaa22|3
-11122555|Jovan|Ivanovic|Ivanovic|Muski|0631111|Ripanj|jovanripanj|ripanj111|0
-1113355|Milana|Trajkovic|Trajkovic|Zenski|Borca|0631111|milenat|milana123|1
-111335|Darko|Darkovic|Darkovic|Muski|Kragujevac|063FF11|darkode|dare123|2
-111555|Ivica|Ivic|Ivic|Muski|Kovin|063FF11|ivicakov|kovin123|3
-222333|Janko|Jankovic|Jankovic|Muski|Milanovac|0639911|janko123|11111222|3
-2225555|Goran|Goranic|Goranic|Muski|06393911|Kladovo|goran123|111gg11222|0
-1112225333|Pavle|Jovanovic|Jovanovic|Muski|0639565611|Beograd|pavlejovan|jvoan123|2
-1112443|Petar|Jovanovic|Jovanovic|Muski|0634565611|Beograd|perjov|per123|2
-132321|Milan|Milenkovic|Milenkovic|Muski|063445611|Beograd|milanm|milan123|2
-16008|Vlado|Jokan|1600804|Muski|06531000|Secanj|vladd|vlado123|2
-160508|Vlado2|Jokan1|16030804|Muski|06531000|Secanj|vladd1|vlado1231|2
-1603508|Musterija|test1|16445|Muski|06534300|Secanj|vladd1|vlafgfg1231|2
+100001|Petar|Petrovic|16323345|Muski|06332300|Secanj|petarp|petar123|2
+100002|Radoje|Radic|16155|Muski|06332300|Karaburma|radoje|radoje123|1
