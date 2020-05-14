@@ -36,7 +36,7 @@ public class KorisniciUI {
 	
 //--------------------------------------------------------------------------------------------------------------------
 	public KorisniciUI() {
-		this.musterije = new ArrayList<Musterija>();
+		this.musterije = new ArrayList<Musterija>();    //kreiranje novih lista
 		this.serviseri = new ArrayList<Serviser>();
 		this.admini = new ArrayList<Admin>();
 		this.automobili = new ArrayList<Automobil>();

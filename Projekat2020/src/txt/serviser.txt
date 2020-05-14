@@ -6,3 +6,4 @@
 224542555|Serv|Ratestvic|23432444|Muski|33434333|Becej|radenkoservis|servis123|30300.0|LIMAR
 2243455|Jack|Jackovic|23434444|Muski|33434333|Becej|jackservis|servis123|30300.0|LIMAR
 22413455|Jack1|Jackovic1|234341444|Muski|334314333|Becej|jack1servis|ser1vis123|30300.0|LIMAR
+22455|Paja|Jovanovic|23433441444|Muski|334314344333|Zrenjanin|pajasevis|ser1vis123|30300.0|LIMAR

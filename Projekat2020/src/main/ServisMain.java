@@ -44,54 +44,54 @@ public class ServisMain {
 		
 		
 		
-		//Musterija musterijaTest = new Musterija("Vlado2","Jokan1", "16030804", Pol.valueOf("Muski"), "06531000", "Secanj", "vladd1", "vlado1231", 160508, 2);
-		//System.out.println(musterijaTest.getVidljivost());
-		//musterije.dodajMusteriju(musterijaTest);
-		//musterije.snimiMusteriju();
-		//System.out.println("dodato");
-		//System.out.println("Dodavanje servisera");
+	//	Musterija musterijaTest = new Musterija("Musterija","test1", "16445", Pol.valueOf("Muski"), "06534300", "Secanj", "vladd1", "vlafgfg1231", 1603508, 2);
+	//	System.out.println(musterijaTest.getVidljivost());
+	//	musterije.dodajMusteriju(musterijaTest);
+	//	musterije.snimiMusteriju();
+	//	System.out.println("dodato");
+	//	System.out.println("Dodavanje servisera");
 		
 		
 		
-	//	Serviser serviserTest = new Serviser("Jack1", "Jackovic1", "234341444", Pol.valueOf("Muski"), "334314333", "Becej", "jack1servis", "ser1vis123", 22413455, 30300, Specijalizacija.valueOf("LIMAR"));
-		//musterije.dodajServisera(serviserTest);
-		//musterije.snimiServisera();
+	//	Serviser serviserTest = new Serviser("Paja", "Jovanovic", "23433441444", Pol.valueOf("Muski"), "334314344333", "Zrenjanin", "pajasevis", "ser1vis123", 22455, 30300, Specijalizacija.valueOf("LIMAR"));
+	//	musterije.dodajServisera(serviserTest);
+	//	musterije.snimiServisera();
 		//System.out.println("dODATO");
 		
 		
-	//	Admin adminTest = new Admin("Admin11", "Test", "34324234", Pol.valueOf("Muski"), "0631111", "Zrenjanin", "admin123", "ado", 111555, 50000);
-		//musterije.dodajAdmina(adminTest);
+	//	Admin adminTest = new Admin("Admin111", "Test2", "343243234", Pol.valueOf("Muski"), "06311311", "Zrenjanin", "admin33123", "ado11", 11331555, 50000);
+	//	musterije.dodajAdmina(adminTest);
 		//musterije.snimiAdmina();
 		
 	//	System.out.println("Dodaj auto");
 
-	//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2005, "2000m", "109ks", Gorivo.valueOf("DIZEL"), 77333222);
-		//musterije.dodajAutomobil(automobili);
-		//musterije.snimiAutomobil();
+	//Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2005, "2500m", "159ks", Gorivo.valueOf("DIZEL"), 7722);
+	//	musterije.dodajAutomobil(automobili);
+	//	musterije.snimiAutomobil();
 		///System.out.println("Dodato nesto");
-		
-		//Deo deo1 = new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"kvacilo", 25000, 31115);
-		//musterije.dodajDeo(deo1);
-		//musterije.snimiDeo();
+	//	
+	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("FORDFOCUS"),"kvacilo", 25000, 311215);
+	//	musterije.dodajDeo(deo1);
+	//	musterije.snimiDeo();
 		//System.out.println("Dodato");
 		
-	//	Deo testDeo = new Deo(MarkaModelDeo.valueOf("FIATSTILO"), "Menjac", 25000, 522333);
-	//	Servis servistest = new Servis(automobili, serviserTest, "06.10.2021", "Zamena23", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 1153252);
+	//Deo testDeo = new Deo(MarkaModelDeo.valueOf("FORDFOCUS"), "Menjac", 25000, 5223233);
+	///	Servis servistest = new Servis(automobili, serviserTest, "06.10.2021", "ZamenaMenjaca", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), 11253252);
 	//	servistest.getDeo().add(testDeo);
-		//musterije.dodajServis(servistest);
+	//	musterije.dodajServis(servistest);
 	//	musterije.snimiServis();
 	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
 		musterije.ucitajServis();
 		
-	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, serviserTest, new ArrayList<Servis>(), 1210);
-	//	knjizicaTest.getServisi().add(servistest);
+		//ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), 121210);
+		//knjizicaTest.getServisi().add(servistest);
 	//	musterije.dodajKnjizicu(knjizicaTest);
 	//	musterije.snimiKnjizicu();
-	//	System.out.println("Uspesno");
-		System.out.println("\n");
-		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
+		//System.out.println("Uspesno");
+		//System.out.println("\n");
+		//System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		musterije.ucitajKnjizicu();
 		
 		

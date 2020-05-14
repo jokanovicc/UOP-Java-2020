@@ -11,3 +11,4 @@
 132321|Milan|Milenkovic|Milenkovic|Muski|063445611|Beograd|milanm|milan123|2
 16008|Vlado|Jokan|1600804|Muski|06531000|Secanj|vladd|vlado123|2
 160508|Vlado2|Jokan1|16030804|Muski|06531000|Secanj|vladd1|vlado1231|2
+1603508|Musterija|test1|16445|Muski|06534300|Secanj|vladd1|vlafgfg1231|2
