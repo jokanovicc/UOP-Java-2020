@@ -439,7 +439,7 @@ public class Datoteke {
 					}
 					
 				}
-				Servis servis = new Servis(idOznaka, idServisera, split[2], split[4], deo2, statusi, idoznaka);
+				Servis servis = new Servis(idOznaka, idServisera, split[2], split[5], deo2, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
 				
