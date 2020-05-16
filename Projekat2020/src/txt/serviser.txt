@@ -1,3 +1,4 @@
 2111122|Radoje|Radic|1906205551995|Muski|065985263|Zrenjanin|radojeservis|servis123|30300.0|LIMAR
 21113122|Radasin|Tomic|190632195|Muski|0659323263|Novi Becej|radasinservis|servis1123|30300.0|LIMAR
 21133222|Jovan|Jovanovic|194432195|Muski|06593363|Novi Becej|jovanservis|servis1123|30300.0|LIMAR
+21111222|Branko|Ivanovic|194342195|Muski|06591363|Sutjeska|brankoservis|servis1123|30300.0|AUTOELEKTRICAR

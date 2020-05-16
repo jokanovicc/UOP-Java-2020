@@ -14,84 +14,82 @@ import model.korisnici.Serviser;
 import model.servis.Deo;
 import model.servis.Servis;
 import model.servis.ServisnaKnjizica;
-import radSaDatotekama.KorisniciUI;
+import radSaDatotekama.Datoteke;
 
 
 public class ServisMain {
 
 	public static void main(String[] args) {
-		KorisniciUI musterije = new KorisniciUI();
+		Datoteke podaci = new Datoteke();
 		
 		System.out.println("KORISNICI:------------------------------------------------------------------------------------------------");
 		System.out.println("\n SERVISERI");
-		musterije.ucitajServisera();	
+		podaci.ucitajServisera();	
 		System.out.println("\n");
 		System.out.println("MUSTERIJE----------------------------------------------------------------------------------------------");
-		musterije.ucitajMusteriju();
+		podaci.ucitajMusteriju();
 		System.out.println("\nADMINI------------------------------------------------------------------------------------");
-		musterije.ucitajAdmina();
+		podaci.ucitajAdmina();
 		System.out.println("------------------------------------------------------------------------------------------------------------");
 		System.out.println("\n");
 		System.out.println("\n DELOVI---------------------------------------------------------------------------------");
-		musterije.ucitajDeo();
+		podaci.ucitajDeo();
 		System.out.println("\nAUTOMOBIL---------------------------------------------------------------------------------------------");
-		musterije.ucitajAutomobil();
+		podaci.ucitajAutomobil();
 		
-		//System.out.println(musterije);
-		//System.out.println("Proba");
-		//System.out.println("Dodavanje...");
-		//musterije.snimiMusteriju();
+		System.out.println(podaci);
+		podaci.snimiMusteriju();
 		
 		
 		
-	//	Musterija musterijaTest = new Musterija("Marko","Peric", "1612155", Pol.valueOf("Muski"), "06332300", "Vozdovac", "markop", "marko123", 100003, 1);
-		//System.out.println(musterijaTest.getVidljivost());
-	//	musterije.dodajMusteriju(musterijaTest);
-	//	musterije.snimiMusteriju();
-	//	System.out.println("dodato");
+	//	Musterija musterijaTest = new Musterija("Goran","Mitrovic", "2729335", Pol.valueOf("Muski"), "065321200", "Zitiste", "goranmitro", "mitro123", 100021, 1);
+	//	System.out.println(musterijaTest.getVidljivost());
+	//	podaci.dodajMusteriju(musterijaTest);
+	//	podaci.snimiMusteriju();
+	///	System.out.println("dodato");
 	//	System.out.println("Dodavanje servisera");
 		
 		
 		
-	//	Serviser serviserTest = new Serviser("Jovan", "Jovanovic", "194432195", Pol.valueOf("Muski"), "06593363", "Novi Becej", "jovanservis", "servis1123", 21133222, 30300, Specijalizacija.valueOf("LIMAR"));
-	//	musterije.dodajServisera(serviserTest);
-	//	musterije.snimiServisera();
+	//	Serviser serviserTest = new Serviser("Branko", "Ivanovic", "194342195", Pol.valueOf("Muski"), "06591363", "Sutjeska", "brankoservis", "servis1123", 21111222, 30300, Specijalizacija.valueOf("AUTOELEKTRICAR"));
+	//	podaci.dodajServisera(serviserTest);
+	//	podaci.snimiServisera();
 	//	System.out.println("dODATO");
 		
 		
 		//Admin adminTest = new Admin("Admin111", "Test2", "343243234", Pol.valueOf("Muski"), "06311311", "Zrenjanin", "admin33123", "ado11", 11331555, 50000);
-	//	musterije.dodajAdmina(adminTest);
-	//	musterije.snimiAdmina();
+	//	podaci.dodajAdmina(adminTest);
+	//	podaci.snimiAdmina();
 		
 	//	System.out.println("Dodaj auto");
 
-	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("FORDFOCUS"), 2008, "1200m", "60ks", Gorivo.valueOf("BENZIN"), 8001);
-	//	musterije.dodajAutomobil(automobili);
-	//	musterije.snimiAutomobil();
+	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("OPETASTRA"), 2012, "1600m", "95ks", Gorivo.valueOf("BENZIN"), 9001);
+	//	podaci.dodajAutomobil(automobili);
+	//	podaci.snimiAutomobil();
 	//	System.out.println("Dodato nesto");
 		
-	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("FORDFOCUS"),"ZadnjaVrata", 45000, "1000015");
-	//	musterije.dodajDeo(deo1);
-	//	musterije.snimiDeo();
+	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("OPETASTRA"),"Svecica", 5000, "100012");
+	//	podaci.dodajDeo(deo1);
+	//	podaci.snimiDeo();
 	//	System.out.println("Dodato");
 		
-	//	Servis servistest = new Servis(automobili, serviserTest, "17.05.2020", "ZamenaVrata", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "1000125");
+	//	Servis servistest = new Servis(automobili, serviserTest, "18.05.2020", "RadSaSvecicama", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "1000925");
 	//	servistest.getDeo().add(deo1);
-	//	musterije.dodajServis(servistest);
-	//	musterije.snimiServis();
+	//	podaci.dodajServis(servistest);
+	//	podaci.snimiServis();
 		System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
-		musterije.ucitajServis();
+		podaci.ucitajServis();
 		
-	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), "1000236");
+	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), "1100236");
 	//	knjizicaTest.getServisi().add(servistest);
-	//	musterije.dodajKnjizicu(knjizicaTest);
-	//	musterije.snimiKnjizicu();
-		System.out.println("Uspesno");
+	//	podaci.dodajKnjizicu(knjizicaTest);
+	//	podaci.snimiKnjizicu();
+	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
-		musterije.ucitajKnjizicu();
+		podaci.ucitajKnjizicu();
 		
 		
 

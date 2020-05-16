@@ -1,3 +1,4 @@
 100001|Petar|Petrovic|16323345|Muski|06332300|Secanj|petarp|petar123|2
 100002|Radoje|Radic|16155|Muski|06332300|Karaburma|radoje|radoje123|1
 100003|Marko|Peric|1612155|Muski|06332300|Vozdovac|markop|marko123|1
+100021|Goran|Mitrovic|2729335|Muski|065321200|Zitiste|goranmitro|mitro123|1

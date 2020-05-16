@@ -23,7 +23,7 @@ import model.servis.Deo;
 import model.servis.Servis;
 import model.servis.ServisnaKnjizica;
 
-public class KorisniciUI {
+public class Datoteke {
 	
 	private ArrayList<Musterija> musterije;
 	private ArrayList<Serviser> serviseri;
@@ -35,7 +35,7 @@ public class KorisniciUI {
 	
 	
 //--------------------------------------------------------------------------------------------------------------------
-	public KorisniciUI() {
+	public Datoteke() {
 		this.musterije = new ArrayList<Musterija>();    //kreiranje novih lista
 		this.serviseri = new ArrayList<Serviser>();
 		this.admini = new ArrayList<Admin>();
@@ -439,7 +439,6 @@ public class KorisniciUI {
 					}
 					
 				}
-				
 				Servis servis = new Servis(idOznaka, idServisera, split[2], split[4], deo2, statusi, idoznaka);
 				servisi.add(servis);
 				System.out.println(servis);
