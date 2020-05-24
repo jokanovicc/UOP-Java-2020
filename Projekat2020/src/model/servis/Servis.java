@@ -17,7 +17,7 @@ public class Servis {
 	private ArrayList<Deo> deo;
 	private Statusi status;
 	private String iDoznaka;
-	private boolean vidljivost;	
+	private boolean obrisan;	
 
 	
 	public Servis() {
@@ -28,6 +28,7 @@ public class Servis {
 		this.deo = new ArrayList<Deo>();
 		this.status = Statusi.SLOBODAN;
 		this.iDoznaka = "";
+		this.obrisan = false;
 	}
 
 
@@ -35,8 +36,11 @@ public class Servis {
 
 
 
+
+
+
 	public Servis(Automobil automobil, Serviser serviser, String termin, String opis, ArrayList<Deo> deo,
-			Statusi status, String iDoznaka) {
+			Statusi status, String iDoznaka, boolean obrisan) {
 		super();
 		this.automobil = automobil;
 		this.serviser = serviser;
@@ -45,7 +49,11 @@ public class Servis {
 		this.deo = deo;
 		this.status = status;
 		this.iDoznaka = iDoznaka;
+		this.obrisan = obrisan;
 	}
+
+
+
 
 
 
@@ -166,23 +174,23 @@ public class Servis {
 	
 
 	
-	public boolean getVidljivost() {
-		return vidljivost;
+	public boolean isObrisan() {
+		return obrisan;
 	}
-	
-	public void brisanje() {
-		this.vidljivost = false;
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 	@Override
 	public String toString() {
 		return  "\n" + automobil + "|" + serviser + "|" + termin + "|" + opis
-				+ "|" + deo + "|" + status + "|" + iDoznaka;
+				+ "|" + deo + "|" + status + "|" + iDoznaka + "|" + isObrisan();
 	}
 	
 	public String toString2() {
 		return "|" +  opis
-				+ "|" + status + "|" + iDoznaka;
+				+ "|" + status + "|" + iDoznaka+ "|" + isObrisan();
 	}
 	
 	

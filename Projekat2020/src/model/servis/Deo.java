@@ -10,7 +10,7 @@ public class Deo {
 	private String naziv;
 	private double cena;
 	private String idDela;
-	private boolean vidljivost;
+	private boolean obrisan;
 	
 	
 	public Deo() {
@@ -18,19 +18,25 @@ public class Deo {
 		this.naziv = "";
 		this.cena = 0;
 		this.idDela = "";
+		this.obrisan = false;
 	}
 
 
 
 
 
-	public Deo(MarkaModelDeo automobil, String naziv, double cena, String idDela) {
+
+
+	public Deo(MarkaModelDeo automobil, String naziv, double cena, String idDela, boolean obrisano) {
 		super();
 		this.automobil = automobil;
 		this.naziv = naziv;
 		this.cena = cena;
 		this.idDela = idDela;
+		this.obrisan = obrisano;
 	}
+
+
 
 
 
@@ -77,18 +83,17 @@ public class Deo {
 		this.idDela = idDela;
 	}
 
+	public boolean isObrisan() {
+		return obrisan;
+	}
 
-	public boolean getVidljivost() {
-		return vidljivost;
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
-	public void brisanje() {
-		this.vidljivost = false;
-	}
-
 	@Override
 	public String toString() {
-		return automobil + "|" + naziv + "|" + cena + "|" + idDela;
+		return automobil + "|" + naziv + "|" + cena + "|" + idDela + "|" + isObrisan();
 	}
 
 

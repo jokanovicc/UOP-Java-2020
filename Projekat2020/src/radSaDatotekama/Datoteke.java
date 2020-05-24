@@ -181,7 +181,8 @@ public class Datoteke {
 				int IDOznaka = Integer.parseInt(split[0]);
 				String indeksPol =split[4];
 				Pol pol  = Pol.valueOf(indeksPol);
-				Musterija musterija = new Musterija(split[1], split[2], split[3], pol, split[5], split[6], split[7], split[8], IDOznaka, brojSakupljenihBodova);
+				boolean obrisan = Boolean.parseBoolean(split[10]);
+				Musterija musterija = new Musterija(split[1], split[2], split[3], pol, split[5], split[6], split[7], split[8], IDOznaka,obrisan, brojSakupljenihBodova);
 				musterije.add(musterija);
 				System.out.println(musterija);
 				
@@ -224,9 +225,10 @@ public class Datoteke {
 				String polInt = split[4];
 				Pol pol  = Pol.valueOf(polInt);
 				double plata = Double.parseDouble(split[9]);
-				String indeksSpec = split[10];		
+				String indeksSpec = split[10];
+				boolean obrisana = Boolean.parseBoolean(split[11]);
 				Specijalizacija specijalizacija = Specijalizacija.valueOf(indeksSpec);
-				Serviser serviser = new Serviser(split[1], split[2],split[3], pol, split[5], split[6],split[7], split[8], IDOznaka, plata, specijalizacija);
+				Serviser serviser = new Serviser(split[1], split[2],split[3], pol, split[5], split[6],split[7], split[8], IDOznaka,obrisana, plata, specijalizacija);
 				serviseri.add(serviser);
 				System.out.println(serviser);
 				
@@ -269,7 +271,8 @@ public class Datoteke {
 				String indeksPol = split[4];
 				Pol pol  = Pol.valueOf(indeksPol);
 				double plata = Double.parseDouble(split[9]);
-				Admin admin = new Admin(split[1], split[2],split[3], pol, split[5],split[6], split[7], split[8], IDOznaka, plata);
+				boolean obrisana = Boolean.parseBoolean(split[3]);
+				Admin admin = new Admin(split[1], split[2],split[3], pol, split[5],split[6], split[7], split[8], IDOznaka,obrisana, plata);
 				admini.add(admin);
 				System.out.println(admin);
 				
@@ -317,7 +320,10 @@ public class Datoteke {
 				String indeksGorivo = split[5];
 				Gorivo vrstaGoriva = Gorivo.valueOf(indeksGorivo);
 				int id = Integer.parseInt(split[6]);
-				Automobil automobil = new Automobil(IDOznaka, markaModel, godinaProizvodnje, split[3], split[4], vrstaGoriva, id);
+				boolean obrisana = Boolean.parseBoolean(split[7]);
+				
+				
+				Automobil automobil = new Automobil(IDOznaka, markaModel, godinaProizvodnje, split[3], split[4], vrstaGoriva, id,obrisana);
 				automobili.add(automobil);
 				System.out.println(automobil);
 				
@@ -362,7 +368,8 @@ public class Datoteke {
 				MarkaModelDeo markamodel = MarkaModelDeo.valueOf(markaindex);
 				double cena = Double.parseDouble(split[2]);
 				String id = split[3];
-				Deo deo = new Deo(markamodel, naziv, cena, id);
+				boolean obrisana = Boolean.parseBoolean(split[4]);
+				Deo deo = new Deo(markamodel, naziv, cena, id,obrisana);
 				delovi.add(deo);
 				System.out.println(deo);
 				
@@ -428,6 +435,7 @@ public class Datoteke {
 				String statusIndex = split[6];
 				Statusi statusi = Statusi.valueOf(statusIndex);
 				String idoznaka = split[7];
+				boolean obrisan = Boolean.parseBoolean(split[8]);
 				
 				String[] deloviSplit = delovi1.split(";");
 				ArrayList<Deo> deo2 = new ArrayList<Deo>();
@@ -439,7 +447,7 @@ public class Datoteke {
 					}
 					
 				}
-				Servis servis = new Servis(idOznaka, idServisera, split[2], split[5], deo2, statusi, idoznaka);
+				Servis servis = new Servis(idOznaka, idServisera, split[2], split[5], deo2, statusi, idoznaka,obrisan);
 				servisi.add(servis);
 				System.out.println(servis);
 				
@@ -477,12 +485,13 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int id1 = Integer.parseInt(split[0]);
-				Automobil idOznaka = nadjiAutomobil(id1);		
+				//int id1 = Integer.parseInt(split[0]);
+			//	Automobil idOznaka = nadjiAutomobil(id1);		
 				//int idserv = Integer.parseInt(split[1]);
 				//Serviser idServisera = nadjiServisera(idserv);
-				String servis1 = split[2];
-				String idoznaka = split[1];
+				String servis1 = split[1];
+				String idoznaka = split[0];
+				boolean obrisana = Boolean.parseBoolean(split[2]);
 				
 				String[] servisSplit = servis1.split(";");
 				ArrayList<Servis> servisi1 = new ArrayList<Servis>();
@@ -493,7 +502,7 @@ public class Datoteke {
 					}
 					
 				}			
-				ServisnaKnjizica knjizica = new ServisnaKnjizica(idOznaka,servisi1, idoznaka);
+				ServisnaKnjizica knjizica = new ServisnaKnjizica(servisi1, idoznaka,obrisana);
 				knjizice.add(knjizica);
 				System.out.println(knjizica);
 				
@@ -514,7 +523,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
-				sadrzaj += knjizica.getAutomobilid() +"|" + knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID())+"\n";
+				sadrzaj += knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID()) +"|" +knjizica.isObrisan()+"\n";
 			}
 			br.write(sadrzaj);
 			br.close();

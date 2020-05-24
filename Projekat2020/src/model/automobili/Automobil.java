@@ -14,7 +14,7 @@ public class Automobil {
 	private String snaga;
 	private Gorivo vrstaGoriva;
 	private int idOznaka;
-	private boolean vidljivost;
+	private boolean obrisan;
 	
 	public Automobil() {
 		this.vlasnik = new Musterija();
@@ -24,13 +24,19 @@ public class Automobil {
 		this.snaga = "";
 		this.vrstaGoriva = Gorivo.GAS;
 		this.idOznaka = 0;
+		this.obrisan = false;
 	}
 	
 
 
 
+	
+
+
+
+
 	public Automobil(Musterija vlasnik, MarkaModelDeo markaModel, int godinaProizvodnje, String zapreminaMotora,
-			String snaga, Gorivo vrstaGoriva, int idOznaka) {
+			String snaga, Gorivo vrstaGoriva, int idOznaka, boolean obrisan) {
 		super();
 		this.vlasnik = vlasnik;
 		this.markaModel = markaModel;
@@ -39,10 +45,13 @@ public class Automobil {
 		this.snaga = snaga;
 		this.vrstaGoriva = vrstaGoriva;
 		this.idOznaka = idOznaka;
+		this.obrisan = obrisan;
 	}
 
 
-	
+
+
+
 
 
 
@@ -173,12 +182,12 @@ public class Automobil {
 	}
 
 
-	public boolean getVidljivost() {
-		return vidljivost;
+	public boolean isObrisan() {
+		return obrisan;
 	}
-	
-	public void brisanje() {
-		this.vidljivost = false;
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 
 
@@ -186,13 +195,13 @@ public class Automobil {
 	public String toString() {
 		return  vlasnik + "|" + markaModel + "|"
 				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
-				+ vrstaGoriva + "|" + idOznaka;
+				+ vrstaGoriva + "|" + idOznaka + "|" + isObrisan();
 	}
 	
 	public String toString2() {
 		return  markaModel + "|"
 				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
-				+ vrstaGoriva + "|" + idOznaka;
+				+ vrstaGoriva + "|" + idOznaka+ "|" + isObrisan();
 	}
 	
 	

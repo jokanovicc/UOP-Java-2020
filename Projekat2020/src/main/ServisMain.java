@@ -42,51 +42,52 @@ public class ServisMain {
 		
 		
 		
-	//	Musterija musterijaTest = new Musterija("Milan","Milanovic", "27129335", Pol.valueOf("Muski"), "063335200", "Klek", "milanm", "milanm123", 100071, 1);
-	//	System.out.println(musterijaTest.getVidljivost());
+	//	Musterija musterijaTest = new Musterija("Zivojin", "Jovanovic", "116300322", Pol.valueOf("Muski"), "06538888", "Alibunar", "ali123", "12345", 222344, false, 2);
 	//	podaci.dodajMusteriju(musterijaTest);
 	//	podaci.snimiMusteriju();
+		//System.out.println(musterijaTest);
+
 	//	System.out.println("dodato");
 	//	System.out.println("Dodavanje servisera");
 		
 		
 		
-	//	Serviser serviserTest = new Serviser("Rade", "Radic", "134342195", Pol.valueOf("Muski"), "06331363", "Despotovac", "radeservis", "servis1123", 212311222, 30300, Specijalizacija.valueOf("AUTOELEKTRICAR"));
+	//	Serviser serviserTest = new Serviser("Jovica", "Peric", "133234342195", Pol.valueOf("Muski"), "0643563", "Orlovat", "jovicaservis", "servis11123", 2123311444,false,30300, Specijalizacija.valueOf("AUTOELEKTRICAR"));
 	//	podaci.dodajServisera(serviserTest);
-	//	podaci.snimiServisera();
-	//	System.out.println("dODATO");
+//		podaci.snimiServisera();
+//		System.out.println("dODATO");
 		
 		
-		//Admin adminTest = new Admin("Admin111", "Test2", "343243234", Pol.valueOf("Muski"), "06311311", "Zrenjanin", "admin33123", "ado11", 11331555, 50000);
+	//	Admin adminTest = new Admin("Nikola", "Dzonic", "343243234", Pol.valueOf("Muski"), "06331311", "Zrenjanin", "admin33123", "ado11", 11331555, false,60000);
 	//	podaci.dodajAdmina(adminTest);
 	//	podaci.snimiAdmina();
 		
 	//	System.out.println("Dodaj auto");
 
-	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 2009, "1400m", "95ks", Gorivo.valueOf("BENZIN"), 9006);
+	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1993, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 9020,false);
 	//	podaci.dodajAutomobil(automobili);
 	//	podaci.snimiAutomobil();
 	//	System.out.println("Dodato nesto");
 		
-	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Karburator", 23000, "100017");
+	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Volan", 8000, "100060",false);
 	//	podaci.dodajDeo(deo1);
 	//	podaci.snimiDeo();
 	//	System.out.println("Dodato");
 		
-	//	Servis servistest = new Servis(automobili, serviserTest, "21.05.2020", "Zamena Karburatora", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "100125");
-	//	servistest.getDeo().add(deo1);
+//		Servis servistest = new Servis(automobili, serviserTest, "26.05.2020", "Zamena Volana", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "100140",false);
+//		servistest.getDeo().add(deo1);
 	//	podaci.dodajServis(servistest);
 	//	podaci.snimiServis();
-//		System.out.println("Uspesno");
+	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
 		podaci.ucitajServis();
 		
-	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(automobili, new ArrayList<Servis>(), "1100238");
+	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(new ArrayList<Servis>(), "111333",false);
 	//	knjizicaTest.getServisi().add(servistest);
-//		podaci.dodajKnjizicu(knjizicaTest);
+	//	podaci.dodajKnjizicu(knjizicaTest);
 	//	podaci.snimiKnjizicu();
-	//	System.out.println("Uspesno");
+		System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		podaci.ucitajKnjizicu();

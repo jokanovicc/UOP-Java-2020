@@ -4,8 +4,7 @@ import model.enumeracije.Pol;
 
 public class Admin extends Korisnik {
 	
-	private double plata;
-	private boolean vidljivost;	
+	private double plata;	
 	
 	
 	public Admin() {
@@ -14,11 +13,19 @@ public class Admin extends Korisnik {
 	}
 	
 	
+
+
+
+
 	public Admin(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa, String username,
-			String lozinka, int iDOznaka, double plata) {
-		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka);
+			String lozinka, int iDOznaka, boolean obrisan, double plata) {
+		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka, obrisan);
 		this.plata = plata;
 	}
+
+
+
+
 
 
 	public double getPlata() {
@@ -30,13 +37,6 @@ public class Admin extends Korisnik {
 		this.plata = plata;
 	}
 
-	public boolean getVidljivost() {
-		return vidljivost;
-	}
-	
-	public void brisanje() {
-		this.vidljivost = false;
-	}
 
 
 
@@ -44,7 +44,7 @@ public class Admin extends Korisnik {
 	public String toString() {
 		return IDOznaka + "|" + ime + "|" + prezime
 				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
-				+ "|" + username + "|" + lozinka + "|" + plata;
+				+ "|" + username + "|" + lozinka + "|" + plata + "|" + isObrisan();
 	}
 	
 	
