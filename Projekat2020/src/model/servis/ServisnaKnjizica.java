@@ -20,21 +20,12 @@ public class ServisnaKnjizica {
 	}
 
 
-
-
-
-
-
 	public ServisnaKnjizica(ArrayList<Servis> servisi, String idOznaka, boolean obrisan) {
 		super();
 		this.servisi = servisi;
 		this.idOznaka = idOznaka;
 		this.obrisan = obrisan;
 	}
-
-
-
-
 
 
 
@@ -61,9 +52,6 @@ public class ServisnaKnjizica {
 	public String getIdOznaka() {
 		return idOznaka;
 	}
-
-
-
 
 
 	public void setIdOznaka(String idOznaka) {

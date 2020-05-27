@@ -42,9 +42,10 @@ public class ServisMain {
 		
 		
 		
-	//	Musterija musterijaTest = new Musterija("Zivojin", "Jovanovic", "116300322", Pol.valueOf("Muski"), "06538888", "Alibunar", "ali123", "12345", 222344, false, 2);
+	//	Musterija musterijaTest = new Musterija("M543345i", "Mf4543543dic", "113434", Pol.valueOf("Muski"), "065348888", "Alibunar", "al434", "121", 2344, false, 2);
 	//	podaci.dodajMusteriju(musterijaTest);
 	//	podaci.snimiMusteriju();
+		
 		//System.out.println(musterijaTest);
 
 	//	System.out.println("dodato");
@@ -64,7 +65,7 @@ public class ServisMain {
 		
 	//	System.out.println("Dodaj auto");
 
-	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1993, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 9020,false);
+	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1998, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 90100,false);
 	//	podaci.dodajAutomobil(automobili);
 	//	podaci.snimiAutomobil();
 	//	System.out.println("Dodato nesto");
@@ -87,16 +88,14 @@ public class ServisMain {
 	//	knjizicaTest.getServisi().add(servistest);
 	//	podaci.dodajKnjizicu(knjizicaTest);
 	//	podaci.snimiKnjizicu();
-		System.out.println("Uspesno");
+	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		podaci.ucitajKnjizicu();
 		
 		
-
-	}
 		
 
-			
+	}
 
 }

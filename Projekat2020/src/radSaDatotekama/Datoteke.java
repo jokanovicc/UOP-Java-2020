@@ -17,6 +17,7 @@ import model.enumeracije.Pol;
 import model.enumeracije.Specijalizacija;
 import model.enumeracije.Statusi;
 import model.korisnici.Admin;
+import model.korisnici.Korisnik;
 import model.korisnici.Musterija;
 import model.korisnici.Serviser;
 import model.servis.Deo;
@@ -63,10 +64,29 @@ public class Datoteke {
 		}
 		return null;
 	}
+	
+	public void obrisiMusteriju(Musterija musterija) {   //ako obrise musteriju, povuce za sobom i njegov automobil
+		musterija.setObrisan(true);
+		this.musterije.remove(musterija);
+		for(Automobil a:automobili) {
+			if(a.getVlasnikId()==musterija.getIDOznaka()) {
+				obrisiAutomobil(a);
+				
+			}
+		}
+	}
+	
+	public ArrayList<Musterija> sveNeobrisaneMusterije(){
+		ArrayList<Musterija> neobrisane = new ArrayList<Musterija>();
+		for(Musterija musterija: musterije) {
+			if(musterija.isObrisan()) {
+				neobrisane.add(musterija);
+			}
+		}
+		return neobrisane;
+	}
 //----------------------------------------------------------------------------------------------------------------------------
 
-	
-	
 	
 	public void dodajServisera(Serviser serviser) {
 		this.serviseri.add(serviser);
@@ -81,7 +101,22 @@ public class Datoteke {
 		return null;
 	}
 	
-//--------------------------------------------------------------------------------------------------------	
+	public void obrisiServisera(Serviser serviser) {
+		serviser.setObrisan(true);
+		this.serviseri.remove(serviser);
+	}
+	
+	public ArrayList<Serviser> sveNeobrisaniServiseri(){
+		ArrayList<Serviser> neobrisane = new ArrayList<Serviser>();
+		for(Serviser serviser: serviseri) {
+			if(serviser.isObrisan()) {
+				neobrisane.add(serviser);
+			}
+		}
+		return neobrisane;
+	}
+
+//-----------------------------------------------------------------------------
 	
 	public ArrayList<Automobil> getAutomobil(){
 		return automobili;
@@ -99,7 +134,29 @@ public class Datoteke {
 		return null;
 	}
 	
+	public void obrisiAutomobil(Automobil automobil) {
+		automobil.setObrisan(true);
+		this.automobili.remove(automobil);   //ako obrise automobil ode i njegov servis
+		for(Servis servis: servisi) {
+			if(servis.getAutomobilid()==automobil.getIdOznaka()) {  
+				obrisiServis(servis);
+			}
+			
+		}
+	}
 	
+	public ArrayList<Automobil> sviNeobrisaniAutomobili(){
+		ArrayList<Automobil> neobrisani = new ArrayList<Automobil>();
+		for(Automobil automobil: automobili) {
+			if(!automobil.isObrisan()) {
+				neobrisani.add(automobil);    //posebna lista za neobrisane aute
+			}
+		}
+		
+		return neobrisani;
+		
+		
+	}
 //------------------------------------------------------------------------------------------------------------------------------------
 	
 	
@@ -108,6 +165,11 @@ public class Datoteke {
 	}
 	public void dodajAdmina(Admin admin) {
 		this.admini.add(admin);
+	}
+
+	public void obrisiAdmina(Admin admin) {
+		admin.setObrisan(true);
+		this.admini.remove(admin);
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -128,6 +190,11 @@ public class Datoteke {
 		}
 		return null;
 	}
+	
+	public void obrisiDeo(Deo deo) {
+		deo.setObrisan(true);
+		delovi.remove(deo);
+	}
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -138,7 +205,29 @@ public class Datoteke {
 	public void dodajServis(Servis servis) {
 		this.servisi.add(servis);
 	}
+	public void obrisiServis(Servis servis) {
+		servis.setObrisan(true);
+		this.servisi.remove(servis);
+		for(ServisnaKnjizica knjizica: knjizice) {
+			if(knjizica.getServisID().equals(servis.getiDoznaka())) {  
+				obrisiKnjizicu(knjizica);
+			}
+			
+		}
+													
+	}
 	
+	public ArrayList<Servis> sviNeobrisaniServisi(){
+		ArrayList<Servis> neobrisani = new ArrayList<Servis>();
+		for(Servis servis: servisi) {
+			if(!servis.isObrisan()) {
+				neobrisani.add(servis);      //pravi listu neobrisanih
+			}
+		}
+		
+		return neobrisani;
+		
+	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -154,7 +243,21 @@ public class Datoteke {
 	public ArrayList<ServisnaKnjizica> getKnjizica(){
 		return knjizice;
 	}
+
+	public void obrisiKnjizicu(ServisnaKnjizica knjizica) {  //servisna knjizica moze postojati i bez servisa
+		knjizica.setObrisan(true);
+		this.knjizice.remove(knjizica);                     //izmena se vrsi tako sto se prvo obrise pa se ponovo unese objekat
+	}
 	
+	public ArrayList<ServisnaKnjizica> sveNeobrisaneKnjizice(){
+		ArrayList<ServisnaKnjizica> neobrisane = new ArrayList<ServisnaKnjizica>();
+		for(ServisnaKnjizica knjizica: knjizice) {
+			if(!knjizica.isObrisan()) {
+				neobrisane.add(knjizica);
+			}
+		}
+		return neobrisane;
+	}
 //------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public Servis nadjiServis(String idOznaka) {
@@ -418,6 +521,19 @@ public class Datoteke {
 		
 	}
 	
+	public ArrayList<Deo> sviNeobrisaniDelovi(){
+		ArrayList<Deo> neobrisani = new ArrayList<Deo>();
+		for(Deo deo: delovi) {
+			if(!deo.isObrisan()) {
+				neobrisani.add(deo);    //posebna lista za neobrisane aute
+			}
+		}
+		
+		return neobrisani;
+		
+		
+	}
+	
 //-----------------------RAD SA SERVISOM---------------------------------------------------------------------------------------	
 	
 	public void ucitajServis() {
@@ -532,9 +648,18 @@ public class Datoteke {
 			e.printStackTrace();
 		}
 	}
+}
 	
 
+	
+
+	
+
+//----------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 	
-}
 

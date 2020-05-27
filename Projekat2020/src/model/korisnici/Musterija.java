@@ -43,7 +43,7 @@ public class Musterija extends Korisnik {
 	public String toString() {
 		return  IDOznaka + "|" + ime + "|" + prezime
 				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
-				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova +"|" + isObrisan();
+				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova +"|" + obrisan;
 	}
 
 
