@@ -1,7 +1,10 @@
 package model.servis;
 
 import model.automobili.Automobil;
+import main.*;
 import model.enumeracije.MarkaModelDeo;
+import radSaDatotekama.Datoteke;
+import main.ServisMain;
 
 public class Deo {
 	
@@ -11,6 +14,9 @@ public class Deo {
 	private double cena;
 	private String idDela;
 	private boolean obrisan;
+	//public static ServisMain podaci = new ServisMain();  //samo za potrebe maina
+
+	
 	
 	
 	public Deo() {
@@ -23,10 +29,6 @@ public class Deo {
 
 
 
-
-
-
-
 	public Deo(MarkaModelDeo automobil, String naziv, double cena, String idDela, boolean obrisano) {
 		super();
 		this.automobil = automobil;
@@ -36,11 +38,7 @@ public class Deo {
 		this.obrisan = obrisano;
 	}
 
-
-
-
-
-
+	
 
 	public MarkaModelDeo getAutomobil() {
 		return automobil;
@@ -71,7 +69,6 @@ public class Deo {
 		this.cena = cena;
 	}
 
-	
 
 
 	public String getIdDela() {
@@ -86,9 +83,38 @@ public class Deo {
 	public boolean isObrisan() {
 		return obrisan;
 	}
+	
 
 	public void setObrisan(boolean obrisan) {
 		this.obrisan = obrisan;
+	}
+	
+	public static void kreirajSimetricniDeo(Deo deo) {
+		String mystring = deo.getNaziv();
+		String arr[] = mystring.split(" ", 3);
+	
+		
+		 if((arr[0].equals("Leva") && arr[1].equals("strana")) 
+				 || (arr[0].equals("Desna") && arr[1].equals("strana"))) {
+		
+		
+		
+			if(arr[0].equals("Leva") && arr[1].equals("strana")) {
+				Deo deo2 = new Deo (deo.getAutomobil(),
+						"Desna strana" + " " +arr[2] , deo.getCena(), deo.getIdDela(), deo.isObrisan());
+				ServisMain.podaci.dodajDeo(deo2);  //ovo duplo ce biti izmenjeno, zavisi gde funkcija bude trebala
+				ServisMain.podaci.snimiDeo();
+				
+				
+			} else if (arr[0].equals("Desna") && arr[1].equals("strana")) {
+				Deo deo2 = new Deo (deo.getAutomobil(),
+						"Leva strana" + " "+ arr[2] , deo.getCena(), deo.getIdDela(), deo.isObrisan());
+				ServisMain.podaci.dodajDeo(deo2);
+				ServisMain.podaci.snimiDeo();
+				
+			
+			
+		} }
 	}
 	
 	@Override
@@ -96,10 +122,10 @@ public class Deo {
 		return automobil + "|" + naziv + "|" + cena + "|" + idDela + "|" + isObrisan();
 	}
 
-
-
 	
 	
+	
+
 
 }
 

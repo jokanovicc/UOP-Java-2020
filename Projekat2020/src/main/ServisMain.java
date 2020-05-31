@@ -18,9 +18,14 @@ import radSaDatotekama.Datoteke;
 
 
 public class ServisMain {
+	public static Datoteke podaci = new Datoteke();
+     
+	
+
 
 	public static void main(String[] args) {
-		Datoteke podaci = new Datoteke();
+	//	Datoteke podaci = new Datoteke();
+		
 		
 		System.out.println("KORISNICI:------------------------------------------------------------------------------------------------");
 		System.out.println("\n SERVISERI");
@@ -36,27 +41,35 @@ public class ServisMain {
 		podaci.ucitajDeo();
 		System.out.println("\nAUTOMOBIL---------------------------------------------------------------------------------------------");
 		podaci.ucitajAutomobil();
+		podaci.ucitajServis();
 		
 		//System.out.println(podaci);
 	//	podaci.snimiMusteriju();
 		
 		
 		
-	//	Musterija musterijaTest = new Musterija("M543345i", "Mf4543543dic", "113434", Pol.valueOf("Muski"), "065348888", "Alibunar", "al434", "121", 2344, false, 2);
+		Musterija musterijaTest = new Musterija("Dragan", "Petro", "2000", Pol.valueOf("Muski"), "063434", "Konak", "gagi", "123", 11111111, false, 2);
+		podaci.dodajMusteriju(musterijaTest);
+		podaci.snimiMusteriju();
 	//	podaci.dodajMusteriju(musterijaTest);
 	//	podaci.snimiMusteriju();
+	//	Musterija musterijaTest2 = new Musterija("izmena", "Mf2223dic", "113434", Pol.valueOf("Muski"), "065348888", "Alibunar", "al434", "121", 2344, false, 2);
+	//	podaci.IzmeniMusteriju(musterijaTest, musterijaTest2);
 		
-		//System.out.println(musterijaTest);
+		
+		
+		
+	//	System.out.println(musterijaTest);
 
-	//	System.out.println("dodato");
-	//	System.out.println("Dodavanje servisera");
+		System.out.println("dodato");
+		System.out.println("Dodavanje servisera");
 		
 		
 		
-	//	Serviser serviserTest = new Serviser("Jovica", "Peric", "133234342195", Pol.valueOf("Muski"), "0643563", "Orlovat", "jovicaservis", "servis11123", 2123311444,false,30300, Specijalizacija.valueOf("AUTOELEKTRICAR"));
-	//	podaci.dodajServisera(serviserTest);
-//		podaci.snimiServisera();
-//		System.out.println("dODATO");
+	Serviser serviserTest = new Serviser("Jovica", "Peric", "133234342195", Pol.valueOf("Muski"), "0643563", "Orlovat", "jovicaservis", "servis11123", 2123311444,false,30300, Specijalizacija.valueOf("AUTOELEKTRICAR"));
+		podaci.dodajServisera(serviserTest);
+		podaci.snimiServisera();
+	//	System.out.println("dODATO");
 		
 		
 	//	Admin adminTest = new Admin("Nikola", "Dzonic", "343243234", Pol.valueOf("Muski"), "06331311", "Zrenjanin", "admin33123", "ado11", 11331555, false,60000);
@@ -65,24 +78,57 @@ public class ServisMain {
 		
 	//	System.out.println("Dodaj auto");
 
-	//	Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1998, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 90100,false);
-	//	podaci.dodajAutomobil(automobili);
-	//	podaci.snimiAutomobil();
+		Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1998, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 90100,false);
+		podaci.dodajAutomobil(automobili);
+		podaci.snimiAutomobil();
+	//	podaci.obrisiMusteriju(musterijaTest);
+	//	podaci.obrisiAutomobil(automobili);
 	//	System.out.println("Dodato nesto");
 		
-	//	Deo deo1 = new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Volan", 8000, "100060",false);
-	//	podaci.dodajDeo(deo1);
+		
+		
+		
+		
+		
+		
+		
+	//	Deo deo2= new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Desna strana motora", 8000, "100060",false);
+		
+	//	deo2.kreirajSimetricniDeo(deo2);
+	//	podaci.dodajDeo(deo2);
 	//	podaci.snimiDeo();
 	//	System.out.println("Dodato");
+		Deo deo3= new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Desna fdfdfora", 23, "100060",false);
+//
 		
-//		Servis servistest = new Servis(automobili, serviserTest, "26.05.2020", "Zamena Volana", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "100140",false);
-//		servistest.getDeo().add(deo1);
+		Servis servistest = new Servis(automobili, serviserTest, "31.05.2020", "Zamena", new ArrayList<Deo>(), Statusi.valueOf("ZAKAZAN"), "10123",false);
+		servistest.getDeo().add(deo3);	
+		podaci.dodajServis(servistest);
+		podaci.snimiServis();	
+	//	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		podaci.obrisiMusteriju(musterijaTest);
+		
+	//	podaci.obrisiServis(servistest);
+	//	podaci.obrisiAutomobil(automobili);
 	//	podaci.dodajServis(servistest);
 	//	podaci.snimiServis();
 	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
-		podaci.ucitajServis();
 		
 	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(new ArrayList<Servis>(), "111333",false);
 	//	knjizicaTest.getServisi().add(servistest);
@@ -92,10 +138,43 @@ public class ServisMain {
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
 		podaci.ucitajKnjizicu();
+	//	podaci.obrisiKnjizicu(knjizicaTest);
 		
+		System.out.println("\n Liste-------------------------------------------");
+		IspisiSvepodatke(podaci);
 		
 		
 
+		
+
 	}
+	
+	public static void IspisiSvepodatke(Datoteke datoteke) {
+		for (Musterija musterija: datoteke.getMusterija()) {
+			System.out.println(musterija + "\n");
+			
+		}
+		
+		for(Automobil automobil : datoteke.getAutomobil()) {
+			System.out.println("\n"+automobil + "\n");
+		}
+		
+		for(ServisnaKnjizica knjizica : datoteke.getServisnaKnjizica()) {
+			System.out.println("\n"+knjizica + "\n");
+		}
+		
+		for(Servis servisi : datoteke.getServis()) {
+			System.out.println("\n"+servisi + "\n");
+		}
+		for(Musterija musterija : datoteke.sveNeobrisaneMusterije()) {
+			System.out.println("-------------------------------\n"+musterija + "\n");
+		}
+		
+		
+		
+	}
+	
+
+	
 
 }

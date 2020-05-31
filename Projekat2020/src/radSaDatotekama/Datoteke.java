@@ -67,7 +67,9 @@ public class Datoteke {
 	
 	public void obrisiMusteriju(Musterija musterija) {   //ako obrise musteriju, povuce za sobom i njegov automobil
 		musterija.setObrisan(true);
-		this.musterije.remove(musterija);
+		musterije.remove(musterija);
+		dodajMusteriju(musterija);
+		snimiMusteriju();
 		for(Automobil a:automobili) {
 			if(a.getVlasnikId()==musterija.getIDOznaka()) {
 				obrisiAutomobil(a);
@@ -79,7 +81,7 @@ public class Datoteke {
 	public ArrayList<Musterija> sveNeobrisaneMusterije(){
 		ArrayList<Musterija> neobrisane = new ArrayList<Musterija>();
 		for(Musterija musterija: musterije) {
-			if(musterija.isObrisan()) {
+			if(!musterija.isObrisan()) {
 				neobrisane.add(musterija);
 			}
 		}
@@ -136,10 +138,13 @@ public class Datoteke {
 	
 	public void obrisiAutomobil(Automobil automobil) {
 		automobil.setObrisan(true);
-		this.automobili.remove(automobil);   //ako obrise automobil ode i njegov servis
+		snimiAutomobil();
+		
 		for(Servis servis: servisi) {
-			if(servis.getAutomobilid()==automobil.getIdOznaka()) {  
+			if(servis.getAutomobilid()==automobil.getIdOznaka()) {
 				obrisiServis(servis);
+
+				
 			}
 			
 		}
@@ -169,7 +174,6 @@ public class Datoteke {
 
 	public void obrisiAdmina(Admin admin) {
 		admin.setObrisan(true);
-		this.admini.remove(admin);
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -193,7 +197,6 @@ public class Datoteke {
 	
 	public void obrisiDeo(Deo deo) {
 		deo.setObrisan(true);
-		delovi.remove(deo);
 	}
 
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -207,14 +210,8 @@ public class Datoteke {
 	}
 	public void obrisiServis(Servis servis) {
 		servis.setObrisan(true);
-		this.servisi.remove(servis);
-		for(ServisnaKnjizica knjizica: knjizice) {
-			if(knjizica.getServisID().equals(servis.getiDoznaka())) {  
-				obrisiKnjizicu(knjizica);
-			}
-			
-		}
-													
+		snimiServis();
+										
 	}
 	
 	public ArrayList<Servis> sviNeobrisaniServisi(){
@@ -245,8 +242,7 @@ public class Datoteke {
 	}
 
 	public void obrisiKnjizicu(ServisnaKnjizica knjizica) {  //servisna knjizica moze postojati i bez servisa
-		knjizica.setObrisan(true);
-		this.knjizice.remove(knjizica);                     //izmena se vrsi tako sto se prvo obrise pa se ponovo unese objekat
+		knjizica.setObrisan(true);                   //izmena se vrsi tako sto se prvo obrise pa se ponovo unese objekat
 	}
 	
 	public ArrayList<ServisnaKnjizica> sveNeobrisaneKnjizice(){
@@ -578,7 +574,7 @@ public class Datoteke {
 	public void snimiServis() {
 		try {
 			File file = new File("src/txt/servis.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file,true));
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for (Servis servis : servisi) {
 			
@@ -591,6 +587,7 @@ public class Datoteke {
 			e.printStackTrace();
 	}
 	}
+	
 	
 //--------------------------------RAD SA KNJIZICOM----------------------------------------------------------------------------------------
 	
@@ -648,10 +645,27 @@ public class Datoteke {
 			e.printStackTrace();
 		}
 	}
-}
-	
 
+
+
+	public void IzmeniMusteriju(Musterija musterija,Musterija musterija1) {
+			if(musterija1.getIDOznaka()==musterija.getIDOznaka()) {
+				this.musterije.remove(musterija);
+				dodajMusteriju(musterija1);
+				snimiMusteriju();
+				
+			}
+			
+		}
 	
+	
+	
+	
+	
+	}
+
+
+
 
 	
 

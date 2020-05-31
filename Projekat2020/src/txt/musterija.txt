@@ -1,8 +1,7 @@
 100001|Petar|Petrovic|16323345|Muski|06332300|Secanj|petarp|petar123|2|false
 100002|Radoje|Radic|16155|Muski|06332300|Karaburma|radoje|radoje123|1|false
-100003|Marko|Peric|1612155|Muski|06332300|Vozdovac|markop|marko123|1|true
+100003|Marko|Peric|1612155|Muski|06332300|Vozdovac|markop|marko123|1|false
 100021|Goran|Mitrovic|2729335|Muski|065321200|Zitiste|goranmitro|mitro123|1|false
 100071|Milan|Milanovic|27129335|Muski|063335200|Klek|milanm|milanm123|1|false
 100081|Gagi|Jankvoic|27234335|Muski|06333400|Zrenjanin|gagi|12345|2|false
-100091|Jovan|Petrovic|27221145|Muski|063320|Zrenjanin|jovo|12345|4|false
-222344|Zivojin|Jovanovic|116300322|Muski|06538888|Alibunar|ali123|12345|2|false
+11111111|Dragan|Petro|2000|Muski|063434|Konak|gagi|123|2|true
