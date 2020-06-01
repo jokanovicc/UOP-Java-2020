@@ -42,9 +42,8 @@ public class ServisMain {
 		System.out.println("\nAUTOMOBIL---------------------------------------------------------------------------------------------");
 		podaci.ucitajAutomobil();
 		podaci.ucitajServis();
+		podaci.ucitajKnjizicu();
 		
-		//System.out.println(podaci);
-	//	podaci.snimiMusteriju();
 		
 		
 		
@@ -76,14 +75,12 @@ public class ServisMain {
 	//	podaci.dodajAdmina(adminTest);
 	//	podaci.snimiAdmina();
 		
-	//	System.out.println("Dodaj auto");
+
 
 		Automobil automobili = new Automobil(musterijaTest, MarkaModelDeo.valueOf("TOYOTACOROLLA"), 1998, "1300m", "110ks", Gorivo.valueOf("BENZIN"), 90100,false);
 		podaci.dodajAutomobil(automobili);
 		podaci.snimiAutomobil();
-	//	podaci.obrisiMusteriju(musterijaTest);
-	//	podaci.obrisiAutomobil(automobili);
-	//	System.out.println("Dodato nesto");
+
 		
 		
 		
@@ -97,7 +94,6 @@ public class ServisMain {
 	//	deo2.kreirajSimetricniDeo(deo2);
 	//	podaci.dodajDeo(deo2);
 	//	podaci.snimiDeo();
-	//	System.out.println("Dodato");
 		Deo deo3= new Deo(MarkaModelDeo.valueOf("TOYOTACOROLLA"),"Desna fdfdfora", 23, "100060",false);
 //
 		
@@ -105,48 +101,28 @@ public class ServisMain {
 		servistest.getDeo().add(deo3);	
 		podaci.dodajServis(servistest);
 		podaci.snimiServis();	
-	//	
+
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		podaci.obrisiMusteriju(musterijaTest);
-		
-	//	podaci.obrisiServis(servistest);
-	//	podaci.obrisiAutomobil(automobili);
-	//	podaci.dodajServis(servistest);
-	//	podaci.snimiServis();
-	//	System.out.println("Uspesno");
 		System.out.println("\n");
 		System.out.println("\n AKTUELNI SERVIS-----------------------------------------------------------");
 		
-	//	ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(new ArrayList<Servis>(), "111333",false);
-	//	knjizicaTest.getServisi().add(servistest);
-	//	podaci.dodajKnjizicu(knjizicaTest);
-	//	podaci.snimiKnjizicu();
-	//	System.out.println("Uspesno");
+		ServisnaKnjizica knjizicaTest = new ServisnaKnjizica(new ArrayList<Servis>(), "111333",false);
+		knjizicaTest.getServisi().add(servistest);
+		podaci.dodajKnjizicu(knjizicaTest);
+		podaci.snimiKnjizicu();
 		System.out.println("\n");
 		System.out.println("SERVISNE KNJIZICE--------------------------------------------------------------------------------------------------------");
-		podaci.ucitajKnjizicu();
-	//	podaci.obrisiKnjizicu(knjizicaTest);
+		podaci.obrisiKnjizicu(knjizicaTest);
 		
 		System.out.println("\n Liste-------------------------------------------");
-		IspisiSvepodatke(podaci);
+	//	IspisiSvepodatke(podaci);
 		
 		
 
-		
-
+		podaci.obrisiMusteriju(musterijaTest);
+//		podaci.obrisiServisera(serviserTest);
 	}
 	
 	public static void IspisiSvepodatke(Datoteke datoteke) {

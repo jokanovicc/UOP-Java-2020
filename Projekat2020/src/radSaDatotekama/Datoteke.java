@@ -72,21 +72,24 @@ public class Datoteke {
 		snimiMusteriju();
 		for(Automobil a:automobili) {
 			if(a.getVlasnikId()==musterija.getIDOznaka()) {
-				obrisiAutomobil(a);
+				obrisiAutomobil(a);                              //brise se i auto, takodje i servis samog auta
 				
 			}
 		}
 	}
 	
+	
 	public ArrayList<Musterija> sveNeobrisaneMusterije(){
 		ArrayList<Musterija> neobrisane = new ArrayList<Musterija>();
-		for(Musterija musterija: musterije) {
+		for(Musterija musterija: musterije) {                   //lista neobrisanih musterija
 			if(!musterija.isObrisan()) {
 				neobrisane.add(musterija);
 			}
 		}
 		return neobrisane;
 	}
+	
+//-----------------------------------------------------------------------------------------------	
 //----------------------------------------------------------------------------------------------------------------------------
 
 	
@@ -105,7 +108,14 @@ public class Datoteke {
 	
 	public void obrisiServisera(Serviser serviser) {
 		serviser.setObrisan(true);
-		this.serviseri.remove(serviser);
+		musterije.remove(serviser);
+		//dodajServisera(serviser);                            //ako obrises servisera, obrisaces i servis
+		snimiServisera();
+		for(Servis servis : servisi) {
+			if(serviser.getIDOznaka() == servis.getServiserid()) {
+				obrisiServis(servis);
+			}
+		}
 	}
 	
 	public ArrayList<Serviser> sveNeobrisaniServiseri(){
@@ -142,7 +152,7 @@ public class Datoteke {
 		
 		for(Servis servis: servisi) {
 			if(servis.getAutomobilid()==automobil.getIdOznaka()) {
-				obrisiServis(servis);
+				obrisiServis(servis);                                        //brisanjem auta ode i njegov servis
 
 				
 			}
@@ -174,6 +184,7 @@ public class Datoteke {
 
 	public void obrisiAdmina(Admin admin) {
 		admin.setObrisan(true);
+		snimiAdmina();
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -197,6 +208,7 @@ public class Datoteke {
 	
 	public void obrisiDeo(Deo deo) {
 		deo.setObrisan(true);
+		snimiDeo();
 	}
 
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -211,7 +223,21 @@ public class Datoteke {
 	public void obrisiServis(Servis servis) {
 		servis.setObrisan(true);
 		snimiServis();
-										
+		for(ServisnaKnjizica knjizica: knjizice) {
+			if(knjizica.getServisID().equals(servis.getiDoznaka())) {
+				obrisiKnjizicu(knjizica);                             //i na kraju kad obrisemo musteriju ode on kompletno iz sistema
+			}
+		}
+	}
+	
+	
+	public Servis nadjiServis(String idOznaka) {
+		for (Servis servis : servisi) {
+			if (servis.getiDoznaka().equals(idOznaka)) {
+				return servis;
+			}
+		}
+		return null;
 	}
 	
 	public ArrayList<Servis> sviNeobrisaniServisi(){
@@ -241,8 +267,10 @@ public class Datoteke {
 		return knjizice;
 	}
 
-	public void obrisiKnjizicu(ServisnaKnjizica knjizica) {  //servisna knjizica moze postojati i bez servisa
-		knjizica.setObrisan(true);                   //izmena se vrsi tako sto se prvo obrise pa se ponovo unese objekat
+	public void obrisiKnjizicu(ServisnaKnjizica knjizica) {  //servisna knjizica moze postojati i bez servisa, ona se sama brise
+		knjizica.setObrisan(true);
+		snimiKnjizicu();
+
 	}
 	
 	public ArrayList<ServisnaKnjizica> sveNeobrisaneKnjizice(){
@@ -254,17 +282,7 @@ public class Datoteke {
 		}
 		return neobrisane;
 	}
-//------------------------------------------------------------------------------------------------------------------------------------------
-	
-	public Servis nadjiServis(String idOznaka) {
-		for (Servis servis : servisi) {
-			if (servis.getiDoznaka().equals(idOznaka)) {
-				return servis;
-			}
-		}
-		return null;
-	}
-	
+
 
 	
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
@@ -632,7 +650,7 @@ public class Datoteke {
 	public void snimiKnjizicu() {
 		try {
 			File file = new File("src/txt/knjizica.txt");
-			BufferedWriter br = new BufferedWriter(new FileWriter(file,true));
+			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
