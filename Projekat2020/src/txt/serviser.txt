@@ -4,3 +4,4 @@
 21111222|Branko|Ivanovic|194342195|Muski|06591363|Sutjeska|brankoservis|servis1123|30300.0|AUTOELEKTRICAR|false
 212311222|Rade|Radic|134342195|Muski|06331363|Despotovac|radeservis|servis1123|30300.0|AUTOELEKTRICAR|false
 2123311444|Jovica|Peric|133234342195|Muski|0643563|Orlovat|jovicaservis|servis11123|30300.0|AUTOELEKTRICAR|false
+21321312|Perica|Peric|13324|Muski|0613424|Zabalj|pericaservis|servis11123|30300.0|AUTOELEKTRICAR|false

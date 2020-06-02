@@ -5,3 +5,4 @@
 100071|Milan|Milanovic|27129335|Muski|063335200|Klek|milanm|milanm123|1|false
 100081|Gagi|Jankvoic|27234335|Muski|06333400|Zrenjanin|gagi|12345|2|false
 11111111|Dragan|Petro|2000|Muski|063434|Konak|gagi|123|2|true
+1222211|Goran|Ilic|1703242|Muski|065910002|Novi Sad|gogi|123|1|true

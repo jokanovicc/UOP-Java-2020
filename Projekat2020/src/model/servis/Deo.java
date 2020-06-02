@@ -91,8 +91,8 @@ public class Deo {
 	
 	public static void kreirajSimetricniDeo(Deo deo) {
 		String mystring = deo.getNaziv();
-		String arr[] = mystring.split(" ", 3);
-	
+		String arr[] = mystring.split(" ", 3);                     //Formiranje simetricnog dela
+																//za sad se oslanja na Main, pa cu kasnije pomeriti gde bude trebalo za gui					
 		
 		 if((arr[0].equals("Leva") && arr[1].equals("strana")) 
 				 || (arr[0].equals("Desna") && arr[1].equals("strana"))) {

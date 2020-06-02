@@ -35,6 +35,7 @@ public class Datoteke {
 	private ArrayList<ServisnaKnjizica> knjizice;
 	
 	
+//MODUL SLUZI ZA RAD SA DATOTEKAMA, LOGIKA ZA CITANJE, SNIMANJE, PRIKAZIVANJE, FORMIRANJE LISTA	
 //--------------------------------------------------------------------------------------------------------------------
 	public Datoteke() {
 		this.musterije = new ArrayList<Musterija>();    //kreiranje novih lista
@@ -45,6 +46,10 @@ public class Datoteke {
 		this.servisi = new ArrayList<Servis>();
 		this.knjizice = new ArrayList<ServisnaKnjizica>();
 	}
+
+	
+	
+	
 	
 //-----------------------------------------------------------------------------	---------------------------------------
 	public ArrayList<Musterija> getMusterija(){
@@ -52,12 +57,12 @@ public class Datoteke {
 		
 	}
 	public void dodajMusteriju(Musterija musterija) {
-		this.musterije.add(musterija);
+		this.musterije.add(musterija);                     //Samo doda u vec postojecu listu
 	}
 
 	
 	public Musterija nadjiMusteriju(int IDOznaka) {
-		for (Musterija musterija : musterije) {
+		for (Musterija musterija : musterije) {                //OVO MI TREBA KAD REFERENCIRAM
 			if (musterija.getIDOznaka()==(IDOznaka)) {
 				return musterija;
 			}
@@ -68,11 +73,12 @@ public class Datoteke {
 	public void obrisiMusteriju(Musterija musterija) {   //ako obrise musteriju, povuce za sobom i njegov automobil
 		musterija.setObrisan(true);
 		musterije.remove(musterija);
-		dodajMusteriju(musterija);
+		dodajMusteriju(musterija);             //OVO CE KREIRATI LANAC BRISANJA
 		snimiMusteriju();
 		for(Automobil a:automobili) {
 			if(a.getVlasnikId()==musterija.getIDOznaka()) {
 				obrisiAutomobil(a);                              //brise se i auto, takodje i servis samog auta
+															//knjizica moze ostati u sistemu, nju je potrebno nezavisno obrisati
 				
 			}
 		}
@@ -89,7 +95,30 @@ public class Datoteke {
 		return neobrisane;
 	}
 	
-//-----------------------------------------------------------------------------------------------	
+	
+	
+	
+	public void izmeniMusteriju(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,    
+	String username, String lozinka, int iDOznaka, boolean obrisan, int brojSakupljenihBodova) {     //metode prima objekta kao parametre
+		for(Musterija musterija:musterije) {
+			if(musterija.getIDOznaka() == iDOznaka) {      //id se ne sme menjati
+				musterija.setIme(ime);
+				musterija.setPrezime(prezime);         //setuje atribute samo
+				musterija.setJmbg(jmbg);
+				musterija.setPol(pol);
+				musterija.setBrojTelefona(brojTelefona);
+				musterija.setAdresa(adresa);
+				musterija.setUsername(username);
+				musterija.setLozinka(lozinka);
+				musterija.setObrisan(obrisan);
+				musterija.setBrojSakupljenihBodova(brojSakupljenihBodova);
+			
+			}
+		}
+	//	snimiMusteriju();
+	}
+	
+
 //----------------------------------------------------------------------------------------------------------------------------
 
 	
@@ -113,7 +142,7 @@ public class Datoteke {
 		snimiServisera();
 		for(Servis servis : servisi) {
 			if(serviser.getIDOznaka() == servis.getServiserid()) {
-				obrisiServis(servis);
+				obrisiServis(servis);                                   //NADOVEZUJE SE NA PRETHODNO BRISANJE
 			}
 		}
 	}
@@ -126,6 +155,29 @@ public class Datoteke {
 			}
 		}
 		return neobrisane;
+	}
+	
+	
+	public void izmeniServisera(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
+			String username, String lozinka, int iDOznaka, boolean obrisan, double plata,
+			Specijalizacija specijalizacija) {
+		for(Serviser serviser:serviseri) {
+			if(serviser.getIDOznaka() == iDOznaka) {
+				serviser.setIme(ime);
+				serviser.setPrezime(prezime);
+				serviser.setJmbg(jmbg);
+				serviser.setPol(pol);
+				serviser.setBrojTelefona(brojTelefona);            //IZMENA SERVISA
+				serviser.setAdresa(adresa);
+				serviser.setUsername(username);
+				serviser.setLozinka(lozinka);
+				serviser.setPlata(plata);
+				serviser.setObrisan(obrisan);
+				serviser.setSpecijalizacija(specijalizacija);
+			}
+		}
+		
+	//	snimiServisera();
 	}
 
 //-----------------------------------------------------------------------------
@@ -160,6 +212,7 @@ public class Datoteke {
 		}
 	}
 	
+	
 	public ArrayList<Automobil> sviNeobrisaniAutomobili(){
 		ArrayList<Automobil> neobrisani = new ArrayList<Automobil>();
 		for(Automobil automobil: automobili) {
@@ -171,6 +224,25 @@ public class Datoteke {
 		return neobrisani;
 		
 		
+	}
+	
+	
+	public void izmeniAutomobil(Musterija vlasnik, MarkaModelDeo markaModel, int godinaProizvodnje, String zapreminaMotora,
+			String snaga, Gorivo vrstaGoriva, int idOznaka, boolean obrisan) {
+		for(Automobil automobil:automobili) {
+			if(automobil.getIdOznaka() == idOznaka) {
+				automobil.setVlasnik(vlasnik);
+				automobil.setMarkaModel(markaModel);
+				automobil.setGodinaProizvodnje(godinaProizvodnje);
+				automobil.setZapreminaMotora(zapreminaMotora);
+				automobil.setSnaga(snaga);
+				automobil.setVrstaGoriva(vrstaGoriva);
+				automobil.setObrisan(obrisan);
+				
+			}
+		}
+		
+		//snimiAutomobil();
 	}
 //------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -185,6 +257,25 @@ public class Datoteke {
 	public void obrisiAdmina(Admin admin) {
 		admin.setObrisan(true);
 		snimiAdmina();
+	}
+	
+	
+	public void izmeniAdmina(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa, String username,
+			String lozinka, int iDOznaka, boolean obrisan, double plata) {
+		for(Admin admin:admini) {
+			if(admin.getIDOznaka()==iDOznaka) {
+				admin.setIme(ime);
+				admin.setPrezime(prezime);
+				admin.setJmbg(jmbg);
+				admin.setBrojTelefona(brojTelefona);
+				admin.setAdresa(adresa);
+				admin.setUsername(username);
+				admin.setLozinka(lozinka);
+				admin.setObrisan(obrisan);
+				admin.setPlata(plata);
+			}
+		}
+	//		snimiAdmina();
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -210,6 +301,20 @@ public class Datoteke {
 		deo.setObrisan(true);
 		snimiDeo();
 	}
+	
+	
+	public void izmeniDeo(MarkaModelDeo automobil, String naziv, double cena, String idDela, boolean obrisano) {
+		for(Deo deo: delovi) {
+			if(deo.getIdDela() == idDela) {
+				deo.setAutomobil(automobil);
+				deo.setNaziv(naziv);
+				deo.setCena(cena);
+				deo.setObrisan(obrisano);
+				
+			}
+		}
+		//snimiDeo();
+	}
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -223,17 +328,14 @@ public class Datoteke {
 	public void obrisiServis(Servis servis) {
 		servis.setObrisan(true);
 		snimiServis();
-		for(ServisnaKnjizica knjizica: knjizice) {
-			if(knjizica.getServisID().equals(servis.getiDoznaka())) {
-				obrisiKnjizicu(knjizica);                             //i na kraju kad obrisemo musteriju ode on kompletno iz sistema
-			}
-		}
+
 	}
+	
 	
 	
 	public Servis nadjiServis(String idOznaka) {
 		for (Servis servis : servisi) {
-			if (servis.getiDoznaka().equals(idOznaka)) {
+			if (servis.getiDoznaka().equals(idOznaka)) {   //U SLUCAJU DA ZELIMO OBRISATI SAMO SERVIS, BEZ DIRANJA KNJIZICE...
 				return servis;
 			}
 		}
@@ -250,6 +352,24 @@ public class Datoteke {
 		
 		return neobrisani;
 		
+	}
+	
+	public void izmeniServis(Automobil automobil, Serviser serviser, String termin, String opis, ArrayList<Deo> deo,
+			Statusi status, String iDoznaka, boolean obrisan) {
+		for(Servis servis: servisi) {
+			if(servis.getiDoznaka().equals(iDoznaka)) {
+				servis.setAutomobil(automobil);
+				servis.setServiser(serviser);
+				servis.setTermin(termin);
+				servis.setOpis(opis);
+				servis.setDeo(deo);
+				servis.setStatus(status);
+				servis.setObrisan(obrisan);
+			
+			}
+		}
+		
+		//snimiServis();
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -282,7 +402,18 @@ public class Datoteke {
 		}
 		return neobrisane;
 	}
-
+	
+	
+	public void izmeniKnjizicu(ArrayList<Servis> servisi, String idOznaka, boolean obrisan) {
+		for(ServisnaKnjizica knjizica:knjizice) {
+			if(knjizica.getIdOznaka().equals(idOznaka)) {
+				knjizica.setServisi(servisi);
+				knjizica.setIdOznaka(idOznaka);
+				knjizica.setObrisan(obrisan);
+			}
+		}
+		//snimiKnjizicu();
+	}
 
 	
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
@@ -294,7 +425,7 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int brojSakupljenihBodova = Integer.parseInt(split[9]);
+				int brojSakupljenihBodova = Integer.parseInt(split[9]);         //CITA
 				int IDOznaka = Integer.parseInt(split[0]);
 				String indeksPol =split[4];
 				Pol pol  = Pol.valueOf(indeksPol);
@@ -317,7 +448,7 @@ public class Datoteke {
 			File file = new File("src/txt/musterija.txt");
 			BufferedWriter br = new BufferedWriter(new FileWriter(file));
 			String sadrzaj = "";
-			for (Musterija musterija : musterije) {
+			for (Musterija musterija : musterije) {              //SNIMA
 				
 				sadrzaj += musterija.toString() +"\n";
 			}
@@ -531,7 +662,7 @@ public class Datoteke {
 			}
 			
 		}
-		return delovi1;
+		return delovi1;                                        //OVI DELOVI MI TREBAJU ZA SERVIS KASNIJE
 		
 	}
 	
@@ -665,33 +796,10 @@ public class Datoteke {
 	}
 
 
-
-	public void IzmeniMusteriju(Musterija musterija,Musterija musterija1) {
-			if(musterija1.getIDOznaka()==musterija.getIDOznaka()) {
-				this.musterije.remove(musterija);
-				dodajMusteriju(musterija1);
-				snimiMusteriju();
-				
-			}
-			
-		}
-	
-	
-	
 	
 	
 	}
 
 
 
-
-	
-
-//----------------------------------------------------------------------------------------------------------------------------
-	
-	
-	
-	
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-	
 
