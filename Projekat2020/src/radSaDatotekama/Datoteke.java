@@ -72,8 +72,8 @@ public class Datoteke {
 	
 	public void obrisiMusteriju(Musterija musterija) {   //ako obrise musteriju, povuce za sobom i njegov automobil
 		musterija.setObrisan(true);
-		musterije.remove(musterija);
-		dodajMusteriju(musterija);             //OVO CE KREIRATI LANAC BRISANJA
+	//	musterije.remove(musterija);
+	//	dodajMusteriju(musterija);             //OVO CE KREIRATI LANAC BRISANJA
 		snimiMusteriju();
 		for(Automobil a:automobili) {
 			if(a.getVlasnikId()==musterija.getIDOznaka()) {
@@ -432,7 +432,6 @@ public class Datoteke {
 				boolean obrisan = Boolean.parseBoolean(split[10]);
 				Musterija musterija = new Musterija(split[1], split[2], split[3], pol, split[5], split[6], split[7], split[8], IDOznaka,obrisan, brojSakupljenihBodova);
 				musterije.add(musterija);
-				System.out.println(musterija);
 				
 			}
 			reader.close();
@@ -478,7 +477,6 @@ public class Datoteke {
 				Specijalizacija specijalizacija = Specijalizacija.valueOf(indeksSpec);
 				Serviser serviser = new Serviser(split[1], split[2],split[3], pol, split[5], split[6],split[7], split[8], IDOznaka,obrisana, plata, specijalizacija);
 				serviseri.add(serviser);
-				System.out.println(serviser);
 				
 			}
 			reader.close();
@@ -522,7 +520,6 @@ public class Datoteke {
 				boolean obrisana = Boolean.parseBoolean(split[3]);
 				Admin admin = new Admin(split[1], split[2],split[3], pol, split[5],split[6], split[7], split[8], IDOznaka,obrisana, plata);
 				admini.add(admin);
-				System.out.println(admin);
 				
 			}
 			reader.close();
@@ -573,7 +570,6 @@ public class Datoteke {
 				
 				Automobil automobil = new Automobil(IDOznaka, markaModel, godinaProizvodnje, split[3], split[4], vrstaGoriva, id,obrisana);
 				automobili.add(automobil);
-				System.out.println(automobil);
 				
 			}
 			reader.close();
@@ -619,7 +615,6 @@ public class Datoteke {
 				boolean obrisana = Boolean.parseBoolean(split[4]);
 				Deo deo = new Deo(markamodel, naziv, cena, id,obrisana);
 				delovi.add(deo);
-				System.out.println(deo);
 				
 			}
 			reader.close();
@@ -710,7 +705,6 @@ public class Datoteke {
 				}
 				Servis servis = new Servis(idOznaka, idServisera, split[2], split[5], deo2, statusi, idoznaka,obrisan);
 				servisi.add(servis);
-				System.out.println(servis);
 				
 			}
 			reader.close();
@@ -766,7 +760,6 @@ public class Datoteke {
 				}			
 				ServisnaKnjizica knjizica = new ServisnaKnjizica(servisi1, idoznaka,obrisana);
 				knjizice.add(knjizica);
-				System.out.println(knjizica);
 				
 			}
 			reader.close();
@@ -793,6 +786,41 @@ public class Datoteke {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Korisnik login(String korisnickoIme, String sifra) {
+		for(Musterija m : musterije) {        //funkcije za login
+			if(!m.isObrisan()) {                //provera jel obrisano
+				if(m.getUsername().equals(korisnickoIme) && m.getLozinka().equals(sifra)) {    //provera sa geterima
+					return m;
+				}
+				
+			}
+		}
+		
+		for(Serviser s : serviseri) {
+			if(!s.isObrisan()) {
+				if(s.getUsername().equals(korisnickoIme) && s.getLozinka().equals(sifra)) {
+					return s;
+				}
+				
+			}
+
+		}
+		
+		for(Admin a: admini) {
+			if(!a.isObrisan()) {
+				if(a.getUsername().equals(korisnickoIme) && a.getLozinka().equals(sifra)) {
+					return a;
+				}
+				
+			}
+		
+			
+		}
+		
+		return null;
+		
 	}
 
 

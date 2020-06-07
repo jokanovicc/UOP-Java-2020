@@ -5,3 +5,5 @@ OPETASTRA|Svecica|5000.0|100012|false
 TOYOTACOROLLA|Karburator|23000.0|100017|false
 TOYOTACOROLLA|Leva strana motora|8000.0|100060|false
 TOYOTACOROLLA|Desna strana motora|8000.0|100060|false
+TOYOTACOROLLA|Leva strana prozora|8000.0|100090|false
+TOYOTACOROLLA|Desna strana prozora|8000.0|100090|false
