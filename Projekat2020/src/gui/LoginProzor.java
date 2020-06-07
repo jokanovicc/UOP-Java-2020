@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import gui.glavniProzori.AdminGlavniProzor;
+import gui.glavniProzori.MusterijaGlavniProzor;
+import gui.glavniProzori.ServiserGlavniProzor;
 import model.korisnici.Admin;
 import model.korisnici.Korisnik;
 import model.korisnici.Musterija;
@@ -85,14 +88,23 @@ public class LoginProzor extends JFrame {
 					if(korisnik != null) {
 						
 						if(korisnik instanceof Serviser) {          //ako je taj korisnik instanca servisera i slicno
-							System.out.println(korisnik);
+							LoginProzor.this.dispose();
+							LoginProzor.this.setVisible(false);
+							ServiserGlavniProzor sgp = new ServiserGlavniProzor(datoteka, korisnik);
+							sgp.setVisible(true);
 						
 						}
 						if(korisnik instanceof Musterija) {
-							System.out.println(korisnik);
+							LoginProzor.this.dispose();
+							LoginProzor.this.setVisible(false);
+							MusterijaGlavniProzor mgp = new MusterijaGlavniProzor(datoteka, korisnik);
+							mgp.setVisible(true);
 						}
 						if(korisnik instanceof Admin) {
-							System.out.println(korisnik);
+							LoginProzor.this.dispose();
+							LoginProzor.this.setVisible(false);
+							AdminGlavniProzor agp = new AdminGlavniProzor(datoteka, korisnik);
+							agp.setVisible(true);
 						}
 						
 					}else {
