@@ -1,8 +1,8 @@
-2111122|Radoje|Radic|1906205551995|Muski|065985263|Zrenjanin|radojeservis|servis123|30300.0|LIMAR|false
-21113122|Radasin|Tomic|190632195|Muski|0659323263|Novi Becej|radasinservis|servis1123|30300.0|LIMAR|false
-21133222|Jovan|Jovanovic|194432195|Muski|06593363|Novi Becej|jovanservis|servis1123|30300.0|LIMAR|false
-21111222|Branko|Ivanovic|194342195|Muski|06591363|Sutjeska|brankoservis|servis1123|30300.0|AUTOELEKTRICAR|false
-212311222|Rade|Radic|134342195|Muski|06331363|Despotovac|radeservis|servis1123|30300.0|AUTOELEKTRICAR|false
-2123311444|Jovica|Peric|133234342195|Muski|0643563|Orlovat|jovicaservis|servis11123|30300.0|AUTOELEKTRICAR|false
-21321312|Perica|Peric|13324|Muski|0613424|Zabalj|pericaservis|servis11123|30300.0|AUTOELEKTRICAR|false
-213312|Milan|Peric|13324|Muski|061342424|Pancevo|milanservis|servis11123|40300.0|AUTOELEKTRICAR|false
+2111122|Radoje|Radic|1906205551995|0|065985263|Zrenjanin|radojeservis|servis123|30300.0|1|false
+21113122|Radasin|Tomic|190632195|0|0659323263|Novi Becej|radasinservis|servis1123|30300.0|2|false
+21133222|Jovan|Jovanovic|194432195|0|06593363|Novi Becej|jovanservis|servis1123|30300.0|1|false
+21111222|Branko|Ivanovic|194342195|0|06591363|Sutjeska|brankoservis|servis1123|30300.0|0|false
+212311222|Rade|Radic|134342195|0|06331363|Despotovac|radeservis|servis1123|30300.0|2|false
+2123311444|Jovica|Peric|133234342195|0|0643563|Orlovat|jovicaservis|servis11123|30300.0|0|false
+21321312|Perica|Peric|13324|0|0613424|Zabalj|pericaservis|servis11123|30300.0|1|false
+213312|Milan|Peric|13324|0|061342424|Pancevo|milanservis|servis11123|40300.0|2|false

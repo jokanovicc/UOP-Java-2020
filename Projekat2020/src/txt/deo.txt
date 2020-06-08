@@ -1,9 +1,9 @@
-VOLKSWAGENGOLF|neonke|25000.0|1000012|false
-FIATSTILO|Relej|25000.0|1000014|false
-FORDFOCUS|ZadnjaVrata|45000.0|1000015|false
-OPETASTRA|Svecica|5000.0|100012|false
-TOYOTACOROLLA|Karburator|23000.0|100017|false
-TOYOTACOROLLA|Leva strana motora|8000.0|100060|false
-TOYOTACOROLLA|Desna strana motora|8000.0|100060|false
-TOYOTACOROLLA|Leva strana prozora|8000.0|100090|false
-TOYOTACOROLLA|Desna strana prozora|8000.0|100090|false
+1|neonke|25000.0|1000012|false
+0|Relej|25000.0|1000014|false
+1|ZadnjaVrata|45000.0|1000015|false
+2|Svecica|5000.0|100012|false
+0|Karburator|23000.0|100017|false
+2|Leva strana motora|8000.0|100060|false
+2|Desna strana motora|8000.0|100060|false
+0|Leva strana prozora|8000.0|100090|false
+0|Desna strana prozora|8000.0|100090|false

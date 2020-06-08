@@ -26,7 +26,7 @@ public class Servis {
 		this.termin = "";
 		this.opis = "";
 		this.deo = new ArrayList<Deo>();
-		this.status = Statusi.SLOBODAN;
+		this.status = Statusi.ZAKAZAN;
 		this.iDoznaka = "";
 		this.obrisan = false;
 	}
@@ -190,7 +190,7 @@ public class Servis {
 	
 	public String toString2() {
 		return "|" +  opis
-				+ "|" + status + "|" + iDoznaka+ "|" + isObrisan();
+				+ "|" + status.ordinal() + "|" + iDoznaka+ "|" + isObrisan();
 	}
 	
 	

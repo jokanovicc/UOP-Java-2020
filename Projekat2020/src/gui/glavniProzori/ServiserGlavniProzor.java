@@ -33,7 +33,7 @@ public class ServiserGlavniProzor extends JFrame {
 		this.podaci = podaci;
 		this.prijavljenKorisnik = prijavljenKorisnik;
 		setTitle("Serviser: " + prijavljenKorisnik.getUsername());
-		setSize(500, 500);
+		setSize(500, 400);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);

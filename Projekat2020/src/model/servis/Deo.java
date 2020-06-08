@@ -121,6 +121,10 @@ public class Deo {
 	public String toString() {
 		return automobil + "|" + naziv + "|" + cena + "|" + idDela + "|" + isObrisan();
 	}
+	
+	public String toString2() {
+		return automobil.ordinal() + "|" + naziv + "|" + cena + "|" + idDela + "|" + isObrisan();
+	}
 
 	
 	

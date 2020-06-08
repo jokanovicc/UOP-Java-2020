@@ -150,7 +150,7 @@ public class Datoteke {
 	public ArrayList<Serviser> sveNeobrisaniServiseri(){
 		ArrayList<Serviser> neobrisane = new ArrayList<Serviser>();
 		for(Serviser serviser: serviseri) {
-			if(serviser.isObrisan()) {
+			if(!serviser.isObrisan()) {
 				neobrisane.add(serviser);
 			}
 		}
@@ -276,6 +276,17 @@ public class Datoteke {
 			}
 		}
 	//		snimiAdmina();
+	}
+	
+	
+	public ArrayList<Admin> sveNeobrisaneAdmini(){
+		ArrayList<Admin> neobrisane = new ArrayList<Admin>();
+		for(Admin admin: admini) {                   //lista neobrisanih musterija
+			if(!admin.isObrisan()) {
+				neobrisane.add(admin);
+			}
+		}
+		return neobrisane;
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -427,8 +438,8 @@ public class Datoteke {
 				String[] split = line.split("\\|");
 				int brojSakupljenihBodova = Integer.parseInt(split[9]);         //CITA
 				int IDOznaka = Integer.parseInt(split[0]);
-				String indeksPol =split[4];
-				Pol pol  = Pol.valueOf(indeksPol);
+				int polInt = Integer.parseInt(split[4]);
+				Pol pol = Pol.values()[polInt];
 				boolean obrisan = Boolean.parseBoolean(split[10]);
 				Musterija musterija = new Musterija(split[1], split[2], split[3], pol, split[5], split[6], split[7], split[8], IDOznaka,obrisan, brojSakupljenihBodova);
 				musterije.add(musterija);
@@ -449,7 +460,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Musterija musterija : musterije) {              //SNIMA
 				
-				sadrzaj += musterija.toString() +"\n";
+				sadrzaj += musterija.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -469,12 +480,12 @@ public class Datoteke {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int IDOznaka = Integer.parseInt(split[0]);
-				String polInt = split[4];
-				Pol pol  = Pol.valueOf(polInt);
+				int polInt = Integer.parseInt(split[4]);
+				Pol pol = Pol.values()[polInt];;
 				double plata = Double.parseDouble(split[9]);
-				String indeksSpec = split[10];
 				boolean obrisana = Boolean.parseBoolean(split[11]);
-				Specijalizacija specijalizacija = Specijalizacija.valueOf(indeksSpec);
+				int specInt = Integer.parseInt(split[10]);
+				Specijalizacija specijalizacija = Specijalizacija.values()[specInt];;
 				Serviser serviser = new Serviser(split[1], split[2],split[3], pol, split[5], split[6],split[7], split[8], IDOznaka,obrisana, plata, specijalizacija);
 				serviseri.add(serviser);
 				
@@ -494,7 +505,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Serviser serviser : serviseri) {
 				
-				sadrzaj += serviser.toString() +"\n";
+				sadrzaj += serviser.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -514,8 +525,8 @@ public class Datoteke {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int IDOznaka = Integer.parseInt(split[0]);
-				String indeksPol = split[4];
-				Pol pol  = Pol.valueOf(indeksPol);
+				int polInt = Integer.parseInt(split[4]);
+				Pol pol = Pol.values()[polInt];
 				double plata = Double.parseDouble(split[9]);
 				boolean obrisana = Boolean.parseBoolean(split[3]);
 				Admin admin = new Admin(split[1], split[2],split[3], pol, split[5],split[6], split[7], split[8], IDOznaka,obrisana, plata);
@@ -537,7 +548,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Admin admin : admini) {
 				
-				sadrzaj += admin.toString() +"\n";
+				sadrzaj += admin.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -559,11 +570,11 @@ public class Datoteke {
 				String[] split = line.split("\\|");
 				int id1 = Integer.parseInt(split[0]);
 				Musterija IDOznaka = nadjiMusteriju(id1);
-				String indeksMarka = split[1];
-				MarkaModelDeo markaModel = MarkaModelDeo.valueOf(indeksMarka);
+				int autoInt = Integer.parseInt(split[1]);
+				MarkaModelDeo markaModel = MarkaModelDeo.values()[autoInt];
 				int godinaProizvodnje = Integer.parseInt(split[2]);
-				String indeksGorivo = split[5];
-				Gorivo vrstaGoriva = Gorivo.valueOf(indeksGorivo);
+				int gorivoInt = Integer.parseInt(split[5]);
+				Gorivo vrstaGoriva = Gorivo.values()[gorivoInt];
 				int id = Integer.parseInt(split[6]);
 				boolean obrisana = Boolean.parseBoolean(split[7]);
 				
@@ -607,9 +618,9 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				String markaindex = split[0];
 				String naziv = split[1];
-				MarkaModelDeo markamodel = MarkaModelDeo.valueOf(markaindex);
+				int autoInt = Integer.parseInt(split[0]);
+				MarkaModelDeo markamodel = MarkaModelDeo.values()[autoInt];
 				double cena = Double.parseDouble(split[2]);
 				String id = split[3];
 				boolean obrisana = Boolean.parseBoolean(split[4]);
@@ -634,7 +645,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Deo deo : delovi) {
 				
-				sadrzaj += deo.toString() +"\n";
+				sadrzaj += deo.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -688,8 +699,8 @@ public class Datoteke {
 				int idserv = Integer.parseInt(split[1]);
 				Serviser idServisera = nadjiServisera(idserv);
 				String delovi1 = split[3];
-				String statusIndex = split[6];
-				Statusi statusi = Statusi.valueOf(statusIndex);
+				int opisInt = Integer.parseInt(split[6]);
+				Statusi statusi = Statusi.values()[opisInt];
 				String idoznaka = split[7];
 				boolean obrisan = Boolean.parseBoolean(split[8]);
 				

@@ -47,6 +47,12 @@ public class Admin extends Korisnik {
 				+ "|" + username + "|" + lozinka + "|" + plata + "|" + isObrisan();
 	}
 	
+	public String toString2() {
+		return IDOznaka + "|" + ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol.ordinal() + "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" + plata + "|" + isObrisan();
+	}
+	
 	
 
 

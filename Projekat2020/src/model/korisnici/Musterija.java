@@ -42,7 +42,13 @@ public class Musterija extends Korisnik {
 	@Override
 	public String toString() {
 		return  IDOznaka + "|" + ime + "|" + prezime
-				+ "|" + jmbg + "|" + pol + "|" + brojTelefona + "|" + adresa
+				+ "|" + jmbg + "|" + pol+ "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova +"|" + isObrisan();
+	}
+	
+	public String toString2() {
+		return  IDOznaka + "|" + ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol.ordinal()+ "|" + brojTelefona + "|" + adresa
 				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova +"|" + isObrisan();
 	}
 

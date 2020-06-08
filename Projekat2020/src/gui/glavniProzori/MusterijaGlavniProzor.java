@@ -8,6 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import model.korisnici.Korisnik;
+import model.korisnici.Musterija;
+import net.miginfocom.swing.MigLayout;
 import radSaDatotekama.Datoteke;
 
 public class MusterijaGlavniProzor extends JFrame {
@@ -25,6 +27,7 @@ public class MusterijaGlavniProzor extends JFrame {
 	
 	private Datoteke podaci;
 	private Korisnik prijavljenKorisnik;
+	private Musterija musterija;
 	
 	
 	public MusterijaGlavniProzor(Datoteke podaci, Korisnik prijavljenKorisnik) {
@@ -32,7 +35,7 @@ public class MusterijaGlavniProzor extends JFrame {
 		this.prijavljenKorisnik = prijavljenKorisnik;
 		
 		setTitle("Musterija: " + prijavljenKorisnik.getIme() + " " + prijavljenKorisnik.getPrezime());
-		setSize(500, 500);
+		setSize(325, 400);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -42,6 +45,7 @@ public class MusterijaGlavniProzor extends JFrame {
 	}
 	
 	public void initMenu() {
+		add(lblLogo);
 		setJMenuBar(mainMenu);
 		add(lblLogo);
 		mainMenu.add(korisniciMenu);

@@ -60,6 +60,12 @@ public class Serviser extends Korisnik {
 				+ "|" + username + "|" + lozinka + "|" + plata + "|" + specijalizacija +"|" + isObrisan();
 	}
 	
+	public String toString2() {
+		return IDOznaka + "|" + ime + "|" + prezime
+				+ "|" + jmbg + "|" + pol.ordinal() + "|" + brojTelefona + "|" + adresa
+				+ "|" + username + "|" + lozinka + "|" + plata + "|" + specijalizacija.ordinal() +"|" + isObrisan();
+	}
+	
 	
 
 

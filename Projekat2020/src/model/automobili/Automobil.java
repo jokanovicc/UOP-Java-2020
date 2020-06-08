@@ -199,9 +199,9 @@ public class Automobil {
 	}
 	
 	public String toString2() {
-		return  markaModel + "|"
+		return  markaModel.ordinal() + "|"
 				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
-				+ vrstaGoriva + "|" + idOznaka+ "|" + isObrisan();
+				+ vrstaGoriva.ordinal() + "|" + idOznaka+ "|" + isObrisan();
 	}
 	
 	

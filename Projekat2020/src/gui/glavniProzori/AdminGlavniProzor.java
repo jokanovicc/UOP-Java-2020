@@ -1,5 +1,8 @@
 package gui.glavniProzori;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,6 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import gui.FormeZaPrikaz.PrikazAdmin.AdminProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.MusterijaProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.ServiserProzorPrikaz;
 import model.korisnici.Admin;
 import model.korisnici.Korisnik;
 import radSaDatotekama.Datoteke;
@@ -36,7 +42,7 @@ public class AdminGlavniProzor extends JFrame {
 		this.podaci = podaci;
 		this.prijavljenKorisnik = prijavljenKorisnik;
 		setTitle("Administrator: " + prijavljenKorisnik.getUsername());
-		setSize(500, 500);
+		setSize(400, 400);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -66,6 +72,36 @@ public class AdminGlavniProzor extends JFrame {
 	
 	
 	private void initActions() {
+		
+		musterijeItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MusterijaProzorPrikaz mpp = new MusterijaProzorPrikaz(podaci);
+				mpp.setVisible(true);
+				
+			}
+		});
+		
+		serviseriItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ServiserProzorPrikaz spp = new ServiserProzorPrikaz(podaci);
+				spp.setVisible(true);
+				
+			}
+		});
+		
+		adminItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AdminProzorPrikaz app = new AdminProzorPrikaz(podaci);
+				app.setVisible(true);
+				
+			}
+		});
 		
 	}
 	
