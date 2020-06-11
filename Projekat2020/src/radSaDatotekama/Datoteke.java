@@ -865,42 +865,52 @@ public class Datoteke {
 		return jedna;
 	}
 	
-	public ArrayList<Automobil> autoPrikaz(String id){
-		ArrayList<Automobil> auto = new ArrayList<Automobil>();
-		for(Automobil automobil: automobili) {
-			if(id.equals(automobil.getVlasnikId())) {
-				auto.add(automobil);
-				return auto;
+	public ArrayList<Serviser> serviserPrikaz(String prijavljenKorisnik){
+		ArrayList<Serviser> jedna = new ArrayList<Serviser>();
+		for(Serviser serviser: sveNeobrisaniServiseri()) {
+			if(prijavljenKorisnik.equals(serviser.getIDOznaka())) {
+				jedna.add(serviser);
 			}
 		}
-		return null;
+		return jedna;
 	}
 	
-	public ArrayList<Servis> servisPrikaz(Korisnik prijavljenKorisnik){
+	public ArrayList<Automobil> autoPrikaz(String id){
+		ArrayList<Automobil> auto = new ArrayList<Automobil>();
+		for(Automobil automobil: sviNeobrisaniAutomobili()) {
+			if(id.equals(automobil.getVlasnikId())) {
+				auto.add(automobil);
+			}
+		}
+		return auto;
+	}
+	
+	public ArrayList<Servis> servisPrikaz(String prijavljenKorisnik){
 		ArrayList<Servis> servisprikaz = new ArrayList<Servis>();
-		for(Servis servis: servisi) {
-			if(prijavljenKorisnik.getIDOznaka().equals(servis.getVlasnikID())){
+		for(Servis servis: sviNeobrisaniServisi()) {
+			if(prijavljenKorisnik.equals(servis.getVlasnikID())){
 				servisprikaz.add(servis);
-				return servisprikaz;
+				
 				
 			}
 			
 			
 		}
-		return null;
+		return servisprikaz;
 	}
 	
 	public ArrayList<Servis> servisServisera(String idServisera){
 		ArrayList<Servis> servisServisera = new ArrayList<Servis>();
-		for(Servis servis: servisi) {
+		for(Servis servis: sviNeobrisaniServisi()) {
 			if(idServisera.equals(servis.getServiserid())){
 				servisServisera.add(servis);
-				return servisServisera;
+			//	return servisServisera;
 				
 			}
 			
+			
 		}
-		return null;
+		return servisServisera;
 	}
 
 

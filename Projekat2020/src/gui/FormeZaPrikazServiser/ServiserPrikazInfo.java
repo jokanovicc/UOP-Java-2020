@@ -44,11 +44,11 @@ public class ServiserPrikazInfo extends JFrame {
 	public void initGUI() {
 	
 		String[] zaglavlja = new String[] {"ID","Ime","Prezime","JMBG","Pol","Adresa","Broj telefona","Korisnicko Ime","Lozinka","Plata","Specijalizacija"};
-		Object[][] sadrzaj = new Object[datoteka.sveNeobrisaniServiseri().size()][zaglavlja.length];
+		Object[][] sadrzaj = new Object[datoteka.serviserPrikaz(prijavljenKorisnik.getIDOznaka()).size()][zaglavlja.length];
 		
 		for(int i=0; i<sadrzaj.length; i++) {
-			Serviser serviser = datoteka.sveNeobrisaniServiseri().get(i);
-			if(prijavljenKorisnik.getIDOznaka().equals(serviser.getIDOznaka())) {
+			Serviser serviser = datoteka.serviserPrikaz(prijavljenKorisnik.getIDOznaka()).get(i);
+		//	if(prijavljenKorisnik.getIDOznaka().equals(serviser.getIDOznaka())) {
 			sadrzaj[i][0] = serviser.getIDOznaka();
 			sadrzaj[i][1] = serviser.getIme();
 			sadrzaj[i][2] = serviser.getPrezime();
@@ -61,7 +61,7 @@ public class ServiserPrikazInfo extends JFrame {
 			sadrzaj[i][9] = serviser.getPlata();
 			sadrzaj[i][10] = serviser.getSpecijalizacija();
 		}
-		}
+	//	}
 		
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlja);
 		serviserTabela = new JTable(tableModel);

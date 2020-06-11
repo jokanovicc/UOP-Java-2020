@@ -58,11 +58,11 @@ public class ServisiPrikazInfo extends JFrame {
 		add(mainToolbar, BorderLayout.NORTH);
 		
 		String[] zaglavlja = new String[] {"ID","Automobil ID","Termin","Opis","Deo ID", "Status"};
-		Object[][] sadrzaj = new Object[datoteka.sviNeobrisaniServisi().size()][zaglavlja.length];
+		Object[][] sadrzaj = new Object[datoteka.servisServisera(prijavljenKorisnik.getIDOznaka()).size()][zaglavlja.length];
 
-		for(int i=0; i<datoteka.sviNeobrisaniServisi().size(); i++) {
-			Servis servis = datoteka.sviNeobrisaniServisi().get(i);
-			if(prijavljenKorisnik.getIDOznaka().equals(servis.getServiserid())) {
+		for(int i=0; i<datoteka.servisServisera(prijavljenKorisnik.getIDOznaka()).size(); i++) {
+			Servis servis = datoteka.servisServisera(prijavljenKorisnik.getIDOznaka()).get(i);
+		//	if(prijavljenKorisnik.getIDOznaka().equals(servis.getServiserid())) {
 			sadrzaj[i][0] = servis.getiDoznaka();
 			sadrzaj[i][1] = servis.getAutomobilid();
 			sadrzaj[i][2] = servis.getTerminSimpleDate();
@@ -71,7 +71,7 @@ public class ServisiPrikazInfo extends JFrame {
 			sadrzaj[i][5] = servis.getStatus();
 			
 			
-		}
+	//	}
 	}
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlja);
 		servisTabela = new JTable(tableModel);

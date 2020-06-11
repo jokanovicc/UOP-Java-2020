@@ -34,11 +34,11 @@ public class SvojAutoPrikaz extends JFrame {
 		public void initGUI() {
 			
 			String[] zaglavlja = new String[] {"ID","Marka i Model","Godina Proizvodnje","Zapremina Motora","Snaga","Gorivo"};
-			Object[][] sadrzaj = new Object[datoteka.sviNeobrisaniAutomobili().size()][zaglavlja.length];
+			Object[][] sadrzaj = new Object[datoteka.autoPrikaz(prijavljeniKorisnik.getIDOznaka()).size()][zaglavlja.length];
 			
-			for(int i=0; i<datoteka.sviNeobrisaniAutomobili().size(); i++) {
-				Automobil automobil = datoteka.sviNeobrisaniAutomobili().get(i);
-				if(automobil.getVlasnikId().equals(prijavljeniKorisnik.getIDOznaka())) {
+			for(int i=0; i<datoteka.autoPrikaz(prijavljeniKorisnik.getIDOznaka()).size(); i++) {
+				Automobil automobil = datoteka.autoPrikaz(prijavljeniKorisnik.getIDOznaka()).get(i);
+			//	if(automobil.getVlasnikId().equals(prijavljeniKorisnik.getIDOznaka())) {
 				sadrzaj[i][0] = automobil.getIdOznaka();
 				sadrzaj[i][1] = automobil.getMarkaModel();
 				sadrzaj[i][2] = automobil.getGodinaProizvodnje();
@@ -46,7 +46,7 @@ public class SvojAutoPrikaz extends JFrame {
 				sadrzaj[i][4] = automobil.getSnaga();
 				sadrzaj[i][5] = automobil.getVrstaGoriva();
 				
-			}
+		//	}
 			}
 			
 			tableModel = new DefaultTableModel(sadrzaj, zaglavlja);
