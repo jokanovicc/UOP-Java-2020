@@ -14,14 +14,14 @@ import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import gui.formeZaDodavanjeIzmene.AdminForma;
-import gui.formeZaDodavanjeIzmene.ServiserForma;
-import model.korisnici.Admin;
+import gui.formeZaDodavanjeIzmene.AutoForma;
+import gui.formeZaDodavanjeIzmene.DeoForma;
+import model.automobili.Automobil;
 import model.korisnici.Musterija;
-import model.korisnici.Serviser;
+import model.servis.Deo;
 import radSaDatotekama.Datoteke;
 
-public class AdminProzorPrikaz extends JFrame {
+public class AutomobilProzorPrikaz extends JFrame {
 	
 	private JToolBar mainToolbar = new JToolBar();
 	private JButton btnAdd = new JButton();
@@ -29,13 +29,13 @@ public class AdminProzorPrikaz extends JFrame {
 	private JButton btnDelete = new JButton();
 	
 	private DefaultTableModel tableModel;
-	private JTable adminiTabela;
+	private JTable autoTabela;
 	
 	private Datoteke datoteka;
 	
-	public AdminProzorPrikaz(Datoteke datoteka) {
+	public AutomobilProzorPrikaz(Datoteke datoteka) {
 		this.datoteka=datoteka;
-		setTitle("Admini");
+		setTitle("Automobili");
 		setSize(700, 300);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -43,7 +43,6 @@ public class AdminProzorPrikaz extends JFrame {
 		initActions();
 		
 	}
-	
 	
 	public void initGUI() {
 		ImageIcon addIcon = new ImageIcon(getClass().getResource("/slike/add.gif"));
@@ -58,61 +57,65 @@ public class AdminProzorPrikaz extends JFrame {
 		mainToolbar.add(btnDelete);
 		add(mainToolbar, BorderLayout.NORTH);
 		
-		String[] zaglavlja = new String[] {"ID","Ime","Prezime","JMBG","Pol","Adresa","Broj telefona","Korisnicko Ime","Lozinka","Plata"};
-		Object[][] sadrzaj = new Object[datoteka.sveNeobrisaneAdmini().size()][zaglavlja.length];
+		String[] zaglavlja = new String[] {"ID","Marka i Model","Godina Proizvodnje","Zapremina Motora","Snaga","Gorivo","Vlasnik ID"};
+		Object[][] sadrzaj = new Object[datoteka.sviNeobrisaniAutomobili().size()][zaglavlja.length];
 		
-		for(int i=0; i<datoteka.sveNeobrisaneAdmini().size(); i++) {
-			Admin admin = datoteka.sveNeobrisaneAdmini().get(i);
-			sadrzaj[i][0] = admin.getIDOznaka();
-			sadrzaj[i][1] = admin.getIme();
-			sadrzaj[i][2] = admin.getPrezime();
-			sadrzaj[i][3] = admin.getJmbg();
-			sadrzaj[i][4] = admin.getPol();
-			sadrzaj[i][5] = admin.getAdresa();
-			sadrzaj[i][6] = admin.getBrojTelefona();
-			sadrzaj[i][7] = admin.getUsername();
-			sadrzaj[i][8] = admin.getLozinka();
-			sadrzaj[i][9] = admin.getPlata();
+		for(int i=0; i<datoteka.sviNeobrisaniAutomobili().size(); i++) {
+			Automobil automobil = datoteka.sviNeobrisaniAutomobili().get(i);
+			sadrzaj[i][0] = automobil.getIdOznaka();
+			sadrzaj[i][1] = automobil.getMarkaModel();
+			sadrzaj[i][2] = automobil.getGodinaProizvodnje();
+			sadrzaj[i][3] = automobil.getZapreminaMotora();
+			sadrzaj[i][4] = automobil.getSnaga();
+			sadrzaj[i][5] = automobil.getVrstaGoriva();
+			sadrzaj[i][6] = automobil == null ? "--" : automobil.getVlasnikId();
+
 			
 		}
 		
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlja);
-		adminiTabela = new JTable(tableModel);
+		autoTabela = new JTable(tableModel);
 		
-		adminiTabela.setRowSelectionAllowed(true);
-		adminiTabela.setColumnSelectionAllowed(false);
-		adminiTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		adminiTabela.setDefaultEditor(Object.class, null);
-		adminiTabela.getTableHeader().setReorderingAllowed(false);
 		
-		JScrollPane scrollPane = new JScrollPane(adminiTabela);
+		autoTabela.setRowSelectionAllowed(true);
+		autoTabela.setColumnSelectionAllowed(false);
+		autoTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		autoTabela.setDefaultEditor(Object.class, null);
+		autoTabela.getTableHeader().setReorderingAllowed(false);
+		
+		
+		JScrollPane scrollPane = new JScrollPane(autoTabela);
 		
 		add(scrollPane, BorderLayout.CENTER);
 		
 	}
 	
 	public void initActions() {
+		
 		btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminForma af = new AdminForma(datoteka, null);
+				AutoForma af = new AutoForma(datoteka, null);
 				af.setVisible(true);
+				
 			}
 		});
+		
 		btnEdit.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = adminiTabela.getSelectedRow();
+				int red = autoTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null,"Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 				}else {
-					String adminID = tableModel.getValueAt(red, 0).toString();
-					Admin admin = datoteka.nadjiAdmina(adminID);
-					AdminForma af = new AdminForma(datoteka, admin);
+					String autoID = tableModel.getValueAt(red, 0).toString();
+					Automobil automobil = datoteka.nadjiAutomobil(autoID);
+					AutoForma af = new AutoForma(datoteka, automobil);
 					af.setVisible(true);
 				}
+				
 			}
 		});
 		
@@ -120,31 +123,28 @@ public class AdminProzorPrikaz extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = adminiTabela.getSelectedRow();
+				int red = autoTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 				}else {
-					String adminID = adminiTabela.getValueAt(red, 0).toString();
-					Admin admin =datoteka.nadjiAdmina(adminID);
+					String autoID = tableModel.getValueAt(red, 0).toString();
+					Automobil automobil = datoteka.nadjiAutomobil(autoID);
 					int izbor = JOptionPane.showConfirmDialog(null, 
-							"Da li ste sigurni da zelite da obrisete Admina?", 	
+							"Da li ste sigurni da zelite da obrisete Automobil?", 	
 				
-							adminID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
-					if(izbor == JOptionPane.YES_OPTION) {
-						datoteka.obrisiAdmina(admin);
+							autoID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+				if(izbor == JOptionPane.YES_OPTION) {
+					datoteka.obrisiAutomobil(automobil);;
 				}
-			}
+				
+				}
+				
 			}
 		});
-	}
-		
-		
 		
 	}
-	
-	
-	
 	
 	
 	
 
+}

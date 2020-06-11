@@ -12,7 +12,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import gui.FormeZaPrikaz.PrikazAdmin.AdminProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.AutomobilProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.DeloviProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.KnjizicaProzorPrikaz;
 import gui.FormeZaPrikaz.PrikazAdmin.MusterijaProzorPrikaz;
+import gui.FormeZaPrikaz.PrikazAdmin.ServisProzorPrikaz;
 import gui.FormeZaPrikaz.PrikazAdmin.ServiserProzorPrikaz;
 import model.korisnici.Admin;
 import model.korisnici.Korisnik;
@@ -24,6 +28,7 @@ public class AdminGlavniProzor extends JFrame {
 	private JMenuItem musterijeItem = new JMenuItem("Musterije");
 	private JMenuItem serviseriItem = new JMenuItem("Serviseri");
 	private JMenuItem adminItem = new JMenuItem("Administratori");
+	
 	private JMenu servisMenu = new JMenu("Servis");
 	private JMenuItem servisItem = new JMenuItem("Servisi");
 	private JMenuItem knjizicaItem = new JMenuItem("Servisna knjizica");
@@ -99,6 +104,46 @@ public class AdminGlavniProzor extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				AdminProzorPrikaz app = new AdminProzorPrikaz(podaci);
 				app.setVisible(true);
+				
+			}
+		});
+		
+		deoItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DeloviProzorPrikaz dpp = new DeloviProzorPrikaz(podaci);
+				dpp.setVisible(true);
+				
+			}
+		});
+		
+		automobilItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AutomobilProzorPrikaz app = new AutomobilProzorPrikaz(podaci);
+				app.setVisible(true);
+				
+			}
+		});
+		
+		servisItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ServisProzorPrikaz spps = new ServisProzorPrikaz(podaci);
+				spps.setVisible(true);
+				
+			}
+		});
+		
+		knjizicaItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				KnjizicaProzorPrikaz kpp = new KnjizicaProzorPrikaz(podaci);
+				kpp.setVisible(true);
 				
 			}
 		});

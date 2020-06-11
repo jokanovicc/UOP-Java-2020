@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import model.automobili.Automobil;
 import model.enumeracije.Statusi;
@@ -12,7 +13,7 @@ import model.korisnici.Serviser;
 public class Servis {
 	private Automobil automobil;
 	private Serviser serviser;
-	private String termin;
+	private GregorianCalendar termin;
 	private String opis;
 	private ArrayList<Deo> deo;
 	private Statusi status;
@@ -23,7 +24,7 @@ public class Servis {
 	public Servis() {
 		this.automobil = new Automobil();
 		this.serviser = new Serviser();
-		this.termin = "";
+		this.termin = new GregorianCalendar();
 		this.opis = "";
 		this.deo = new ArrayList<Deo>();
 		this.status = Statusi.ZAKAZAN;
@@ -33,13 +34,7 @@ public class Servis {
 
 
 
-
-
-
-
-
-
-	public Servis(Automobil automobil, Serviser serviser, String termin, String opis, ArrayList<Deo> deo,
+	public Servis(Automobil automobil, Serviser serviser, GregorianCalendar termin, String opis, ArrayList<Deo> deo,
 			Statusi status, String iDoznaka, boolean obrisan) {
 		super();
 		this.automobil = automobil;
@@ -84,14 +79,35 @@ public class Servis {
 
 
 
-	public String getTermin() {
+
+	public GregorianCalendar getTermin() {
 		return termin;
 	}
 
 
 
-	public void setTermin(String termin) {
+	public void setTermin(GregorianCalendar termin) {
 		this.termin = termin;
+	}
+	
+	public String getTerminSimpleDate() {
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy.");
+		return format.format(termin.getTime());
+	}
+	
+	
+	public static GregorianCalendar StringToGregorian(String termin) {
+		GregorianCalendar datum = new GregorianCalendar();
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy.");
+		
+		try {
+			datum.setTime(format.parse(termin));
+		}catch (Exception e) {
+			System.out.println("Ne valja datum");
+		}
+		
+		
+		return datum;
 	}
 
 
@@ -120,6 +136,8 @@ public class Servis {
 		}
 		return deoID;
 	}
+	
+	
 	
 
 
@@ -161,17 +179,17 @@ public class Servis {
 
 
 
-
-
-
-	public int getAutomobilid() {
+	public String getAutomobilid() {
 		return automobil.getIdOznaka();
 	}
 	
-	public int getServiserid() {
+	public String getServiserid() {
 		return serviser.getIDOznaka();
 	}
 	
+	public String getVlasnikID() {
+		return automobil.getVlasnikId();
+	}
 
 	
 	public boolean isObrisan() {
@@ -189,7 +207,7 @@ public class Servis {
 	}
 	
 	public String toString2() {
-		return "|" +  opis
+		return iDoznaka +"|" +  opis
 				+ "|" + status.ordinal() + "|" + iDoznaka+ "|" + isObrisan();
 	}
 	

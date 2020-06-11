@@ -20,7 +20,7 @@ public class Musterija extends Korisnik {
 
 
 	public Musterija(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka, int iDOznaka, boolean obrisan, int brojSakupljenihBodova) {
+			String username, String lozinka, String iDOznaka, boolean obrisan, int brojSakupljenihBodova) {
 		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka, obrisan);
 		this.brojSakupljenihBodova = brojSakupljenihBodova;
 	}
@@ -51,6 +51,9 @@ public class Musterija extends Korisnik {
 				+ "|" + jmbg + "|" + pol.ordinal()+ "|" + brojTelefona + "|" + adresa
 				+ "|" + username + "|" + lozinka + "|" +brojSakupljenihBodova +"|" + isObrisan();
 	}
+
+
+
 
 
 

@@ -14,28 +14,28 @@ import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import gui.formeZaDodavanjeIzmene.AdminForma;
-import gui.formeZaDodavanjeIzmene.ServiserForma;
-import model.korisnici.Admin;
-import model.korisnici.Musterija;
-import model.korisnici.Serviser;
+import gui.formeZaDodavanjeIzmene.ServisFormaZaAdmina;
+import model.servis.Deo;
+import model.servis.Servis;
 import radSaDatotekama.Datoteke;
 
-public class AdminProzorPrikaz extends JFrame {
+public class ServisProzorPrikaz extends JFrame {
 	
 	private JToolBar mainToolbar = new JToolBar();
 	private JButton btnAdd = new JButton();
 	private JButton btnEdit = new JButton();
 	private JButton btnDelete = new JButton();
 	
+	
 	private DefaultTableModel tableModel;
-	private JTable adminiTabela;
+	private JTable servisTabela;
 	
 	private Datoteke datoteka;
 	
-	public AdminProzorPrikaz(Datoteke datoteka) {
+	
+	public ServisProzorPrikaz(Datoteke datoteka) {
 		this.datoteka=datoteka;
-		setTitle("Admini");
+		setTitle("Servisi");
 		setSize(700, 300);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -43,7 +43,6 @@ public class AdminProzorPrikaz extends JFrame {
 		initActions();
 		
 	}
-	
 	
 	public void initGUI() {
 		ImageIcon addIcon = new ImageIcon(getClass().getResource("/slike/add.gif"));
@@ -58,34 +57,32 @@ public class AdminProzorPrikaz extends JFrame {
 		mainToolbar.add(btnDelete);
 		add(mainToolbar, BorderLayout.NORTH);
 		
-		String[] zaglavlja = new String[] {"ID","Ime","Prezime","JMBG","Pol","Adresa","Broj telefona","Korisnicko Ime","Lozinka","Plata"};
-		Object[][] sadrzaj = new Object[datoteka.sveNeobrisaneAdmini().size()][zaglavlja.length];
-		
-		for(int i=0; i<datoteka.sveNeobrisaneAdmini().size(); i++) {
-			Admin admin = datoteka.sveNeobrisaneAdmini().get(i);
-			sadrzaj[i][0] = admin.getIDOznaka();
-			sadrzaj[i][1] = admin.getIme();
-			sadrzaj[i][2] = admin.getPrezime();
-			sadrzaj[i][3] = admin.getJmbg();
-			sadrzaj[i][4] = admin.getPol();
-			sadrzaj[i][5] = admin.getAdresa();
-			sadrzaj[i][6] = admin.getBrojTelefona();
-			sadrzaj[i][7] = admin.getUsername();
-			sadrzaj[i][8] = admin.getLozinka();
-			sadrzaj[i][9] = admin.getPlata();
+		String[] zaglavlja = new String[] {"ID","Automobil ID","Serviser ID","Termin","Opis","Deo ID", "Status"};
+		Object[][] sadrzaj = new Object[datoteka.sviNeobrisaniServisi().size()][zaglavlja.length];
+
+		for(int i=0; i<datoteka.sviNeobrisaniServisi().size(); i++) {
+			Servis servis = datoteka.sviNeobrisaniServisi().get(i);
+			sadrzaj[i][0] = servis.getiDoznaka();
+			sadrzaj[i][1] = servis.getAutomobilid();
+			sadrzaj[i][2] = servis.getServiserid();
+			sadrzaj[i][3] = servis.getTerminSimpleDate();
+			sadrzaj[i][4] = servis.getOpis();
+			sadrzaj[i][5] = servis.getDeoID();
+			sadrzaj[i][6] = servis.getStatus();
+			
 			
 		}
-		
 		tableModel = new DefaultTableModel(sadrzaj, zaglavlja);
-		adminiTabela = new JTable(tableModel);
+		servisTabela = new JTable(tableModel);
 		
-		adminiTabela.setRowSelectionAllowed(true);
-		adminiTabela.setColumnSelectionAllowed(false);
-		adminiTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		adminiTabela.setDefaultEditor(Object.class, null);
-		adminiTabela.getTableHeader().setReorderingAllowed(false);
 		
-		JScrollPane scrollPane = new JScrollPane(adminiTabela);
+		servisTabela.setRowSelectionAllowed(true);
+		servisTabela.setColumnSelectionAllowed(false);
+		servisTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		servisTabela.setDefaultEditor(Object.class, null);
+		servisTabela.getTableHeader().setReorderingAllowed(false);
+		
+		JScrollPane scrollPane = new JScrollPane(servisTabela);
 		
 		add(scrollPane, BorderLayout.CENTER);
 		
@@ -96,23 +93,26 @@ public class AdminProzorPrikaz extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminForma af = new AdminForma(datoteka, null);
-				af.setVisible(true);
+				ServisFormaZaAdmina sfza = new ServisFormaZaAdmina(datoteka, null);
+				sfza.setVisible(true);
+				
 			}
 		});
+		
 		btnEdit.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = adminiTabela.getSelectedRow();
+				int red = servisTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null,"Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 				}else {
-					String adminID = tableModel.getValueAt(red, 0).toString();
-					Admin admin = datoteka.nadjiAdmina(adminID);
-					AdminForma af = new AdminForma(datoteka, admin);
-					af.setVisible(true);
+					String servisID = tableModel.getValueAt(red, 0).toString();
+					Servis servis = datoteka.nadjiServis(servisID);
+					ServisFormaZaAdmina sfza = new ServisFormaZaAdmina(datoteka, servis);
+					sfza.setVisible(true);
 				}
+				
 			}
 		});
 		
@@ -120,31 +120,24 @@ public class AdminProzorPrikaz extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int red = adminiTabela.getSelectedRow();
+				int red = servisTabela.getSelectedRow();
 				if(red == -1) {
 					JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
 				}else {
-					String adminID = adminiTabela.getValueAt(red, 0).toString();
-					Admin admin =datoteka.nadjiAdmina(adminID);
+					String servisID = tableModel.getValueAt(red, 0).toString();
+					Servis servis = datoteka.nadjiServis(servisID);
 					int izbor = JOptionPane.showConfirmDialog(null, 
-							"Da li ste sigurni da zelite da obrisete Admina?", 	
+							"Da li ste sigurni da zelite da obrisete Servis?", 	
 				
-							adminID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+							servisID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+					
 					if(izbor == JOptionPane.YES_OPTION) {
-						datoteka.obrisiAdmina(admin);
+						datoteka.obrisiServis(servis);
+					}
 				}
-			}
+				
 			}
 		});
-	}
-		
-		
 		
 	}
-	
-	
-	
-	
-	
-	
-
+}

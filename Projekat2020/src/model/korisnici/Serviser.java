@@ -21,7 +21,7 @@ public class Serviser extends Korisnik {
 
 
 	public Serviser(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka, int iDOznaka, boolean obrisan, double plata,
+			String username, String lozinka, String iDOznaka, boolean obrisan, double plata,
 			Specijalizacija specijalizacija) {
 		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka, obrisan);
 		this.plata = plata;

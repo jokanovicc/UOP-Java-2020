@@ -1,16 +1,21 @@
 package gui.FormeZaPrikaz.PrikazAdmin;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import gui.formeZaDodavanjeIzmene.MusterijeForma;
+import model.automobili.Automobil;
 import model.korisnici.Musterija;
 import radSaDatotekama.Datoteke;
 
@@ -75,7 +80,7 @@ public class MusterijaProzorPrikaz extends JFrame {
 		
 		
 		musterijeTabela.setRowSelectionAllowed(true);
-		musterijeTabela.setColumnSelectionAllowed(true);
+		musterijeTabela.setColumnSelectionAllowed(false);
 		musterijeTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		musterijeTabela.setDefaultEditor(Object.class, null);
 		musterijeTabela.getTableHeader().setReorderingAllowed(false);
@@ -89,7 +94,59 @@ public class MusterijaProzorPrikaz extends JFrame {
 	
 	
 	public void initActions() {
+		btnAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MusterijeForma mf = new MusterijeForma(datoteka, null);
+				mf.setVisible(true);
+				
+			}
+		});
 		
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = musterijeTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null,"Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					String musterijaID = tableModel.getValueAt(red, 0).toString();
+					Musterija musterija = datoteka.nadjiMusteriju(musterijaID);
+					MusterijeForma mf = new MusterijeForma(datoteka, musterija);
+					mf.setVisible(true);
+				}
+				
+			}
+		});
+		
+		btnDelete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = musterijeTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					
+					String musterijaID = musterijeTabela.getValueAt(red, 0).toString();
+					Musterija musterija = datoteka.nadjiMusteriju(musterijaID);
+					
+					int izbor = JOptionPane.showConfirmDialog(null, 
+							"Da li ste sigurni da zelite da obrisete Automobil?", 	
+				
+							musterijaID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+					if(izbor == JOptionPane.YES_OPTION) {
+						datoteka.obrisiMusteriju(musterija);
+				}
+				}
+				
+			}
+		});
+
+		
+		}
 	}
 
-}
+

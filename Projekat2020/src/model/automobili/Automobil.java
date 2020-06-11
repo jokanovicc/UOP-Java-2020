@@ -13,7 +13,7 @@ public class Automobil {
 	private String zapreminaMotora;
 	private String snaga;
 	private Gorivo vrstaGoriva;
-	private int idOznaka;
+	private String idOznaka;
 	private boolean obrisan;
 	
 	public Automobil() {
@@ -23,7 +23,7 @@ public class Automobil {
 		this.zapreminaMotora = "";
 		this.snaga = "";
 		this.vrstaGoriva = Gorivo.GAS;
-		this.idOznaka = 0;
+		this.idOznaka = "";
 		this.obrisan = false;
 	}
 	
@@ -36,7 +36,7 @@ public class Automobil {
 
 
 	public Automobil(Musterija vlasnik, MarkaModelDeo markaModel, int godinaProizvodnje, String zapreminaMotora,
-			String snaga, Gorivo vrstaGoriva, int idOznaka, boolean obrisan) {
+			String snaga, Gorivo vrstaGoriva, String idOznaka, boolean obrisan) {
 		super();
 		this.vlasnik = vlasnik;
 		this.markaModel = markaModel;
@@ -162,9 +162,7 @@ public class Automobil {
 
 
 
-
-
-	public int getIdOznaka() {
+	public String getIdOznaka() {
 		return idOznaka;
 	}
 
@@ -173,11 +171,22 @@ public class Automobil {
 
 
 
-	public void setIdOznaka(int idOznaka) {
+
+
+
+	public void setIdOznaka(String idOznaka) {
 		this.idOznaka = idOznaka;
 	}
 
-	public int getVlasnikId() {
+
+
+
+	
+
+
+
+
+	public String getVlasnikId() {
 		return vlasnik.getIDOznaka();
 	}
 
@@ -199,7 +208,7 @@ public class Automobil {
 	}
 	
 	public String toString2() {
-		return  markaModel.ordinal() + "|"
+		return  getVlasnikId() +"|" + markaModel.ordinal() + "|"
 				+ godinaProizvodnje + "|" + zapreminaMotora + "|" + snaga + "|"
 				+ vrstaGoriva.ordinal() + "|" + idOznaka+ "|" + isObrisan();
 	}

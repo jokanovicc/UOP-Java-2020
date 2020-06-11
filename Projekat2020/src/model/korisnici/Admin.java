@@ -18,7 +18,7 @@ public class Admin extends Korisnik {
 
 
 	public Admin(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa, String username,
-			String lozinka, int iDOznaka, boolean obrisan, double plata) {
+			String lozinka, String iDOznaka, boolean obrisan, double plata) {
 		super(ime, prezime, jmbg, pol, brojTelefona, adresa, username, lozinka, iDOznaka, obrisan);
 		this.plata = plata;
 	}

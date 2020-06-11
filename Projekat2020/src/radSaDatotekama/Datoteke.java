@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import model.automobili.Automobil;
 import model.enumeracije.Gorivo;
@@ -61,9 +62,9 @@ public class Datoteke {
 	}
 
 	
-	public Musterija nadjiMusteriju(int IDOznaka) {
+	public Musterija nadjiMusteriju(String IDOznaka) {
 		for (Musterija musterija : musterije) {                //OVO MI TREBA KAD REFERENCIRAM
-			if (musterija.getIDOznaka()==(IDOznaka)) {
+			if (musterija.getIDOznaka().equals(IDOznaka)) {
 				return musterija;
 			}
 		}
@@ -76,7 +77,7 @@ public class Datoteke {
 	//	dodajMusteriju(musterija);             //OVO CE KREIRATI LANAC BRISANJA
 		snimiMusteriju();
 		for(Automobil a:automobili) {
-			if(a.getVlasnikId()==musterija.getIDOznaka()) {
+			if(a.getVlasnikId().equals(musterija.getIDOznaka())) {
 				obrisiAutomobil(a);                              //brise se i auto, takodje i servis samog auta
 															//knjizica moze ostati u sistemu, nju je potrebno nezavisno obrisati
 				
@@ -99,7 +100,7 @@ public class Datoteke {
 	
 	
 	public void izmeniMusteriju(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,    
-	String username, String lozinka, int iDOznaka, boolean obrisan, int brojSakupljenihBodova) {     //metode prima objekta kao parametre
+	String username, String lozinka, String iDOznaka, boolean obrisan, int brojSakupljenihBodova) {     //metode prima objekta kao parametre
 		for(Musterija musterija:musterije) {
 			if(musterija.getIDOznaka() == iDOznaka) {      //id se ne sme menjati
 				musterija.setIme(ime);
@@ -126,9 +127,9 @@ public class Datoteke {
 		this.serviseri.add(serviser);
 	}
 	
-	public Serviser nadjiServisera(int IDOznaka) {
+	public Serviser nadjiServisera(String IDOznaka) {
 		for (Serviser serviser : serviseri) {
-			if (serviser.getIDOznaka()==(IDOznaka)) {
+			if (serviser.getIDOznaka().equals(IDOznaka)) {
 				return serviser;
 			}
 		}
@@ -141,7 +142,7 @@ public class Datoteke {
 		//dodajServisera(serviser);                            //ako obrises servisera, obrisaces i servis
 		snimiServisera();
 		for(Servis servis : servisi) {
-			if(serviser.getIDOznaka() == servis.getServiserid()) {
+			if(serviser.getIDOznaka().equals(servis.getServiserid())) {
 				obrisiServis(servis);                                   //NADOVEZUJE SE NA PRETHODNO BRISANJE
 			}
 		}
@@ -159,7 +160,7 @@ public class Datoteke {
 	
 	
 	public void izmeniServisera(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka, int iDOznaka, boolean obrisan, double plata,
+			String username, String lozinka, String iDOznaka, boolean obrisan, double plata,
 			Specijalizacija specijalizacija) {
 		for(Serviser serviser:serviseri) {
 			if(serviser.getIDOznaka() == iDOznaka) {
@@ -189,9 +190,9 @@ public class Datoteke {
 	public void dodajAutomobil(Automobil automobil) {
 		this.automobili.add(automobil);
 	}
-	public Automobil nadjiAutomobil(int idOznaka) {
+	public Automobil nadjiAutomobil(String idOznaka) {
 		for (Automobil automobil : automobili) {
-			if (automobil.getIdOznaka()==(idOznaka)) {
+			if (automobil.getIdOznaka().equals(idOznaka)) {
 				return automobil;
 			}
 		}
@@ -203,7 +204,7 @@ public class Datoteke {
 		snimiAutomobil();
 		
 		for(Servis servis: servisi) {
-			if(servis.getAutomobilid()==automobil.getIdOznaka()) {
+			if(servis.getAutomobilid().equals(automobil.getIdOznaka())) {
 				obrisiServis(servis);                                        //brisanjem auta ode i njegov servis
 
 				
@@ -228,7 +229,7 @@ public class Datoteke {
 	
 	
 	public void izmeniAutomobil(Musterija vlasnik, MarkaModelDeo markaModel, int godinaProizvodnje, String zapreminaMotora,
-			String snaga, Gorivo vrstaGoriva, int idOznaka, boolean obrisan) {
+			String snaga, Gorivo vrstaGoriva, String idOznaka, boolean obrisan) {
 		for(Automobil automobil:automobili) {
 			if(automobil.getIdOznaka() == idOznaka) {
 				automobil.setVlasnik(vlasnik);
@@ -259,9 +260,18 @@ public class Datoteke {
 		snimiAdmina();
 	}
 	
+	public Admin nadjiAdmina(String idOznaka) {
+		for (Admin admin: admini) {
+			if(admin.getIDOznaka().equals(idOznaka)) {
+				return admin;
+			}
+		}
+		return null;
+	}
+	
 	
 	public void izmeniAdmina(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa, String username,
-			String lozinka, int iDOznaka, boolean obrisan, double plata) {
+			String lozinka, String iDOznaka, boolean obrisan, double plata) {
 		for(Admin admin:admini) {
 			if(admin.getIDOznaka()==iDOznaka) {
 				admin.setIme(ime);
@@ -365,7 +375,7 @@ public class Datoteke {
 		
 	}
 	
-	public void izmeniServis(Automobil automobil, Serviser serviser, String termin, String opis, ArrayList<Deo> deo,
+	public void izmeniServis(Automobil automobil, Serviser serviser, GregorianCalendar termin, String opis, ArrayList<Deo> deo,
 			Statusi status, String iDoznaka, boolean obrisan) {
 		for(Servis servis: servisi) {
 			if(servis.getiDoznaka().equals(iDoznaka)) {
@@ -426,7 +436,14 @@ public class Datoteke {
 		//snimiKnjizicu();
 	}
 
-	
+	public ServisnaKnjizica nadjiKnjizicu2(String idOznaka) {
+		for (ServisnaKnjizica knjizica : knjizice) {
+			if (knjizica.getIdOznaka().equals(idOznaka)) {   //U SLUCAJU DA ZELIMO OBRISATI SAMO SERVIS, BEZ DIRANJA KNJIZICE...
+				return knjizica;
+			}
+		}
+		return null;
+	}
 //---------------------------------------------------RAD SA MUSTERIJAMA----------------------------------------------------------------------------	
 
 	public void ucitajMusteriju() {
@@ -437,7 +454,7 @@ public class Datoteke {
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
 				int brojSakupljenihBodova = Integer.parseInt(split[9]);         //CITA
-				int IDOznaka = Integer.parseInt(split[0]);
+				String IDOznaka = split[0];
 				int polInt = Integer.parseInt(split[4]);
 				Pol pol = Pol.values()[polInt];
 				boolean obrisan = Boolean.parseBoolean(split[10]);
@@ -479,7 +496,7 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int IDOznaka = Integer.parseInt(split[0]);
+				String IDOznaka = split[0];
 				int polInt = Integer.parseInt(split[4]);
 				Pol pol = Pol.values()[polInt];;
 				double plata = Double.parseDouble(split[9]);
@@ -524,7 +541,7 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int IDOznaka = Integer.parseInt(split[0]);
+				String IDOznaka = split[0];
 				int polInt = Integer.parseInt(split[4]);
 				Pol pol = Pol.values()[polInt];
 				double plata = Double.parseDouble(split[9]);
@@ -568,14 +585,14 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int id1 = Integer.parseInt(split[0]);
+				String id1 = split[0];
 				Musterija IDOznaka = nadjiMusteriju(id1);
 				int autoInt = Integer.parseInt(split[1]);
 				MarkaModelDeo markaModel = MarkaModelDeo.values()[autoInt];
 				int godinaProizvodnje = Integer.parseInt(split[2]);
 				int gorivoInt = Integer.parseInt(split[5]);
 				Gorivo vrstaGoriva = Gorivo.values()[gorivoInt];
-				int id = Integer.parseInt(split[6]);
+				String id = split[6];
 				boolean obrisana = Boolean.parseBoolean(split[7]);
 				
 				
@@ -598,7 +615,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Automobil automobil : automobili) {
 				
-				sadrzaj += automobil.getVlasnikId() +"|"+ automobil.toString2() +"\n";
+				sadrzaj += automobil.toString2() +"\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -694,9 +711,10 @@ public class Datoteke {
 			String line = null;
 			while((line = reader.readLine()) != null){
 				String[] split = line.split("\\|");
-				int id1 = Integer.parseInt(split[0]);
+				String id1 = split[0];
 				Automobil idOznaka = nadjiAutomobil(id1);
-				int idserv = Integer.parseInt(split[1]);
+				String idserv =split[1];
+				GregorianCalendar termin = Servis.StringToGregorian(split[2]);
 				Serviser idServisera = nadjiServisera(idserv);
 				String delovi1 = split[3];
 				int opisInt = Integer.parseInt(split[6]);
@@ -714,7 +732,7 @@ public class Datoteke {
 					}
 					
 				}
-				Servis servis = new Servis(idOznaka, idServisera, split[2], split[5], deo2, statusi, idoznaka,obrisan);
+				Servis servis = new Servis(idOznaka, idServisera, termin, split[5], deo2, statusi, idoznaka,obrisan);
 				servisi.add(servis);
 				
 			}
@@ -732,7 +750,7 @@ public class Datoteke {
 			String sadrzaj = "";
 			for (Servis servis : servisi) {
 			
-				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" + servis.getTermin() + "|" + String.join(";", servis.getDeoID())  +"|"+ servis.toString2() + "\n";
+				sadrzaj += servis.getAutomobilid() +"|" + servis.getServiserid() +"|" +servis.getTerminSimpleDate() +"|" +String.join(";", servis.getDeoID()) +"|"+ servis.toString2() + "\n";
 			}
 			br.write(sadrzaj);
 			br.close();
@@ -790,8 +808,11 @@ public class Datoteke {
 			for (ServisnaKnjizica knjizica : knjizice) {
 				
 				sadrzaj += knjizica.getIdOznaka()  + "|" + String.join(";", knjizica.getServisID()) +"|" +knjizica.isObrisan()+"\n";
+				
+				
 			}
 			br.write(sadrzaj);
+			System.out.println(sadrzaj);
 			br.close();
 			
 		} catch (Exception e) {
@@ -833,9 +854,59 @@ public class Datoteke {
 		return null;
 		
 	}
+	
+	public ArrayList<Musterija> musterijaPrikaz(Korisnik prijavljenKorisnik){
+		ArrayList<Musterija> jedna = new ArrayList<Musterija>();
+		for(Musterija musterija: musterije) {
+			if(prijavljenKorisnik.getIDOznaka().equals(musterija.getIDOznaka())) {
+				jedna.add(musterija);
+			}
+		}
+		return jedna;
+	}
+	
+	public ArrayList<Automobil> autoPrikaz(String id){
+		ArrayList<Automobil> auto = new ArrayList<Automobil>();
+		for(Automobil automobil: automobili) {
+			if(id.equals(automobil.getVlasnikId())) {
+				auto.add(automobil);
+				return auto;
+			}
+		}
+		return null;
+	}
+	
+	public ArrayList<Servis> servisPrikaz(Korisnik prijavljenKorisnik){
+		ArrayList<Servis> servisprikaz = new ArrayList<Servis>();
+		for(Servis servis: servisi) {
+			if(prijavljenKorisnik.getIDOznaka().equals(servis.getVlasnikID())){
+				servisprikaz.add(servis);
+				return servisprikaz;
+				
+			}
+			
+			
+		}
+		return null;
+	}
+	
+	public ArrayList<Servis> servisServisera(String idServisera){
+		ArrayList<Servis> servisServisera = new ArrayList<Servis>();
+		for(Servis servis: servisi) {
+			if(idServisera.equals(servis.getServiserid())){
+				servisServisera.add(servis);
+				return servisServisera;
+				
+			}
+			
+		}
+		return null;
+	}
+
 
 
 	
+
 	
 	}
 

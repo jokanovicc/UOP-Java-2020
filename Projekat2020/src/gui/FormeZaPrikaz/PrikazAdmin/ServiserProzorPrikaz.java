@@ -1,16 +1,20 @@
 package gui.FormeZaPrikaz.PrikazAdmin;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import gui.formeZaDodavanjeIzmene.ServiserForma;
 import model.korisnici.Serviser;
 import radSaDatotekama.Datoteke;
 
@@ -73,7 +77,7 @@ public class ServiserProzorPrikaz extends JFrame {
 		serviserTabela = new JTable(tableModel);
 		
 		serviserTabela.setRowSelectionAllowed(true);
-		serviserTabela.setColumnSelectionAllowed(true);
+		serviserTabela.setColumnSelectionAllowed(false);
 		serviserTabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		serviserTabela.setDefaultEditor(Object.class, null);
 		serviserTabela.getTableHeader().setReorderingAllowed(false);
@@ -84,7 +88,50 @@ public class ServiserProzorPrikaz extends JFrame {
 	}
 	
 	public void initActions() {
+		btnAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ServiserForma sf = new ServiserForma(datoteka, null);
+				sf.setVisible(true);
+			}
+		});
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = serviserTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null,"Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					String serviserID = tableModel.getValueAt(red, 0).toString();
+					Serviser serviser = datoteka.nadjiServisera(serviserID);
+					ServiserForma sf = new ServiserForma(datoteka, serviser);
+					sf.setVisible(true);
+				}
+			}
+		});
 		
+		btnDelete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = serviserTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null, "Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {
+					String serviserID = serviserTabela.getValueAt(red, 0).toString();
+					Serviser serviser =datoteka.nadjiServisera(serviserID);
+					int izbor = JOptionPane.showConfirmDialog(null, 
+							"Da li ste sigurni da zelite da obrisete Automobil?", 	
+				
+							serviserID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+					if(izbor == JOptionPane.YES_OPTION) {
+						datoteka.obrisiServisera(serviser);
+				}
+			}
+			}
+		});
 	}
 	
 

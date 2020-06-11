@@ -2,8 +2,12 @@
 0|Relej|25000.0|1000014|false
 1|ZadnjaVrata|45000.0|1000015|false
 2|Svecica|5000.0|100012|false
-0|Karburator|23000.0|100017|false
-2|Leva strana motora|8000.0|100060|false
+0|Karburator|23000.0|100017|true
+2|Rejel motora|8500.0|100060|false
 2|Desna strana motora|8000.0|100060|false
 0|Leva strana prozora|8000.0|100090|false
 0|Desna strana prozora|8000.0|100090|false
+2|Svecice|4000.0|11133344|false
+2|Karburator|5000.0|34324|false
+6|Desna strana retrovizora|3500.0|125562|false
+6|Leva strana retrovizora|3500.0|125562|false

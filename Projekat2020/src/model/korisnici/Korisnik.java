@@ -12,7 +12,7 @@ public abstract class Korisnik {
 	protected String adresa;
 	protected String username;
 	protected String lozinka;
-	protected int IDOznaka;
+	protected String IDOznaka;
 	protected boolean obrisan;
 	
 	public Korisnik() {
@@ -23,7 +23,7 @@ public abstract class Korisnik {
 		this.adresa = "";
 		this.brojTelefona = "";
 		this.lozinka = "";
-		this.IDOznaka = 0;
+		this.IDOznaka = "";
 		this.obrisan = false;
 		
 	}
@@ -34,7 +34,7 @@ public abstract class Korisnik {
 
 
 	public Korisnik(String ime, String prezime, String jmbg, Pol pol, String brojTelefona, String adresa,
-			String username, String lozinka, int iDOznaka, boolean obrisan) {
+			String username, String lozinka, String iDOznaka, boolean obrisan) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -133,14 +133,20 @@ public abstract class Korisnik {
 	}
 
 
-	public int getIDOznaka() {
+
+	public String getIDOznaka() {
 		return IDOznaka;
 	}
 
 
-	public void setIDOznaka(int iDOznaka) {
+
+	public void setIDOznaka(String iDOznaka) {
 		IDOznaka = iDOznaka;
 	}
+
+
+
+
 
 
 	public boolean isObrisan() {
