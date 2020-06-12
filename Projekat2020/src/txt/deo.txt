@@ -9,5 +9,5 @@
 0|Desna strana prozora|8000.0|100090|false
 2|Svecice|4000.0|11133344|false
 2|Karburator|5000.0|34324|false
-6|Desna strana retrovizora|3500.0|125562|false
-6|Leva strana retrovizora|3500.0|125562|false
+14|sajbna leva strana|5000.0|100700|true
+14|sajbna desna strana |5000.0|100700|false

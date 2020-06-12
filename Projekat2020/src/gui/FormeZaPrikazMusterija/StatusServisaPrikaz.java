@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -27,7 +29,7 @@ public class StatusServisaPrikaz extends JFrame {
 	private JButton btnDelete = new JButton();
 	private JLabel spis = new JLabel("Ovo su servisi koji su povezani sa vasim nalogom");
 	private JButton zakaziBTN = new JButton("ZAKAZI SERVIS");
-
+	private JLabel spis2 = new JLabel("Ako ste tek zakazali, sve informacije su nedefinisane!\nSacekajte da admin odobri vas zahtev!");
 	
 	
 	private DefaultTableModel tableModel;
@@ -50,16 +52,10 @@ public class StatusServisaPrikaz extends JFrame {
 	}
 	
 	public void initGUI() {
-		ImageIcon addIcon = new ImageIcon(getClass().getResource("/slike/add.gif"));
-		btnAdd.setIcon(addIcon);
-		ImageIcon editIcon = new ImageIcon(getClass().getResource("/slike/edit.gif"));
-		btnEdit.setIcon(editIcon);
-	
-		mainToolbar.add(btnAdd);
-		mainToolbar.add(btnEdit);
+
 		add(mainToolbar, BorderLayout.NORTH);
 		
-		String[] zaglavlja = new String[] {"ID","Automobil ID","Termin","Opis","Deo ID", "Status"};
+		String[] zaglavlja = new String[] {"ID","Automobil ID","Termin","Opis","Deo ID", "Status","Troskovi"};
 		Object[][] sadrzaj = new Object[datoteka.servisPrikaz(prijavljenKorisnik.getIDOznaka()).size()][zaglavlja.length];
 
 		for(int i=0; i<datoteka.servisPrikaz(prijavljenKorisnik.getIDOznaka()).size(); i++) {
@@ -71,6 +67,7 @@ public class StatusServisaPrikaz extends JFrame {
 			sadrzaj[i][3] = servis.getOpis();
 			sadrzaj[i][4] = servis.getDeoID();
 			sadrzaj[i][5] = servis.getStatus();
+			sadrzaj[i][6] = servis.getTroskovi();
 			
 			
 	//	}
@@ -95,10 +92,19 @@ public class StatusServisaPrikaz extends JFrame {
 		add(scrollPane, BorderLayout.CENTER);
 		add(spis, BorderLayout.SOUTH);
 		add(zakaziBTN, BorderLayout.SOUTH);
+		add(spis2, BorderLayout.NORTH);
 		
 	}
 	
 	public void initActions() {
+		zakaziBTN.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjeServisaMusterija dsm = new DodavanjeServisaMusterija(datoteka, null, prijavljenKorisnik);
+				dsm.setVisible(true);
+			}
+		});
 		
 	}
 	

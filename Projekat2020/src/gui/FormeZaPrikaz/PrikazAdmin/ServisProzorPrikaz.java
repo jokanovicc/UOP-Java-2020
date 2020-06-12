@@ -57,7 +57,7 @@ public class ServisProzorPrikaz extends JFrame {
 		mainToolbar.add(btnDelete);
 		add(mainToolbar, BorderLayout.NORTH);
 		
-		String[] zaglavlja = new String[] {"ID","Automobil ID","Serviser ID","Termin","Opis","Deo ID", "Status"};
+		String[] zaglavlja = new String[] {"ID","Automobil ID","Serviser ID","Termin","Opis","Deo ID", "Status","Troskovi"};
 		Object[][] sadrzaj = new Object[datoteka.sviNeobrisaniServisi().size()][zaglavlja.length];
 
 		for(int i=0; i<datoteka.sviNeobrisaniServisi().size(); i++) {
@@ -69,6 +69,7 @@ public class ServisProzorPrikaz extends JFrame {
 			sadrzaj[i][4] = servis.getOpis();
 			sadrzaj[i][5] = servis.getDeoID();
 			sadrzaj[i][6] = servis.getStatus();
+			sadrzaj[i][7] = servis.getTroskovi();
 			
 			
 		}

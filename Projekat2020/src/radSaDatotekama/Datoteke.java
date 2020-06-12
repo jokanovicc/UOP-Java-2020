@@ -376,7 +376,7 @@ public class Datoteke {
 	}
 	
 	public void izmeniServis(Automobil automobil, Serviser serviser, GregorianCalendar termin, String opis, ArrayList<Deo> deo,
-			Statusi status, String iDoznaka, boolean obrisan) {
+			Statusi status, String iDoznaka, boolean obrisan, double troskovi) {
 		for(Servis servis: servisi) {
 			if(servis.getiDoznaka().equals(iDoznaka)) {
 				servis.setAutomobil(automobil);
@@ -386,6 +386,7 @@ public class Datoteke {
 				servis.setDeo(deo);
 				servis.setStatus(status);
 				servis.setObrisan(obrisan);
+				servis.setTroskovi(troskovi);
 			
 			}
 		}
@@ -720,7 +721,9 @@ public class Datoteke {
 				int opisInt = Integer.parseInt(split[6]);
 				Statusi statusi = Statusi.values()[opisInt];
 				String idoznaka = split[7];
-				boolean obrisan = Boolean.parseBoolean(split[8]);
+				String troskoviStr = split[8];
+				double troskovi = Double.parseDouble(troskoviStr);
+				boolean obrisan = Boolean.parseBoolean(split[9]);
 				
 				String[] deloviSplit = delovi1.split(";");
 				ArrayList<Deo> deo2 = new ArrayList<Deo>();
@@ -732,7 +735,7 @@ public class Datoteke {
 					}
 					
 				}
-				Servis servis = new Servis(idOznaka, idServisera, termin, split[5], deo2, statusi, idoznaka,obrisan);
+				Servis servis = new Servis(idOznaka, idServisera, termin, split[5], deo2, statusi, idoznaka,obrisan,troskovi);
 				servisi.add(servis);
 				
 			}
@@ -759,6 +762,8 @@ public class Datoteke {
 			e.printStackTrace();
 	}
 	}
+
+	
 	
 	
 //--------------------------------RAD SA KNJIZICOM----------------------------------------------------------------------------------------

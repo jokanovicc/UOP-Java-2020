@@ -1,4 +1,4 @@
-package gui.formeZaDodavanjeIzmene;
+package gui.FormeZaPrikazServiser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,16 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+//import org.graalvm.compiler.lir.amd64.AMD64Arithmetic.FPDivRemOp;
+
+import gui.formeZaDodavanjeIzmene.ServisFormaZaAdmina;
 import model.automobili.Automobil;
 import model.enumeracije.Statusi;
+import model.korisnici.Korisnik;
 import model.korisnici.Serviser;
 import model.servis.Deo;
 import model.servis.Servis;
 import net.miginfocom.swing.MigLayout;
 import radSaDatotekama.Datoteke;
 
-public class ServisFormaZaAdmina extends JFrame {
-	
+public class FormaServisServisera extends JFrame {
 	private JLabel lblAuto = new JLabel("Automobil");
 	private JComboBox<String> cbAuto = new JComboBox<String>();
 	
@@ -44,22 +47,29 @@ public class ServisFormaZaAdmina extends JFrame {
 	private JLabel lblOpis = new JLabel("Opis");
 	private JTextField txtOpis = new JTextField(20);
 	
-	private JButton btnOk = new JButton("OK");
-	private JButton btnCancel = new JButton("Cancel");
-	
 	private JLabel lblTroskovi = new JLabel("Troskovi");
 	private JTextField txtTroskovi = new JTextField(10);
+	
+	private JButton btnOk = new JButton("OK");
+	private JButton btnCancel = new JButton("Cancel");
 	
 	
 	private Datoteke datoteka;
 	private Servis servis;
+	private Korisnik prijavljenKorisnik;
+	private Serviser serviser;
 	
 	
-	public ServisFormaZaAdmina(Datoteke datoteka, Servis servis) {
+	public FormaServisServisera(Datoteke datoteka, Servis servis, Korisnik prijavljenKorisnik) {
 		this.datoteka = datoteka;
 		this.servis = servis;
+		this.prijavljenKorisnik = prijavljenKorisnik;
 		
 		if(servis != null) {
+			txtID.setEnabled(false);
+			txtTermin.setEnabled(false);
+			cbAuto.setEnabled(false);
+			txtDeo.setEnabled(false);
 			popuniPolja();
 			setTitle("Izmene vrednosti servisa");
 		}else {
@@ -86,17 +96,11 @@ public class ServisFormaZaAdmina extends JFrame {
 			cbAuto.addItem(automobil.getIdOznaka());
 		}
 		
-		for(Serviser serviser : datoteka.sveNeobrisaniServiseri()) {
-			cbServiser.addItem(serviser.getIDOznaka());
-		}
 		
 		add(lblAuto);
 		add(cbAuto);
 	//	add(cbServiser);
-		
-		add(lblServiser);
-		add(cbServiser);
-		
+
 		add(lblOpis);
 		add(txtOpis);
 		
@@ -132,14 +136,14 @@ public class ServisFormaZaAdmina extends JFrame {
 			String auto = cbAuto.getSelectedItem().toString();
 			Automobil automobil = datoteka.nadjiAutomobil(auto);
 			
-			String serviserID = cbServiser.getSelectedItem().toString();
+			String serviserID = prijavljenKorisnik.getIDOznaka();
 			Serviser serviser = datoteka.nadjiServisera(serviserID);
+			System.out.println(serviser);
 			
 			String opis = txtOpis.getText().toString();
 			
+			double trosak = Double.parseDouble(txtTroskovi.getText().trim());		
 			String deoID = txtDeo.getText().trim();
-			
-			double trosak = Double.parseDouble(txtTroskovi.getText().trim());
 			
 			
 			String[] deloviSplit = deoID.split(";");
@@ -166,7 +170,6 @@ public class ServisFormaZaAdmina extends JFrame {
 			}else {
 				servis.setOpis(opis);
 				servis.setAutomobil(automobil);
-				servis.setDeo(deo2);
 				servis.setTermin(termin);
 				servis.setServiser(serviser);
 				servis.setiDoznaka(id);
@@ -174,8 +177,8 @@ public class ServisFormaZaAdmina extends JFrame {
 				servis.setStatus(status);
 			}
 			datoteka.snimiServis();
-			ServisFormaZaAdmina.this.dispose();
-			ServisFormaZaAdmina.this.setVisible(false);
+			FormaServisServisera.this.dispose();
+			FormaServisServisera.this.setVisible(false);
 			}
 			}
 		});
@@ -188,6 +191,7 @@ public class ServisFormaZaAdmina extends JFrame {
 		cbServiser.setSelectedItem(servis.getServiser());
 		cbStatus.setSelectedItem(servis.getStatus());
 		txtID.setText(servis.getiDoznaka());
+		txtDeo.setText(servis.getDeoID().toString());
 		txtTroskovi.setText(String.valueOf(servis.getTroskovi()));
 	}
 	
@@ -231,6 +235,7 @@ public class ServisFormaZaAdmina extends JFrame {
 			ok = false;
 		}
 		
+		
 		if(txtTermin.getText().trim().equals("")) {
 			poruka += "- Morate uneti termin\n";
 			ok = false;
@@ -242,6 +247,7 @@ public class ServisFormaZaAdmina extends JFrame {
 				ok = false;
 			}
 		}
+		if(servis==null) {
 		if(txtDeo.getText().trim().equals("")) {
 			poruka += "- Morate uneti deo\n";
 			ok = false;
@@ -258,7 +264,7 @@ public class ServisFormaZaAdmina extends JFrame {
 					
 					
 				}
-				
+			}
 			}
 		}
 		
@@ -269,3 +275,5 @@ public class ServisFormaZaAdmina extends JFrame {
 
 }
 }
+
+

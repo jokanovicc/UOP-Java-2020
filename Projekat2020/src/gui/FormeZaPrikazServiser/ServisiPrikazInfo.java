@@ -4,17 +4,21 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import gui.formeZaDodavanjeIzmene.ServisFormaZaAdmina;
 import model.korisnici.Korisnik;
 import model.servis.Servis;
 import radSaDatotekama.Datoteke;
@@ -57,7 +61,7 @@ public class ServisiPrikazInfo extends JFrame {
 		mainToolbar.add(btnEdit);
 		add(mainToolbar, BorderLayout.NORTH);
 		
-		String[] zaglavlja = new String[] {"ID","Automobil ID","Termin","Opis","Deo ID", "Status"};
+		String[] zaglavlja = new String[] {"ID","Automobil ID","Termin","Opis","Deo ID", "Status","Troskovi"};
 		Object[][] sadrzaj = new Object[datoteka.servisServisera(prijavljenKorisnik.getIDOznaka()).size()][zaglavlja.length];
 
 		for(int i=0; i<datoteka.servisServisera(prijavljenKorisnik.getIDOznaka()).size(); i++) {
@@ -69,6 +73,7 @@ public class ServisiPrikazInfo extends JFrame {
 			sadrzaj[i][3] = servis.getOpis();
 			sadrzaj[i][4] = servis.getDeoID();
 			sadrzaj[i][5] = servis.getStatus();
+			sadrzaj[i][6] = servis.getTroskovi();
 			
 			
 	//	}
@@ -96,7 +101,33 @@ public class ServisiPrikazInfo extends JFrame {
 	}
 	
 	public void initActions() {
+		btnAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FormaServisServisera fss = new FormaServisServisera(datoteka, null, prijavljenKorisnik);
+				fss.setVisible(true);
+				
+			}
+		});
 		
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int red = servisTabela.getSelectedRow();
+				if(red == -1) {
+					JOptionPane.showMessageDialog(null,"Morate odabrati red u tabeli.", "Greska", JOptionPane.WARNING_MESSAGE);
+				}else {				
+					String servisID = tableModel.getValueAt(red, 0).toString();
+					Servis servis = datoteka.nadjiServis(servisID);
+					FormaServisServisera fss = new FormaServisServisera(datoteka, servis, prijavljenKorisnik);
+					fss.setVisible(true);				
+			}
+			}
+		});
+		
+		}
 	}
 
-}
+

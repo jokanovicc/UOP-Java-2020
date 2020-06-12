@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import model.automobili.Automobil;
+import model.enumeracije.Pol;
+import model.enumeracije.Specijalizacija;
 import model.enumeracije.Statusi;
 import model.korisnici.Serviser;
 
@@ -18,24 +20,27 @@ public class Servis {
 	private ArrayList<Deo> deo;
 	private Statusi status;
 	private String iDoznaka;
-	private boolean obrisan;	
+	private boolean obrisan;
+	private double troskovi;
 
 	
 	public Servis() {
 		this.automobil = new Automobil();
 		this.serviser = new Serviser();
-		this.termin = new GregorianCalendar();
+		serviser.setIDOznaka("0000");
 		this.opis = "";
 		this.deo = new ArrayList<Deo>();
-		this.status = Statusi.ZAKAZAN;
+		this.status = Statusi.OBRADA;
 		this.iDoznaka = "";
 		this.obrisan = false;
+		this.troskovi = troskovi;
+		this.termin = new GregorianCalendar(0001, 01, 01);
 	}
 
 
 
 	public Servis(Automobil automobil, Serviser serviser, GregorianCalendar termin, String opis, ArrayList<Deo> deo,
-			Statusi status, String iDoznaka, boolean obrisan) {
+			Statusi status, String iDoznaka, boolean obrisan, double troskovi) {
 		super();
 		this.automobil = automobil;
 		this.serviser = serviser;
@@ -45,6 +50,7 @@ public class Servis {
 		this.status = status;
 		this.iDoznaka = iDoznaka;
 		this.obrisan = obrisan;
+		this.troskovi = troskovi;
 	}
 
 
@@ -137,8 +143,8 @@ public class Servis {
 		return deoID;
 	}
 	
-	
-	
+
+
 
 
 
@@ -200,15 +206,30 @@ public class Servis {
 		this.obrisan = obrisan;
 	}
 	
+	
+	
+	
+	public double getTroskovi() {
+		return troskovi;
+	}
+
+
+
+	public void setTroskovi(double troskovi) {
+		this.troskovi = troskovi;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return  "\n" + automobil + "|" + serviser + "|" + termin + "|" + opis
-				+ "|" + deo + "|" + status + "|" + iDoznaka + "|" + isObrisan();
+				+ "|" + deo + "|" + status + "|" + iDoznaka + "|"+troskovi +"|" + isObrisan();
 	}
 	
 	public String toString2() {
 		return iDoznaka +"|" +  opis
-				+ "|" + status.ordinal() + "|" + iDoznaka+ "|" + isObrisan();
+				+ "|" + status.ordinal() + "|" + iDoznaka+ "|"+troskovi +"|"  + isObrisan();
 	}
 	
 	
