@@ -3,3 +3,4 @@
 111555|Admin11|Test|34324234|0|0631111|Zrenjanin|admin123|ado|50000.0|false
 11331555|Jovan|Jankovic|12031991023|0|0644322|Beograd|jovan12|jovan123|80000.0|false
 321411|Antonije|Petrovic|43324321|0|065319832|Dorcol|antonijedorcol|12345|60000.0|true
+11111222|Pavle|Pavlovic|020199840003|0|06300423|Beograd|pavlep|pavle1234|45000.0|false

@@ -134,9 +134,9 @@ public class MusterijaProzorPrikaz extends JFrame {
 					Musterija musterija = datoteka.nadjiMusteriju(musterijaID);
 					
 					int izbor = JOptionPane.showConfirmDialog(null, 
-							"Da li ste sigurni da zelite da obrisete Automobil?", 	
+							"Da li ste sigurni da zelite da obrisete Musteriju?", 	
 				
-							musterijaID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
+							musterijaID + " - Potvrda brisanja", JOptionPane.YES_NO_OPTION);
 					if(izbor == JOptionPane.YES_OPTION) {
 						datoteka.obrisiMusteriju(musterija);
 				}
