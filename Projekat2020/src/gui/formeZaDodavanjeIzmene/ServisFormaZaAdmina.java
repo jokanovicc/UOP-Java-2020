@@ -60,8 +60,8 @@ public class ServisFormaZaAdmina extends JFrame {
 		this.servis = servis;
 		
 		if(servis != null) {
-			popuniPolja();
 			setTitle("Izmene vrednosti servisa");
+			popuniPolja();
 		}else {
 			setTitle("Dodavanje novog servisa");
 		}
@@ -162,7 +162,6 @@ public class ServisFormaZaAdmina extends JFrame {
 			
 			Servis novi = new Servis(automobil, serviser, termin, opis, deo2, status, id, false,trosak);
 			datoteka.dodajServis(novi);
-			System.out.println(novi);
 			}else {
 				servis.setOpis(opis);
 				servis.setAutomobil(automobil);
@@ -191,9 +190,9 @@ public class ServisFormaZaAdmina extends JFrame {
 		txtTroskovi.setText(String.valueOf(servis.getTroskovi()));
 	}
 	
-	private boolean termineokej(String termin) {
+	private boolean termineokej(String termin) { //provera jel okej datum sto mu prosledjujem, datum koji je string
 		SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy.");
-		format.setLenient(false);
+		format.setLenient(false); //method in DateFormat class is used to specify whether the interpretation of the date and time of this DateFormat object is to be lenient or not.
 		try {
 			format.parse(termin.trim());
 		}catch (Exception e) {
@@ -234,7 +233,7 @@ public class ServisFormaZaAdmina extends JFrame {
 		if(txtTermin.getText().trim().equals("")) {
 			poruka += "- Morate uneti termin\n";
 			ok = false;
-		}else if(servis == null) {
+		}else{
 			String termin = txtTermin.getText().trim();
 			termineokej(termin);
 			if(termineokej(termin) == false) {

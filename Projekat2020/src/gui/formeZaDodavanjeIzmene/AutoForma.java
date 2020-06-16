@@ -128,7 +128,6 @@ public class AutoForma extends JFrame {
 				
 				Automobil novi = new Automobil(musterija, model, godiste, zapremina, snaga, gorivo, id, false);
 				datoteka.dodajAutomobil(novi);
-				System.out.println(novi);
 				datoteka.getMusterija().add(musterija);
 				}else {
 					automobil.setGodinaProizvodnje(godiste);

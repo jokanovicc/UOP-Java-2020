@@ -38,17 +38,23 @@ public class FormaServisServisera extends JFrame {
 	private JLabel lblDeo = new JLabel("Deo;Deo");
 	private JTextField txtDeo = new JTextField(10);
 	
+	
 	private JLabel lblStatus = new JLabel("Status");
 	private JComboBox<Statusi> cbStatus = new JComboBox<Statusi>(Statusi.values());
 	
 	private JLabel lblID = new JLabel("ID");
 	private JTextField txtID = new JTextField(20);
 	
+	
+	
 	private JLabel lblOpis = new JLabel("Opis");
 	private JTextField txtOpis = new JTextField(20);
 	
 	private JLabel lblTroskovi = new JLabel("Troskovi");
 	private JTextField txtTroskovi = new JTextField(10);
+	
+	private JLabel ProzorTroskovi = new JLabel();
+	private JButton btnZavrsi = new JButton("Zavrsi servis");
 	
 	private JButton btnOk = new JButton("OK");
 	private JButton btnCancel = new JButton("Cancel");
@@ -74,6 +80,9 @@ public class FormaServisServisera extends JFrame {
 			setTitle("Izmene vrednosti servisa");
 		}else {
 			setTitle("Dodavanje novog servisa");
+			btnZavrsi.setEnabled(false);
+			txtTroskovi.setEnabled(false);
+			cbStatus.setEnabled(false);
 		}
 		
 		
@@ -117,6 +126,7 @@ public class FormaServisServisera extends JFrame {
 		
 		add(lblTroskovi);
 		add(txtTroskovi);
+		add(btnZavrsi);
 		add(new JLabel());
 		add(btnOk, "split 2");
 		add(btnCancel);
@@ -138,11 +148,10 @@ public class FormaServisServisera extends JFrame {
 			
 			String serviserID = prijavljenKorisnik.getIDOznaka();
 			Serviser serviser = datoteka.nadjiServisera(serviserID);
-			System.out.println(serviser);
 			
 			String opis = txtOpis.getText().toString();
 			
-			double trosak = Double.parseDouble(txtTroskovi.getText().trim());		
+			double trosak = 0;		
 			String deoID = txtDeo.getText().trim();
 			
 			
@@ -157,7 +166,7 @@ public class FormaServisServisera extends JFrame {
 				
 			}
 
-			Statusi status = (Statusi)cbStatus.getSelectedItem();
+			Statusi status = Statusi.valueOf("ZAKAZAN");
 			
 			String datum = txtTermin.getText().trim();
 			GregorianCalendar termin = Servis.StringToGregorian(datum);
@@ -169,9 +178,9 @@ public class FormaServisServisera extends JFrame {
 			System.out.println(novi);
 			}else {
 				servis.setOpis(opis);
-				servis.setAutomobil(automobil);
+			//	servis.setAutomobil(automobil);
 				servis.setTermin(termin);
-				servis.setServiser(serviser);
+			//	servis.setServiser(serviser);
 				servis.setiDoznaka(id);
 				servis.setTroskovi(trosak);
 				servis.setStatus(status);
@@ -182,6 +191,20 @@ public class FormaServisServisera extends JFrame {
 			}
 			}
 		});
+		
+		btnZavrsi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				servis.setStatus(Statusi.valueOf("ZAVRSEN"));
+				datoteka.snimiServis();
+				TroskoviForma tf = new TroskoviForma(datoteka, prijavljenKorisnik, servis);
+				tf.setVisible(true);
+
+				
+			}
+		});
+		
 	}
 	
 	public void popuniPolja() {
@@ -228,11 +251,13 @@ public class FormaServisServisera extends JFrame {
 			ok = false;
 		}
 		
+		if(servis!=null) {
 		try {
 			Double.parseDouble(txtTroskovi.getText().trim());
 		}catch (NumberFormatException e) {
 			poruka += "- Cena mora biti broj\n";
 			ok = false;
+		}
 		}
 		
 		

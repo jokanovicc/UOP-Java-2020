@@ -1,4 +1,4 @@
-0000|Nefenisani|Serviser|00000|0|00000|NN|nn|nn|10|1|false
+0000|Nefenisani|Serviser|00000|0|00000|NN|nn|nn|10.0|1|false
 2111122|Radoje|Radic|1906205551995|0|065985263|Zrenjanin|radojeservis|servis123|30300.0|1|false
 21113122|Radasin|Tomic|190632195|0|0659323263|Novi Becej|radasinservis|servis1123|30300.0|2|false
 21133222|Jovan|Jovanovic|194432195|0|06593363|Novi Becej|jovanservis|servis1123|30300.0|1|false
@@ -7,3 +7,4 @@
 2123311444|Jovica|Peric|133234342195|0|0643563|Orlovat|jovicaservis|servis11123|30300.0|0|false
 21321312|Perica|Peric|13324|0|0613424|Zabalj|pericaservis|servis11123|30300.0|1|false
 213312|Milan|Peric|13324|0|061342424|Pancevo|milanservis|servis11123|40300.0|2|false
+2000874|Miloje|Radic|00986320|0|06900123|Paracin|milojeservis|servis123|35000.0|2|false
