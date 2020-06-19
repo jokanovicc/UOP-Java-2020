@@ -67,11 +67,14 @@ public class TroskoviForma extends JFrame {
 						"Zelite li iskoristiti bodove", 
 						 "Snizenje cijene", JOptionPane.YES_NO_OPTION);
 			    Musterija musterija1 = datoteke.nadjiMusteriju(servis.getVlasnikID());
+			    int bodoviZavrsetak = musterija1.getBrojSakupljenihBodova(); //za svaki zavrsen servis dobije 1 bod
+			    if (bodoviZavrsetak <= 10) {
+			    bodoviZavrsetak+=1;
+			    }
 			   // Deo deo1 = datoteke.nadjiDeo(servis.getDeoID());
 			    ArrayList<String> deoID = servis.getDeoID();
 				ArrayList<Deo> deo2 = new ArrayList<Deo>();
 				double cena = 0;
-				
 				for(Deo deo1 : servis.getDeo()) {
 					cena += deo1.getCena();
 				}
@@ -79,7 +82,7 @@ public class TroskoviForma extends JFrame {
 				
 			  		    
 			    
-			    int bodovi = musterija1.getBrojSakupljenihBodova();
+			  //  int bodovi = musterija1.getBrojSakupljenihBodova();
 		    	double trosakServisa = Double.parseDouble(txtTrosak.getText().trim()) + cena;
 		    	 
 			    
@@ -88,7 +91,7 @@ public class TroskoviForma extends JFrame {
 			    //	 System.out.println(musterija1);
 			    //	 int bodovi = musterija1.getBrojSakupljenihBodova();
 			    //	 double cena = Double.parseDouble(txtTrosak.getText().trim());
-			    	 for (int i = 0; i < bodovi; i++) {
+			    	 for (int i = 0; i < bodoviZavrsetak; i++) {
 			    		trosakServisa = trosakServisa * 0.98;
 					 	 
 						
@@ -106,9 +109,9 @@ public class TroskoviForma extends JFrame {
 			    
 			  if(izbor == JOptionPane.NO_OPTION) {
 			//	  System.out.println("NOOOOOOOOOOOOOOO");
-				  if(bodovi < 10) {
-				  int bodovi1 = bodovi +1;
-				  musterija1.setBrojSakupljenihBodova(bodovi1);
+				  if(bodoviZavrsetak < 10) {
+				  int bodovi1 = bodoviZavrsetak +1;
+				  musterija1.setBrojSakupljenihBodova(bodovi1);  //ako ne zeli dobije jos bodova
 				  }
 				  servis.setTroskovi(trosakServisa);
 			//	  musterija1.setBrojSakupljenihBodova(bodovi1);
