@@ -1,5 +1,5 @@
 100001|Petar|Petrovic|16323345|0|06332300|Secanj|petarp|petar123|0|true
-100002|Radoje|Radic|16155|0|06332300|Karaburma|radoje|radoje123|1|false
+100002|Radoje|Radic|16155|0|06332300|Karaburma|radoje|radoje123|3|false
 100003|Marko|Peric|1612155|0|06332300|Vozdovac|markoperic|marko123|1|true
 100021|Goran|Mitrovic|2729335|0|065321200|Zitiste|goranmitro|mitro123|1|true
 100071|Milan|Milanovic|27129335|0|063335200|Klek|milanm|milanm123|0|false
@@ -9,3 +9,4 @@
 1377|Janko|Peric|4321423|0|06532920|Subotica|jankoper|jankoper|1|false
 4324|null|da|564456|0|4324|bg|jeste|da123|0|true
 18772|Mitar|Mitrovic|189151012|0|06930689|Cacak|mitarm|mitarm123|0|true
+19921|Goran|Vukoje|3421352|0|06531000|Secanj|goran|goran123|2|false
