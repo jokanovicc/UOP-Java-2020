@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import model.automobili.Automobil;
@@ -75,6 +76,7 @@ public class DodavanjeServisaMusterija extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(validacije()) {
 				
 				String auto = cbAuto.getSelectedItem().toString();
 				Automobil automobil = datoteka.nadjiAutomobil(auto);
@@ -92,8 +94,28 @@ public class DodavanjeServisaMusterija extends JFrame {
 				DodavanjeServisaMusterija.this.setVisible(false);
 				
 			}
+			}
 		});
 		
+	}
+
+	public boolean validacije() {
+		boolean ok = true;
+		String poruka = "Molimo popravite sledece greske u unosu:\n";
+		if(txtOpis.getText().trim().equals("")) {
+			poruka += "- Morate uneti naziv\n";
+			ok = false;
+		}
+		
+		if(cbAuto.getSelectedItem()==null) {
+			poruka += "- Nemate nijedan auto \n";
+			ok = false;
+			
+		}
+		if(ok == false) {
+			JOptionPane.showMessageDialog(null, poruka, "Neispravni podaci", JOptionPane.WARNING_MESSAGE);
+		}
+		return ok;
 	}
 	
 	
