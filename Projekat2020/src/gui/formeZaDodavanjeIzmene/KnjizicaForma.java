@@ -128,7 +128,7 @@ public class KnjizicaForma extends JFrame {
 		String id = txtID.getText().trim();
 		ServisnaKnjizica pronadjen = datoteke.nadjiKnjizicu2(id);
 		if(pronadjen != null) {
-			poruka += "-Auto sa unetim ID vec postoji\n";
+			poruka += "-Knjizica sa unetim ID vec postoji\n";
 			ok = false;
 	}
 	}

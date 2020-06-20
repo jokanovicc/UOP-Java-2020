@@ -98,7 +98,7 @@ public class DeloviProzorPrikaz extends JFrame {
 					String deoID = tableModel.getValueAt(red, 0).toString();
 					Deo deo = datoteka.nadjiDeo(deoID);
 					int izbor = JOptionPane.showConfirmDialog(null, 
-							"Da li ste sigurni da zelite da obrisete disk?", 	
+							"Da li ste sigurni da zelite da obrisete deo?", 	
 				
 							deoID + " - Porvrda brisanja", JOptionPane.YES_NO_OPTION);
 				if(izbor == JOptionPane.YES_OPTION) {

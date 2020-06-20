@@ -214,7 +214,7 @@ public class ServisFormaZaAdmina extends JFrame {
 		String id = txtID.getText().trim();
 		Servis pronadjen = datoteka.nadjiServis(id);
 		if(pronadjen != null) {
-			poruka += "-Auto sa unetim ID vec postoji\n";
+			poruka += "-Servis sa unetim ID vec postoji\n";
 			ok = false;
 		}
 	}

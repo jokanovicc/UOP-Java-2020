@@ -6,5 +6,5 @@
 212311222|Rade|Radic|134342195|0|06331363|Despotovac|radeservis|servis1123|30300.0|2|false
 2123311444|Jovica|Peric|133234342195|0|0643563|Orlovat|jovicaservis|servis11123|30300.0|0|false
 21321312|Perica|Peric|13324|0|0613424|Zabalj|pericaservis|servis11123|30300.0|1|false
-213312|Milan|Peric|13324|0|061342424|Pancevo|milanservis|servis11123|40300.0|2|false
+213312|Milan|Peric|133241|0|061342424|Pancevo|milanservis|servis11123|40300.0|2|false
 2000874|Miloje|Radic|00986320|0|06900123|Paracin|milojeservis|servis123|35000.0|2|false

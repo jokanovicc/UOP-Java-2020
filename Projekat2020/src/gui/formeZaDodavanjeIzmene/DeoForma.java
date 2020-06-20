@@ -179,26 +179,25 @@ public class DeoForma extends JFrame {
 		} }
 	}
 	
-	public void kreirajSimetricniDeo2(Deo deo) {  //isto kreiranje ali samo sa funkcjimo ends with
-		String mystring = deo.getNaziv();
-		String arr[] = mystring.split(" ", 3);                   
+	public void kreirajSimetricniDeo2(Deo deo) {  //isto kreiranje ali samo sa funkcjimo contains
+		String mystring = deo.getNaziv();                  
 																				
 		
-		 if((mystring.endsWith("desna strana")) 
-				 || (mystring.endsWith("leva strana"))) {
+		 if((mystring.contains("desna strana")) 
+				 || (mystring.contains("leva strana"))) {
 		
 		
 		
-			if(mystring.endsWith("leva strana")) {
+			if(mystring.contains("leva strana")) {
 				Deo deo2 = new Deo (deo.getAutomobil(),
-						arr[0] +" desna strana" + " " , deo.getCena(), deo.getIdDela(), deo.isObrisan());
+						deo.getNaziv().replace("leva", "desna") + " " , deo.getCena(), deo.getIdDela(), deo.isObrisan());
 				datoteka.dodajDeo(deo2);  //ovo duplo ce biti izmenjeno, zavisi gde funkcija bude trebala
 				datoteka.snimiDeo();
 				
 				
-			} else if (mystring.endsWith("desna strana")) {
+			} else if (mystring.contains("desna strana")) {
 				Deo deo2 = new Deo (deo.getAutomobil(),
-						arr[0] +" leva strana" + " " , deo.getCena(), deo.getIdDela(), deo.isObrisan());
+						deo.getNaziv().replace("desna", "leva") + " " , deo.getCena(), deo.getIdDela(), deo.isObrisan());
 				datoteka.dodajDeo(deo2);
 				datoteka.snimiDeo();
 				

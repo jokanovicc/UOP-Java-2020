@@ -88,7 +88,7 @@ public class DodavanjeServisaMusterija extends JFrame {
 				novi.setOpis(opis);
 				
 				datoteka.dodajServis(novi);
-				System.out.println(novi);
+		//		System.out.println(novi);
 				datoteka.snimiServis();
 				DodavanjeServisaMusterija.this.dispose();
 				DodavanjeServisaMusterija.this.setVisible(false);
