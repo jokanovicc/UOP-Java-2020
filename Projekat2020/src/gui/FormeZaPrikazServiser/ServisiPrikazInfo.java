@@ -19,6 +19,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import gui.formeZaDodavanjeIzmene.ServisFormaZaAdmina;
+import model.enumeracije.Statusi;
 import model.korisnici.Korisnik;
 import model.servis.Servis;
 import radSaDatotekama.Datoteke;
@@ -121,8 +122,13 @@ public class ServisiPrikazInfo extends JFrame {
 				}else {				
 					String servisID = tableModel.getValueAt(red, 0).toString();
 					Servis servis = datoteka.nadjiServis(servisID);
+					if(servis.getStatus()!=Statusi.ZAVRSEN) {
 					FormaServisServisera fss = new FormaServisServisera(datoteka, servis, prijavljenKorisnik);
-					fss.setVisible(true);				
+					fss.setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(null,"Servis sa liste je zavrsen!", "Greska", JOptionPane.WARNING_MESSAGE);
+
+					}
 			}
 			}
 		});
