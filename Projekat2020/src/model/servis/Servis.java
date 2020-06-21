@@ -97,8 +97,8 @@ public class Servis {
 	}
 	
 	public String getTerminSimpleDate() {
-		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy.");
-		return format.format(termin.getTime());
+		SimpleDateFormat formatirana_vrednost = new SimpleDateFormat("dd.MM.yyyy.");
+		return formatirana_vrednost.format(termin.getTime()); //vrati formatiranu vrednost
 	}
 	
 	
